@@ -175,38 +175,14 @@
 
 
 
-<form id="contactForm">
-  <input name="name" type="text" placeholder="Your Name" required />
-  <input name="email" type="email" placeholder="Your Email" required />
+<form id="contactForm" action="#" method="POST">
+  <input name="name" type="text" placeholder="Your Name" required>
+  <input name="email" type="email" placeholder="Your Email" required>
   <textarea name="message" placeholder="Your Message" required></textarea>
   <button type="submit" class="mil-btn mil-sm-btn"><span>Send Message</span></button>
 </form>
 
-<script>
-  const form = document.getElementById("contactForm");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
 
-    const payload = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      message: form.message.value.trim()
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      alert(data.success ? "Message sent! Check your inbox." : data.error || "Failed to send.");
-      if (data.success) form.reset();
-    } catch {
-      alert("Network error. Please try again.");
-    }
-  });
-</script>
 
 
 
@@ -295,6 +271,34 @@
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // ⛔️ Stops reload
+
+    const payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim()
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      alert(data.success ? "✅ Message sent!" : "❌ Failed to send: " + (data.error || ""));
+      if (data.success) form.reset();
+    } catch (err) {
+      alert("⚠️ Network error, please try again.");
+      console.error(err);
+    }
+  });
+});
+</script>
 
 
 
