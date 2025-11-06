@@ -299,63 +299,6 @@
 
 
 
-
-
-<script>
-(function(){
-  // Helper to encode form data for Netlify
-  function encode(data) {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
-  function bindNetlifyForm() {
-    const form = document.querySelector('form[name="contact"]');
-    if (!form) return;
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = {
-        "form-name": form.getAttribute('name'),
-        name: form.querySelector('[name="name"]').value,
-        email: form.querySelector('[name="email"]').value,
-        message: form.querySelector('[name="message"]').value,
-      };
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(formData)
-      })
-      .then(() => {
-        status.innerHTML = '✅ Message sent successfully! Thank you — I’ll get back to you soon.';
-        form.reset();
-      })
-      .catch((error) => {
-        status.innerHTML = '❌ Oops! Something went wrong. Please try again.';
-        console.error(error);
-      });
-    }, { once: true });
-  }
-
-  // Bind now and after Swup transitions
-  bindNetlifyForm();
-  document.addEventListener('swup:contentReplaced', bindNetlifyForm);
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
