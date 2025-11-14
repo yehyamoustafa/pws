@@ -2883,3 +2883,80 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
+
+
+
+
+
+/* Popup overlay background */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Show popup */
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Popup box */
+.popup-box {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 14px;
+    max-width: 90%;
+    width: 350px;
+    text-align: center;
+    animation: popIn 0.3s ease;
+}
+
+/* Title + text */
+.popup-box h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #222;
+}
+
+.popup-box p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* Close button */
+.popup-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #BCFF00;
+    color: #111;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.popup-btn:hover {
+    background: #a6e600;
+}
+
+/* Popup zoom animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
