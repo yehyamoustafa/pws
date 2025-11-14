@@ -2937,7 +2937,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     margin-top: 15px;
     padding: 10px 20px;
     border: none;
-    background: #BCFF00;
+    background: rgb(119, 0, 255);
     color: #111;
     border-radius: 8px;
     cursor: pointer;
