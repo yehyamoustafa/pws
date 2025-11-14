@@ -1,51 +1,4 @@
 @charset "UTF-8";
-/* -------------------------------------------
-
-Name: 		Courtney (light mode)
-Version:    1.0
-Developer:	Nazar Miller (millerDigitalDesign)
-Portfolio:  https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign
-
-p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
-
-------------------------------------------- */
-/*--------------------------------------------
-
-1. common
-    - main
-    - typography
-    - button
-    - link 
-    - divider
-    - section title
-    - spaces
-2. components
-    - preloader
-    - scrollbar
-    - frame
-    - right banner
-    - content banner
-    - about
-    - circle text
-    - skills
-    - iconbox
-    - blog
-    - reviews
-    - puplication details
-    - subscribe form
-    - breadcrumbs
-    - pagination
-    - story timeline
-    - categories
-    - portfolio item
-    - carousel navigation
-    - contact form
-    - prices
-    - accordion
-    - footer
-    - page transitions
-
---------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css);
 /* -------------------------------------------
@@ -2984,7 +2937,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     padding: 10px 20px;
     border: none;
     background: #BCFF00;
-    color: #111;
+    color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
