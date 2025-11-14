@@ -1,7 +1,49 @@
-
 $(function () {
 
     "use strict";
+
+    /***************************
+
+    contact form
+
+    ***************************/
+    function initContactForm() {
+        const form = document.getElementById("contactForm");
+        if (!form) return; // Not on contact page
+
+        // avoid double-binding if swup re-runs this
+        if (form.dataset.bound === "true") return;
+        form.dataset.bound = "true";
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const payload = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                message: form.message.value.trim()
+            };
+
+            try {
+                const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+                alert(
+                    data.success
+                        ? "✅ Message sent!"
+                        : "❌ Failed to send: " + (data.error || "")
+                );
+                if (data.success) form.reset();
+            } catch (err) {
+                alert("⚠️ Network error, please try again.");
+                console.error(err);
+            }
+        });
+    }
 
     /***************************
 
@@ -354,6 +396,9 @@ $(function () {
         };
     }
 
+    // init contact form on first page load
+    initContactForm();
+
     /*----------------------------------------------------------
     ------------------------------------------------------------
 
@@ -610,6 +655,9 @@ $(function () {
                 }
             };
         }
+
+        // re-init contact form after swup replaces content
+        initContactForm();
 
     });
 
