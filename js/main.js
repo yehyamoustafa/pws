@@ -4,14 +4,36 @@ $(function () {
 
     /***************************
 
-    contact form
+ SUCCESS POPUP HELPER
+***************************/
+function showSuccessPopup() {
+    const popup = document.getElementById("successPopup");
+    const closeBtn = document.getElementById("closePopup");
 
-    ***************************/
+    if (!popup) return;
+
+    // Show popup
+    popup.classList.add("active");
+
+    // Close button
+    closeBtn.onclick = () => popup.classList.remove("active");
+
+    // Close on background click
+    popup.onclick = (e) => {
+        if (e.target === popup) {
+            popup.classList.remove("active");
+        }
+    };
+}
+
+/***************************
+ CONTACT FORM HANDLER
+***************************/
 function initContactForm() {
     const form = document.getElementById("contactForm");
     if (!form) return; // Not on contact page
 
-    // avoid double-binding if swup re-runs this
+    // avoid double-binding when Swup reloads page fragments
     if (form.dataset.bound === "true") return;
     form.dataset.bound = "true";
 
@@ -34,7 +56,6 @@ function initContactForm() {
             const data = await res.json();
 
             if (data.success) {
-                // Show your custom popup instead of alert
                 showSuccessPopup();
                 form.reset();
             } else {
@@ -47,8 +68,6 @@ function initContactForm() {
         }
     });
 }
-
-
     /***************************
 
     swup
