@@ -3042,9 +3042,15 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 
-/* Force description text color */
+/* Kill inherited opacity from theme */
+.mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro{
+  opacity: 1 !important;
+}
+
+/* Now force readable description text */
 .mil-portfolio-item.mil-item-2 
 .mil-description.mil-desc-pro 
 .mil-meta{
-  color: rgba(255, 255, 255, 0.851) !important;
+  color: rgba(255,255,255,0.82) !important;
 }
