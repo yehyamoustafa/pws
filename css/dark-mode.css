@@ -3234,3 +3234,58 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   background: rgba(255,255,255,0.35) !important;
   color: #120022 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   FORCE PURPLE CAPTION BG (wins over theme)
+   ========================================= */
+
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+  background: rgb(119, 0, 255) !important;
+  background-color: rgb(119, 0, 255) !important;
+  opacity: 1 !important;
+}
+
+/* If the theme uses overlay layers on the caption */
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro::before,
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro::after{
+  background: rgb(119, 0, 255) !important;
+  background-color: rgb(119, 0, 255) !important;
+  opacity: 1 !important;
+}
+
+/* Some themes put a dark bg on the parent, so force caption to be on top */
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* If the theme darkens the whole caption via filter/blend */
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro,
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro *{
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+
+#swupMain .mil-description{
+  background: rgb(119, 0, 255) !important;
+}
