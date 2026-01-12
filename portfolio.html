@@ -568,6 +568,30 @@
   <script src="js/main.js"></script>
   <script src="js/left.js"></script>
 
+  <script>
+  // Fix Swup first-load / no-refresh bug
+  document.addEventListener('swup:contentReplaced', () => {
+
+    // Remove animating state so items don't stay hidden
+    document.documentElement.classList.remove('is-animating');
+
+    // Force portfolio captions visible
+    document.querySelectorAll('.mil-description.mil-desc-pro').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.visibility = 'visible';
+    });
+
+    // Force rounded cards (sometimes lost on first load)
+    document.querySelectorAll('.mil-portfolio-item.mil-item-2').forEach(el => {
+      el.style.borderRadius = '16px';
+      el.style.overflow = 'hidden';
+    });
+
+  });
+</script>
+
+
   <!-- success popup -->
   <div id="successPopup" class="popup-overlay">
     <div class="popup-box">
