@@ -2990,3 +2990,53 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     font-size: 18px;
   }
 }
+
+
+
+
+
+
+
+
+/* === Hard override the template’s purple 90px caption bar === */
+.mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+  /* kill the fixed strip */
+  height: auto !important;
+  min-height: 140px !important;
+
+  /* layout */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+
+  /* spacing + look */
+  padding: 18px 20px !important;
+  background: rgba(20, 22, 28, 0.92) !important; /* replaces purple */
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-right: 1px solid rgba(255,255,255,0.08) !important; /* theme sets border-right:none */
+}
+
+/* Keep title + text readable */
+.mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-title{
+  margin: 0 !important;
+  line-height: 1.25 !important;
+}
+
+.mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-meta{
+  margin: 0 !important;
+  line-height: 1.55 !important;
+  opacity: .78;
+  max-width: 70ch;
+}
+
+/* Mobile: prevent the theme’s “center everything in 90px” behavior */
+@media (max-width: 992px){
+  .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+    height: auto !important;
+    padding: 16px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+}
