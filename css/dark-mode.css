@@ -3064,25 +3064,30 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
- /* =========================================
-   Portfolio card – final polished version
-   Radius: 10px (desktop + mobile)
+
+
+
+
+
+/* =========================================
+   Portfolio card – final version
+   Radius: 7px desktop / 5px mobile
    ========================================= */
 
 /* Card wrapper */
 .mil-portfolio-item.mil-item-2{
-  border-radius: 10px;
+  border-radius: 7px;
   overflow: hidden;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
 /* Image frame */
 .mil-portfolio-item.mil-item-2 .mil-cover-frame{
-  border-radius: 10px 10px 0 0;
+  border-radius: 7px 7px 0 0;
   overflow: hidden;
 }
 
-/* Hover lift (premium feel) */
+/* Hover lift */
 .mil-portfolio-item.mil-item-2:hover{
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.35);
@@ -3103,7 +3108,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   -webkit-backdrop-filter: blur(8px);
 
   border-top: 1px solid rgba(255,255,255,0.06);
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 7px 7px;
 
   display: flex;
   flex-direction: column;
@@ -3164,20 +3169,20 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 /* =========================================
-   Mobile (same radius, tighter spacing)
+   Mobile adjustments (radius: 5px)
    ========================================= */
 @media (max-width: 768px){
   .mil-portfolio-item.mil-item-2{
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   .mil-portfolio-item.mil-item-2 .mil-cover-frame{
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
   }
 
   .mil-item-2 .mil-description.mil-desc-pro{
     padding: 16px !important;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
   }
 
   .mil-item-2 .mil-description.mil-desc-pro .mil-title{
@@ -3190,14 +3195,14 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     -webkit-line-clamp: 3;
   }
 
-  /* Disable any injected transforms */
+  /* Disable injected transforms */
   .mil-item-2 .mil-description.mil-desc-pro *{
     transform: none !important;
   }
 }
 
 /* =========================================
-   Text selection (visible + elegant)
+   Text selection
    ========================================= */
 .mil-description.mil-desc-pro *::selection{
   background: rgba(77, 255, 170, 0.28) !important;
@@ -3210,14 +3215,14 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   color: #0b0f12 !important;
 }
 
-/* Reset theme text tricks */
+/* Reset theme text effects */
 .mil-description.mil-desc-pro,
 .mil-description.mil-desc-pro *{
   -webkit-text-fill-color: unset !important;
   text-shadow: none !important;
 }
 
-/* Global safety (theme override) */
+/* Global selection safety */
 ::selection{
   background: rgba(77, 255, 170, 0.28);
   color: #0b0f12;
@@ -3231,7 +3236,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
    Swup / animation safety
    ========================================= */
 #swupMain .mil-portfolio-item.mil-item-2{
-  border-radius: 10px !important;
+  border-radius: 7px !important;
   overflow: hidden !important;
 }
 
@@ -3240,5 +3245,3 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   transform: none !important;
   visibility: visible !important;
 }
-
-
