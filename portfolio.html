@@ -146,6 +146,41 @@
       transform: none !important;
     }
   }
+
+
+    /* ================================
+   INLINE FIX: Visible text selection
+   ================================ */
+
+/* Apply selection styling to every child (reliable) */
+.mil-description.mil-desc-pro *::selection{
+  background: rgba(77, 255, 170, 0.28) !important;
+  color: #0b0f12 !important;
+  -webkit-text-fill-color: #0b0f12 !important; /* Safari/Chromium edge cases */
+}
+
+.mil-description.mil-desc-pro *::-moz-selection{
+  background: rgba(77, 255, 170, 0.28) !important;
+  color: #0b0f12 !important;
+}
+
+/* Some themes hide selection by forcing transparent text or opacity */
+.mil-description.mil-desc-pro,
+.mil-description.mil-desc-pro *{
+  -webkit-text-fill-color: unset !important;
+  text-shadow: none !important;
+}
+
+/* In case the theme sets selection globally to transparent, override globally too */
+::selection{
+  background: rgba(77, 255, 170, 0.28);
+  color: #0b0f12;
+}
+::-moz-selection{
+  background: rgba(77, 255, 170, 0.28);
+  color: #0b0f12;
+}
+
 </style>
 
 
