@@ -91,6 +91,14 @@ function initContactForm() {
 
     ***************************/
     gsap.registerPlugin(ScrollTrigger);
+    
+    window.addEventListener('load', () => {
+    if (window.ScrollTrigger) {
+        ScrollTrigger.refresh(true);
+        setTimeout(() => ScrollTrigger.refresh(true), 150);
+    }
+});
+
     /***************************
 
     preloader
