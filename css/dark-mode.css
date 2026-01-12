@@ -2960,3 +2960,33 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
         opacity: 1;
     }
 }
+
+
+/*spacing fix (override mil-item-2 rule) */
+.mil-portfolio-item.mil-item-2 .mil-description{
+  padding: 28px 32px !important;  /* space all around */
+  height: auto !important;        /* remove fixed 90px */
+  min-height: 110px;              /* keep nice block height */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.mil-portfolio-item.mil-item-2 .mil-description h4{
+  margin: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Mobile tuning */
+@media (max-width: 768px){
+  .mil-portfolio-item.mil-item-2 .mil-description{
+    padding: 22px 20px !important;
+    min-height: 120px;
+  }
+
+  .mil-portfolio-item.mil-item-2 .mil-description h4{
+    font-size: 18px;
+  }
+}
