@@ -17,65 +17,143 @@
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Yehya Moustafa — Portfolio</title>
 
-  <!-- Page-specific overrides (keeps your template intact) -->
+
+
   <style>
-    /* Senior portfolio caption layout (overrides template’s fixed 90px bar) */
-    .mil-item-2 .mil-description.mil-desc-pro {
-      height: auto !important;
-      min-height: 120px;
-      padding: 26px 30px !important;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 8px;
-    }
+  /* ================================
+     Portfolio caption "pro card" fix
+     ================================ */
 
-    .mil-item-2 .mil-description.mil-desc-pro .mil-title {
-      margin: 0;
-      line-height: 1.25;
-      color: rgba(255, 255, 255, 0.95);
-    }
+  /* Make the whole item feel like a card */
+  .mil-portfolio-item.mil-item-2{
+    border-radius: 16px;
+    overflow: hidden;
+  }
 
-    .mil-item-2 .mil-description.mil-desc-pro .mil-meta {
-      margin: 0;
+  /* Ensure the image stays clean + consistent */
+  .mil-portfolio-item.mil-item-2 .mil-cover-frame{
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+  }
+
+  /* The caption card */
+  .mil-item-2 .mil-description.mil-desc-pro{
+    height: auto !important;
+    min-height: unset !important;
+
+    /* Card look */
+    position: relative !important;
+    transform: none !important;
+    inset: auto !important;
+
+    padding: 18px 20px !important;
+    background: rgba(20, 22, 28, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0 0 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    text-align: left !important;
+  }
+
+  /* Title: strong + compact */
+  .mil-item-2 .mil-description.mil-desc-pro .mil-title{
+    margin: 0 !important;
+    line-height: 1.25;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+
+    /* Prevent ugly wraps */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Meta: readable, not loud */
+  .mil-item-2 .mil-description.mil-desc-pro .mil-meta{
+    margin: 0 !important;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.70);
+    max-width: 70ch;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Tags: subtle chips */
+  .mil-item-2 .mil-description.mil-desc-pro .mil-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .mil-item-2 .mil-description.mil-desc-pro .mil-tag{
+    font-size: 11px;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.78);
+    white-space: nowrap;
+  }
+
+  /* Hover: tiny lift (premium feel) */
+  .mil-portfolio-item.mil-item-2{
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .mil-portfolio-item.mil-item-2:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+
+  /* Mobile: remove any template/parallax weirdness and tighten spacing */
+  @media (max-width: 768px){
+    .mil-item-2 .mil-description.mil-desc-pro{
+      padding: 16px 16px !important;
+      border-radius: 0 0 14px 14px;
+    }
+    .mil-portfolio-item.mil-item-2,
+    .mil-portfolio-item.mil-item-2 .mil-cover-frame{
+      border-radius: 14px;
+    }
+    .mil-item-2 .mil-description.mil-desc-pro .mil-title{
+      font-size: 16.5px;
+      -webkit-line-clamp: 2;
+    }
+    .mil-item-2 .mil-description.mil-desc-pro .mil-meta{
       font-size: 13px;
-      line-height: 1.4;
-      color: rgba(255, 255, 255, 0.75);
-      max-width: 980px;
+      -webkit-line-clamp: 3;
     }
 
-    .mil-item-2 .mil-description.mil-desc-pro .mil-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2px;
+    /* IMPORTANT: disables parallax transforms on caption if the template injects them */
+    .mil-item-2 .mil-description.mil-desc-pro *{
+      transform: none !important;
     }
+  }
+</style>
 
-    .mil-item-2 .mil-description.mil-desc-pro .mil-tag {
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: rgba(255, 255, 255, 0.85);
-    }
 
-    @media (max-width: 768px) {
-      .mil-item-2 .mil-description.mil-desc-pro {
-        padding: 20px 18px !important;
-        min-height: 130px;
-      }
-      .mil-item-2 .mil-description.mil-desc-pro .mil-title {
-        font-size: 18px;
-      }
-      .mil-item-2 .mil-description.mil-desc-pro .mil-meta {
-        font-size: 13px;
-      }
-    }
-  </style>
+
+
+
+  
+  
 </head>
 
 <body>
@@ -199,7 +277,7 @@
                     <img src="img/portfolio/2.jpg" alt="The Rig dashboard UI" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
                     <h4 class="mil-title">The Rig — Internal Document Operations Dashboard</h4>
                     <p class="mil-meta">
                       Led information architecture + UI system to streamline document intake, approvals, and audit-ready tracking for internal teams.
@@ -220,7 +298,8 @@
                     <img src="img/portfolio/3.jpg" alt="Numbase corporate website" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">Numbase — Corporate Website & Messaging Refresh</h4>
                     <p class="mil-meta">
                       Owned responsive structure, content hierarchy, and conversion-focused sections to improve clarity for prospects and partners.
@@ -241,7 +320,8 @@
                     <img src="img/portfolio/4.jpg" alt="Mobile onboarding screens" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">Numbase × Mastercard — Mobile Onboarding Flow</h4>
                     <p class="mil-meta">
                       Designed an end-to-end onboarding experience with clear verification steps, edge cases, and trust cues to reduce drop-off.
@@ -262,7 +342,8 @@
                     <img src="img/portfolio/5.jpg" alt="KODEQ wordmark logo" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">KODEQ — Brand Identity for a Marketing Product Team</h4>
                     <p class="mil-meta">
                       Built a scalable wordmark and brand rules to support digital product UI, marketing assets, and consistent launch messaging.
@@ -283,7 +364,8 @@
                     <img src="img/portfolio/7.jpg" alt="KODEQ website design" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">KODEQ — Responsive Website & Service Discovery</h4>
                     <p class="mil-meta">
                       Designed a structured service flow and page hierarchy to help users understand offerings quickly and convert with confidence.
@@ -304,7 +386,8 @@
                     <img src="img/portfolio/6.jpg" alt="DS2 logo rebrand" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">DS2 — Rebrand for Clarity, Consistency, and Scale</h4>
                     <p class="mil-meta">
                       Simplified the mark and defined usage rules to improve legibility across print, digital touchpoints, and UI headers.
@@ -325,7 +408,8 @@
                     <img src="img/portfolio/1.jpg" alt="Musikata mobile app UI" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                   </div>
 
-                  <div class="mil-description mil-desc-pro" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                  <div class="mil-description mil-desc-pro">
+
                     <h4 class="mil-title">Musikata — Mobile Player Concept with Personalization</h4>
                     <p class="mil-meta">
                       Explored a modern listening experience with clear navigation, queue behaviors, and scalable components for future features.
@@ -360,7 +444,7 @@
 
           <!-- footer -->
           <footer class="mil-fw">
-            <p class="mil-light-soft">© 2025. Yehya Moustafa. All rights reserved.</p>
+            <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
             <p class="mil-light-soft">
               Author:&nbsp;<a href="index.html" target="_blank" rel="noopener noreferrer">Yehya Moustafa</a>
             </p>
