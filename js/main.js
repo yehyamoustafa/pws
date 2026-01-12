@@ -203,40 +203,30 @@ timeline.to(".mil-preloader-frame", {
 
     ***************************/
 
-    const appearance = document.querySelectorAll(".mil-up");
+const appearance = document.querySelectorAll(".mil-up");
 
-    appearance.forEach((section) => {
-        gsap.fromTo(section, {
-            opacity: 0,
-            y: 50,
-            ease: 'sine',
-        }, {
-            y: 0,
-            opacity: 1,
-            scrollTrigger: {
-                trigger: section,
-                toggleActions: 'play none none reverse',
-            }
-        });
+appearance.forEach((section) => {
+
+    // ✅ Skip portfolio items (your cards) so they never start hidden
+    if (section.closest(".mil-portfolio-item")) {
+        gsap.set(section, { opacity: 1, y: 0, clearProps: "transform" });
+        return;
+    }
+
+    gsap.fromTo(section, {
+        opacity: 0,
+        y: 50,
+        ease: 'sine',
+    }, {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+            trigger: section,
+            toggleActions: 'play none none reverse',
+        }
     });
+});
 
-    const rotate = document.querySelectorAll(".mil-rotate");
-
-    rotate.forEach((section) => {
-        var value = $(section).data("value");
-        gsap.fromTo(section, {
-            ease: 'sine',
-            rotate: 0,
-
-        }, {
-            rotate: value,
-            scrollTrigger: {
-                trigger: section,
-                scrub: true,
-                toggleActions: 'play none none reverse',
-            }
-        });
-    });
     /***************************
 
     progressbar type 1
@@ -482,40 +472,30 @@ timeline.to(".mil-preloader-frame", {
 
         ***************************/
 
-        const appearance = document.querySelectorAll(".mil-up");
+       const appearance = document.querySelectorAll(".mil-up");
 
-        appearance.forEach((section) => {
-            gsap.fromTo(section, {
-                opacity: 0,
-                y: 50,
-                ease: 'sine',
-            }, {
-                y: 0,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    toggleActions: 'play none none reverse',
-                }
-            });
-        });
+appearance.forEach((section) => {
 
-        const rotate = document.querySelectorAll(".mil-rotate");
+    // ✅ Skip portfolio items (your cards) so they never start hidden
+    if (section.closest(".mil-portfolio-item")) {
+        gsap.set(section, { opacity: 1, y: 0, clearProps: "transform" });
+        return;
+    }
 
-        rotate.forEach((section) => {
-            var value = $(section).data("value");
-            gsap.fromTo(section, {
-                ease: 'sine',
-                rotate: 0,
+    gsap.fromTo(section, {
+        opacity: 0,
+        y: 50,
+        ease: 'sine',
+    }, {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+            trigger: section,
+            toggleActions: 'play none none reverse',
+        }
+    });
+});
 
-            }, {
-                rotate: value,
-                scrollTrigger: {
-                    trigger: section,
-                    scrub: true,
-                    toggleActions: 'play none none reverse',
-                }
-            });
-        });
         /***************************
 
         progressbar type 1
