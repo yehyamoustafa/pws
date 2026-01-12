@@ -179,6 +179,31 @@
   color: #0b0f12;
 }
 
+
+
+/* Fix: elements hidden until refresh (swup/animation states) */
+#swupMain .mil-portfolio-item.mil-item-2{
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* If mil-up is hiding things, neutralize it for the caption */
+#swupMain .mil-portfolio-item.mil-item-2 .mil-desc-pro.mil-up,
+#swupMain .mil-portfolio-item.mil-item-2 .mil-desc-pro{
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+
+
+    
 </style>
 
 
