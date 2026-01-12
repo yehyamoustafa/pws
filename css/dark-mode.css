@@ -3040,3 +3040,11 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     align-items: flex-start !important;
   }
 }
+
+
+/* Force description text color */
+.mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro 
+.mil-meta{
+  color: rgba(255, 255, 255, 0.851) !important;
+}
