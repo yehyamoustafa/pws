@@ -116,14 +116,22 @@ function initContactForm() {
         delay: '1.2',
     });
 
-    timeline.to(".mil-preloader-frame", {
-        ease: "sine",
-        duration: 0.4,
-        height: 0,
-        onComplete: function () {
-            $('html').removeClass('is-animating');
+timeline.to(".mil-preloader-frame", {
+    ease: "sine",
+    duration: 0.4,
+    height: 0,
+    onComplete: function () {
+        $('html').removeClass('is-animating');
+
+        // ✅ Fix: recalc ScrollTrigger after preloader finishes
+        if (window.ScrollTrigger) {
+            ScrollTrigger.refresh(true);
+            setTimeout(() => ScrollTrigger.refresh(true), 100);
+            setTimeout(() => ScrollTrigger.refresh(true), 300);
         }
-    });
+    }
+});
+;
     /***************************
 
     scroll progress
