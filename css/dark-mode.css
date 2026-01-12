@@ -3054,3 +3054,15 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 .mil-meta{
   color: rgba(255,255,255,0.82) !important;
 }
+
+
+
+
+.mil-description.mil-desc-pro ::selection{
+  background: rgba(77, 255, 170, 0.28) !important;
+  color: #0b0f12 !important;
+}
+.mil-description.mil-desc-pro ::-moz-selection{
+  background: rgba(77, 255, 170, 0.28) !important;
+  color: #0b0f12 !important;
+}
