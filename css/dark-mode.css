@@ -3068,10 +3068,10 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
-
 /* =========================================
    Portfolio card – final version
    Radius: 7px desktop / 5px mobile
+   Background: rgb(119, 0, 255)
    ========================================= */
 
 /* Card wrapper */
@@ -3103,11 +3103,13 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   min-height: unset !important;
 
   padding: 18px 20px !important;
-  background: rgba(20, 22, 28, 0.92);
+
+  /* PURPLE BACKGROUND */
+  background: rgba(119, 0, 255, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
   border-radius: 0 0 7px 7px;
 
   display: flex;
@@ -3139,7 +3141,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   margin: 0 !important;
   font-size: 13.5px;
   line-height: 1.55;
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.80);
   max-width: 70ch;
 
   display: -webkit-box;
@@ -3162,9 +3164,9 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   text-transform: uppercase;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.9);
   white-space: nowrap;
 }
 
@@ -3205,14 +3207,14 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
    Text selection
    ========================================= */
 .mil-description.mil-desc-pro *::selection{
-  background: rgba(77, 255, 170, 0.28) !important;
-  color: #0b0f12 !important;
-  -webkit-text-fill-color: #0b0f12 !important;
+  background: rgba(180, 140, 255, 0.6) !important;
+  color: #120022 !important;
+  -webkit-text-fill-color: #120022 !important;
 }
 
 .mil-description.mil-desc-pro *::-moz-selection{
-  background: rgba(77, 255, 170, 0.28) !important;
-  color: #0b0f12 !important;
+  background: rgba(180, 140, 255, 0.6) !important;
+  color: #120022 !important;
 }
 
 /* Reset theme text effects */
@@ -3224,12 +3226,12 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 /* Global selection safety */
 ::selection{
-  background: rgba(77, 255, 170, 0.28);
-  color: #0b0f12;
+  background: rgba(180, 140, 255, 0.6);
+  color: #120022;
 }
 ::-moz-selection{
-  background: rgba(77, 255, 170, 0.28);
-  color: #0b0f12;
+  background: rgba(180, 140, 255, 0.6);
+  color: #120022;
 }
 
 /* =========================================
