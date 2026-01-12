@@ -3071,7 +3071,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 /* =========================================
    Portfolio card – final version
    Radius: 7px desktop / 5px mobile
-   Background: rgb(119, 0, 255)
+   BG behind description: rgb(119, 0, 255)
    ========================================= */
 
 /* Card wrapper */
@@ -3093,7 +3093,9 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
 
-/* Caption card */
+/* =================================================
+   Caption card (FORCED purple background)
+   ================================================= */
 .mil-item-2 .mil-description.mil-desc-pro{
   position: relative !important;
   inset: auto !important;
@@ -3104,12 +3106,15 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
   padding: 18px 20px !important;
 
-  /* PURPLE BACKGROUND */
-  background: rgba(119, 0, 255, 0.88);
+  /* ✅ FORCE PURPLE – nothing overrides this */
+  background: rgb(119, 0, 255) !important;
+  background-color: rgb(119, 0, 255) !important;
+
+  /* Keep blur only if browser supports it */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.15);
   border-radius: 0 0 7px 7px;
 
   display: flex;
@@ -3120,6 +3125,14 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   text-align: left !important;
   opacity: 1 !important;
   visibility: visible !important;
+  z-index: 2; /* ✅ ensures it sits above overlays */
+}
+
+/* ✅ KILL template overlay layers */
+.mil-item-2 .mil-description.mil-desc-pro::before,
+.mil-item-2 .mil-description.mil-desc-pro::after{
+  content: none !important;
+  display: none !important;
 }
 
 /* Title */
@@ -3141,7 +3154,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   margin: 0 !important;
   font-size: 13.5px;
   line-height: 1.55;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255,255,255,0.85);
   max-width: 70ch;
 
   display: -webkit-box;
@@ -3164,9 +3177,9 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   text-transform: uppercase;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.95);
   white-space: nowrap;
 }
 
@@ -3189,7 +3202,6 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
   .mil-item-2 .mil-description.mil-desc-pro .mil-title{
     font-size: 16.5px;
-    -webkit-line-clamp: 2;
   }
 
   .mil-item-2 .mil-description.mil-desc-pro .mil-meta{
@@ -3222,16 +3234,6 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 .mil-description.mil-desc-pro *{
   -webkit-text-fill-color: unset !important;
   text-shadow: none !important;
-}
-
-/* Global selection safety */
-::selection{
-  background: rgb(119, 0, 255);
-  color: #120022;
-}
-::-moz-selection{
-  background: rgba(180, 140, 255, 0.6);
-  color: #120022;
 }
 
 /* =========================================
