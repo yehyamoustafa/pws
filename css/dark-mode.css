@@ -3064,138 +3064,145 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
+ /* =========================================
+   Portfolio card – final polished version
+   Radius: 10px (desktop + mobile)
+   ========================================= */
+
+/* Card wrapper */
+.mil-portfolio-item.mil-item-2{
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Image frame */
+.mil-portfolio-item.mil-item-2 .mil-cover-frame{
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+/* Hover lift (premium feel) */
+.mil-portfolio-item.mil-item-2:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+
+/* Caption card */
+.mil-item-2 .mil-description.mil-desc-pro{
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+
+  height: auto !important;
+  min-height: unset !important;
+
+  padding: 18px 20px !important;
+  background: rgba(20, 22, 28, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-radius: 0 0 10px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  text-align: left !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Title */
+.mil-item-2 .mil-description.mil-desc-pro .mil-title{
+  margin: 0 !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.95);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Description */
+.mil-item-2 .mil-description.mil-desc-pro .mil-meta{
+  margin: 0 !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  max-width: 70ch;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tags */
+.mil-item-2 .mil-description.mil-desc-pro .mil-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mil-item-2 .mil-description.mil-desc-pro .mil-tag{
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.78);
+  white-space: nowrap;
+}
+
+/* =========================================
+   Mobile (same radius, tighter spacing)
+   ========================================= */
+@media (max-width: 768px){
   .mil-portfolio-item.mil-item-2{
-    border-radius: 16px;
-    overflow: hidden;
+    border-radius: 10px;
   }
 
-  /* Ensure the image stays clean + consistent */
   .mil-portfolio-item.mil-item-2 .mil-cover-frame{
-    border-radius: 16px 16px 0 0;
-    overflow: hidden;
+    border-radius: 10px 10px 0 0;
   }
 
-  /* The caption card */
   .mil-item-2 .mil-description.mil-desc-pro{
-    height: auto !important;
-    min-height: unset !important;
-
-    /* Card look */
-    position: relative !important;
-    transform: none !important;
-    inset: auto !important;
-
-    padding: 18px 20px !important;
-    background: rgba(20, 22, 28, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-radius: 0 0 16px 16px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-
-    text-align: left !important;
+    padding: 16px !important;
+    border-radius: 0 0 10px 10px;
   }
 
-  /* Title: strong + compact */
   .mil-item-2 .mil-description.mil-desc-pro .mil-title{
-    margin: 0 !important;
-    line-height: 1.25;
-    font-size: 18px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.95);
-
-    /* Prevent ugly wraps */
-    display: -webkit-box;
+    font-size: 16.5px;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
-  /* Meta: readable, not loud */
   .mil-item-2 .mil-description.mil-desc-pro .mil-meta{
-    margin: 0 !important;
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.70);
-    max-width: 70ch;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 13px;
+    -webkit-line-clamp: 3;
   }
 
-  /* Tags: subtle chips */
-  .mil-item-2 .mil-description.mil-desc-pro .mil-tags{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 2px;
+  /* Disable any injected transforms */
+  .mil-item-2 .mil-description.mil-desc-pro *{
+    transform: none !important;
   }
+}
 
-  .mil-item-2 .mil-description.mil-desc-pro .mil-tag{
-    font-size: 11px;
-    letter-spacing: .6px;
-    text-transform: uppercase;
-
-    padding: 6px 10px;
-    border-radius: 999px;
-
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.04);
-    color: rgba(255,255,255,0.78);
-    white-space: nowrap;
-  }
-
-  /* Hover: tiny lift (premium feel) */
-  .mil-portfolio-item.mil-item-2{
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .mil-portfolio-item.mil-item-2:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-  }
-
-  /* Mobile: remove any template/parallax weirdness and tighten spacing */
-  @media (max-width: 768px){
-    .mil-item-2 .mil-description.mil-desc-pro{
-      padding: 16px 16px !important;
-      border-radius: 0 0 14px 14px;
-    }
-    .mil-portfolio-item.mil-item-2,
-    .mil-portfolio-item.mil-item-2 .mil-cover-frame{
-      border-radius: 14px;
-    }
-    .mil-item-2 .mil-description.mil-desc-pro .mil-title{
-      font-size: 16.5px;
-      -webkit-line-clamp: 2;
-    }
-    .mil-item-2 .mil-description.mil-desc-pro .mil-meta{
-      font-size: 13px;
-      -webkit-line-clamp: 3;
-    }
-
-    /* IMPORTANT: disables parallax transforms on caption if the template injects them */
-    .mil-item-2 .mil-description.mil-desc-pro *{
-      transform: none !important;
-    }
-  }
-
-
-    /* ================================
-   INLINE FIX: Visible text selection
-   ================================ */
-
-/* Apply selection styling to every child (reliable) */
+/* =========================================
+   Text selection (visible + elegant)
+   ========================================= */
 .mil-description.mil-desc-pro *::selection{
   background: rgba(77, 255, 170, 0.28) !important;
   color: #0b0f12 !important;
-  -webkit-text-fill-color: #0b0f12 !important; /* Safari/Chromium edge cases */
+  -webkit-text-fill-color: #0b0f12 !important;
 }
 
 .mil-description.mil-desc-pro *::-moz-selection{
@@ -3203,14 +3210,14 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   color: #0b0f12 !important;
 }
 
-/* Some themes hide selection by forcing transparent text or opacity */
+/* Reset theme text tricks */
 .mil-description.mil-desc-pro,
 .mil-description.mil-desc-pro *{
   -webkit-text-fill-color: unset !important;
   text-shadow: none !important;
 }
 
-/* In case the theme sets selection globally to transparent, override globally too */
+/* Global safety (theme override) */
 ::selection{
   background: rgba(77, 255, 170, 0.28);
   color: #0b0f12;
@@ -3220,11 +3227,11 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   color: #0b0f12;
 }
 
-
-
-/* Fix: elements hidden until refresh (swup/animation states) */
+/* =========================================
+   Swup / animation safety
+   ========================================= */
 #swupMain .mil-portfolio-item.mil-item-2{
-  border-radius: 16px !important;
+  border-radius: 10px !important;
   overflow: hidden !important;
 }
 
@@ -3233,14 +3240,5 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   transform: none !important;
   visibility: visible !important;
 }
-
-/* If mil-up is hiding things, neutralize it for the caption */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-desc-pro.mil-up,
-#swupMain .mil-portfolio-item.mil-item-2 .mil-desc-pro{
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-
 
 
