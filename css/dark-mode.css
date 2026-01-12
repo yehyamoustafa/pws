@@ -3226,7 +3226,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 /* Global selection safety */
 ::selection{
-  background: rgba(180, 140, 255, 0.6);
+  background: rgb(119, 0, 255);
   color: #120022;
 }
 ::-moz-selection{
