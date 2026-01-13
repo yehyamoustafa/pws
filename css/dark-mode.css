@@ -3124,11 +3124,9 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
   padding: 18px 20px !important;
 
-  /* FORCE PURPLE (solid) */
   background: rgb(119, 0, 255) !important;
   background-color: rgb(119, 0, 255) !important;
 
-  /* Remove blur so purple doesn't “muddy” */
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 
@@ -3144,44 +3142,46 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
   opacity: 1 !important;
   visibility: visible !important;
+  z-index: 5 !important;
 }
 
-/* Title */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-title{
+/* Title (keep controlled, no dots) */
+#swupMain .mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro .mil-title{
   margin: 0 !important;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
   color: rgba(255,255,255,0.97) !important;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  white-space: normal;
+  overflow: visible;
 }
 
-/* Description */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-meta{
+/* Description — FIXED (NO ELLIPSIS) */
+#swupMain .mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro .mil-meta{
   margin: 0 !important;
   font-size: 13.5px;
   line-height: 1.55;
   color: rgba(255,255,255,0.88) !important;
   max-width: 70ch;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  white-space: normal;
+  overflow: visible;
+  display: block;
 }
 
 /* Tags */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-tags{
+#swupMain .mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro .mil-tags{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-tag{
+#swupMain .mil-portfolio-item.mil-item-2 
+.mil-description.mil-desc-pro .mil-tag{
   padding: 6px 10px;
   font-size: 11px;
   letter-spacing: .6px;
@@ -3204,88 +3204,48 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
     border-radius: 5px 5px 0 0 !important;
   }
 
-  #swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+  #swupMain .mil-portfolio-item.mil-item-2 
+  .mil-description.mil-desc-pro{
     padding: 16px !important;
     border-radius: 0 0 5px 5px !important;
   }
 
-  #swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-title{
+  #swupMain .mil-portfolio-item.mil-item-2 
+  .mil-description.mil-desc-pro .mil-title{
     font-size: 16.5px;
-    -webkit-line-clamp: 2;
   }
 
-  #swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro .mil-meta{
+  #swupMain .mil-portfolio-item.mil-item-2 
+  .mil-description.mil-desc-pro .mil-meta{
     font-size: 13px;
-    -webkit-line-clamp: 3;
   }
 
-  #swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro *{
+  #swupMain .mil-portfolio-item.mil-item-2 
+  .mil-description.mil-desc-pro *{
     transform: none !important;
   }
 }
 
-/* Selection (optional but nice) */
+/* Selection */
 #swupMain .mil-description.mil-desc-pro *::selection{
   background: rgba(255,255,255,0.35) !important;
   color: #120022 !important;
-  -webkit-text-fill-color: #120022 !important;
 }
 #swupMain .mil-description.mil-desc-pro *::-moz-selection{
   background: rgba(255,255,255,0.35) !important;
   color: #120022 !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================================
-   FORCE PURPLE CAPTION BG (wins over theme)
-   ========================================= */
-
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
+/* Force purple everywhere (theme overrides safety net) */
+#swupMain .mil-description{
   background: rgb(119, 0, 255) !important;
-  background-color: rgb(119, 0, 255) !important;
-  opacity: 1 !important;
 }
 
-/* If the theme uses overlay layers on the caption */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro::before,
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro::after{
-  background: rgb(119, 0, 255) !important;
-  background-color: rgb(119, 0, 255) !important;
-  opacity: 1 !important;
-}
-
-/* Some themes put a dark bg on the parent, so force caption to be on top */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro{
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-/* If the theme darkens the whole caption via filter/blend */
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro,
-#swupMain .mil-portfolio-item.mil-item-2 .mil-description.mil-desc-pro *{
+#swupMain .mil-description.mil-desc-pro,
+#swupMain .mil-description.mil-desc-pro *,
+#swupMain .mil-description.mil-desc-pro::before,
+#swupMain .mil-description.mil-desc-pro::after{
   mix-blend-mode: normal !important;
   filter: none !important;
 }
 
-
-#swupMain .mil-description{
-  background: rgb(119, 0, 255) !important;
-}
