@@ -699,3 +699,25 @@ document.addEventListener("click", (e) => {
   // Remove any hash if it exists (keeps URL clean)
   history.replaceState(null, "", window.location.pathname);
 });
+
+
+
+
+
+
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".js-scroll-about");
+  if (!btn) return;
+
+  e.preventDefault();
+
+  const target = document.querySelector("#about");
+  if (!target) return;
+
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // Keep the URL clean (remove #about)
+  history.replaceState(null, "", window.location.pathname);
+});
+
