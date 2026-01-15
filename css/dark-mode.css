@@ -3253,9 +3253,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
-
-.mil-disabled {
-  pointer-events:_toggle: none;
+.mil-disabled{
+  pointer-events: none;
   cursor: default;
 }
-
