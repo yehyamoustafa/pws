@@ -681,3 +681,21 @@ appearance.forEach((section) => {
     });
 
 });
+
+
+
+
+
+
+document.addEventListener("click", (e) => {
+  const btt = e.target.closest(".js-btt");
+  if (!btt) return;
+
+  e.preventDefault();
+
+  // Scroll to top smoothly
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Remove any hash if it exists (keeps URL clean)
+  history.replaceState(null, "", window.location.pathname);
+});
