@@ -3285,3 +3285,18 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   color: #ffffff;
 }
 
+
+
+
+.cs-card {
+  background: rgba(0,0,0,0.03);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+
+
+.cs-card p {
+  opacity: 0.9;
+}
+
