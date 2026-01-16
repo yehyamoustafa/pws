@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <!-- bootstrap grid css -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
-  <!-- font awesome css -->
   <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
-  <!-- swiper css -->
   <link rel="stylesheet" href="css/plugins/swiper.min.css" />
-  <!-- your theme -->
   <link rel="stylesheet" href="css/dark-mode.css" />
 
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Veron — Case Study | Yehya Moustafa</title>
+
+  <!-- Page-only helpers (keeps structure + colors intact) -->
+  <style>
+    .cs-card {
+      border-radius: 16px;
+      padding: 22px;
+      background: rgba(255,255,255,0.03);
+    }
+    .cs-img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+    .cs-muted {
+      opacity: .85;
+    }
+    .cs-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+  </style>
 </head>
 
 <body class="mil-fw-page">
@@ -116,16 +134,17 @@
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
-          <!-- hero -->
+          <!-- HERO -->
           <section class="mil-banner-sm mil-center">
             <div class="mil-banner-top mil-up"></div>
+
             <div class="mil-banner-title">
               <h1 class="mil-h1-sm mil-up mil-mb-30">Veron — Men’s Wear E-commerce App</h1>
 
               <ul class="mil-breadcrumbs mil-up">
                 <li><a href="/">Homepage</a></li>
                 <li><a href="/portfolio">Selected Work</a></li>
-                <li><a href="project-veron.html">Veron</a></li>
+                <li><a href="/veron">Veron</a></li>
               </ul>
 
               <div class="mil-tags mil-up" aria-hidden="true" style="margin-top: 22px;">
@@ -136,21 +155,21 @@
               </div>
             </div>
           </section>
-          <!-- hero end -->
+          <!-- HERO END -->
 
-          <!-- hero image -->
+          <!-- HERO IMAGE -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
                 <div class="mil-up">
-                  <img src="img/portfolio/9.jpg" alt="Veron case study hero" style="width:100%; border-radius:16px; display:block;" />
+                  <img src="img/portfolio/9.jpg" alt="Veron case study hero" class="cs-img" />
                 </div>
               </div>
             </div>
           </section>
-          <!-- hero image end -->
+          <!-- HERO IMAGE END -->
 
-          <!-- quick summary -->
+          <!-- OVERVIEW -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
@@ -158,19 +177,20 @@
 
                   <div class="col-lg-7">
                     <h2 class="mil-up mil-mb-30">Overview</h2>
-                    <p class="mil-up mil-mb-30">
+
+                    <p class="mil-up mil-mb-30 cs-muted">
                       Veron is a premium men’s wear shopping app concept focused on fast discovery, clean hierarchy, and a confident brand feel.
-                      The goal was to build a browsing and product discovery experience that stays elegant—even with filters, categories, and dense product lists.
+                      The goal was to design browsing and product discovery that stays elegant—even with filters, categories, and dense product lists.
                     </p>
 
                     <p class="mil-up">
                       <strong style="font-weight:700;color:#ffffff;">My role:</strong>
-                      End-to-end product design (UX flows, UI system, high-fidelity screens, interaction states).
+                      End-to-end product design (UX flow, UI system, high-fidelity screens, interaction states).
                     </p>
                   </div>
 
                   <div class="col-lg-5">
-                    <div class="mil-up" style="border-radius:16px; padding:22px; background: rgba(255,255,255,0.03);">
+                    <div class="mil-up cs-card">
                       <p class="mil-mb-15"><strong style="font-weight:700;color:#ffffff;">Timeline:</strong> 1–2 weeks</p>
                       <p class="mil-mb-15"><strong style="font-weight:700;color:#ffffff;">Platform:</strong> Mobile (iOS/Android)</p>
                       <p class="mil-mb-15"><strong style="font-weight:700;color:#ffffff;">Deliverables:</strong> Flow, UI kit, key screens</p>
@@ -182,9 +202,9 @@
               </div>
             </div>
           </section>
-          <!-- quick summary end -->
+          <!-- OVERVIEW END -->
 
-          <!-- problem / goals -->
+          <!-- PROBLEM + GOALS -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
@@ -192,7 +212,7 @@
 
                   <div class="col-lg-6">
                     <h2 class="mil-up mil-mb-30">The problem</h2>
-                    <p class="mil-up">
+                    <p class="mil-up cs-muted">
                       Men’s fashion shopping requires speed and confidence.
                       Users need to scan product grids quickly, narrow options with filters, and trust the brand—without the interface feeling cluttered or “discount-like.”
                     </p>
@@ -200,7 +220,7 @@
 
                   <div class="col-lg-6">
                     <h2 class="mil-up mil-mb-30">Goals</h2>
-                    <ul class="mil-up" style="margin:0; padding-left: 18px;">
+                    <ul class="mil-up cs-list cs-muted">
                       <li class="mil-mb-10">Make browsing and scanning fast (clear hierarchy, clean grids)</li>
                       <li class="mil-mb-10">Reduce friction in filtering and searching</li>
                       <li class="mil-mb-10">Maintain a premium brand feel through typography and spacing</li>
@@ -212,9 +232,9 @@
               </div>
             </div>
           </section>
-          <!-- problem / goals end -->
+          <!-- PROBLEM + GOALS END -->
 
-          <!-- process -->
+          <!-- PROCESS -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
@@ -222,23 +242,29 @@
 
                 <div class="row">
                   <div class="col-lg-4">
-                    <div class="mil-up" style="border-radius:16px; padding:22px; background: rgba(255,255,255,0.03); height:100%;">
+                    <div class="mil-up cs-card" style="height:100%;">
                       <h6 class="mil-up mil-mb-15">1) UX flow</h6>
-                      <p class="mil-up mil-mb-0">Defined the core path: onboarding → home → category → PLP → PDP → cart.</p>
+                      <p class="mil-up mil-mb-0 cs-muted">
+                        Defined the core path: onboarding → home → category → PLP → PDP → cart.
+                      </p>
                     </div>
                   </div>
 
                   <div class="col-lg-4">
-                    <div class="mil-up" style="border-radius:16px; padding:22px; background: rgba(255,255,255,0.03); height:100%;">
+                    <div class="mil-up cs-card" style="height:100%;">
                       <h6 class="mil-up mil-mb-15">2) Component system</h6>
-                      <p class="mil-up mil-mb-0">Built reusable patterns for cards, chips, filters, headers, and states.</p>
+                      <p class="mil-up mil-mb-0 cs-muted">
+                        Built reusable patterns for cards, chips, filters, headers, and states.
+                      </p>
                     </div>
                   </div>
 
                   <div class="col-lg-4">
-                    <div class="mil-up" style="border-radius:16px; padding:22px; background: rgba(255,255,255,0.03); height:100%;">
+                    <div class="mil-up cs-card" style="height:100%;">
                       <h6 class="mil-up mil-mb-15">3) High-fidelity UI</h6>
-                      <p class="mil-up mil-mb-0">Applied typography-driven hierarchy and spacing rules to keep density readable.</p>
+                      <p class="mil-up mil-mb-0 cs-muted">
+                        Applied typography-driven hierarchy and spacing rules to keep dense content readable.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -246,9 +272,9 @@
               </div>
             </div>
           </section>
-          <!-- process end -->
+          <!-- PROCESS END -->
 
-          <!-- key screens -->
+          <!-- KEY SCREENS -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
@@ -257,43 +283,43 @@
                 <div class="row">
                   <div class="col-lg-6 mil-mb-30">
                     <div class="mil-up">
-                      <img src="img/projects/veron/screen-01.jpg" alt="Veron screen 1" style="width:100%; border-radius:16px; display:block;" />
+                      <img src="img/projects/veron/screen-01.jpg" alt="Veron screen 1" class="cs-img" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 mil-mb-30">
                     <div class="mil-up">
-                      <img src="img/projects/veron/screen-02.jpg" alt="Veron screen 2" style="width:100%; border-radius:16px; display:block;" />
+                      <img src="img/projects/veron/screen-02.jpg" alt="Veron screen 2" class="cs-img" />
                     </div>
                   </div>
 
                   <div class="col-lg-12">
                     <div class="mil-up">
-                      <img src="img/projects/veron/screen-03.jpg" alt="Veron screen 3" style="width:100%; border-radius:16px; display:block;" />
+                      <img src="img/projects/veron/screen-03.jpg" alt="Veron screen 3" class="cs-img" />
                     </div>
                   </div>
                 </div>
 
-                <p class="mil-up mil-mt-30" style="opacity:.85;">
+                <p class="mil-up mil-mt-30 cs-muted">
                   Replace the image paths with your exports. If you don’t have multiple screens yet, keep one image and we’ll build the story around it.
                 </p>
               </div>
             </div>
           </section>
-          <!-- key screens end -->
+          <!-- KEY SCREENS END -->
 
-          <!-- outcomes -->
+          <!-- OUTCOME -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
                 <h2 class="mil-up mil-mb-30">Outcome</h2>
-                <p class="mil-up mil-mb-30">
+                <p class="mil-up mil-mb-30 cs-muted">
                   A refined, conversion-friendly mobile shopping experience with clear discovery, consistent components, and a premium brand tone.
                   The system is designed to scale into more categories, promotions, and personalization without redesigning the foundation.
                 </p>
 
                 <h2 class="mil-up mil-mb-30">What I’d improve next</h2>
-                <ul class="mil-up" style="margin:0; padding-left: 18px;">
+                <ul class="mil-up cs-list cs-muted">
                   <li class="mil-mb-10">Add usability testing around filters and product comparison</li>
                   <li class="mil-mb-10">Introduce wishlists and “recently viewed” for retention</li>
                   <li class="mil-mb-10">Design checkout and payment states (errors, loading, recovery)</li>
@@ -301,40 +327,37 @@
               </div>
             </div>
           </section>
-          <!-- outcomes end -->
+          <!-- OUTCOME END -->
 
-          <!-- next/prev nav -->
+          <!-- NAV -->
           <section class="mil-p-0-90">
             <div class="row justify-content-center">
               <div class="col-lg-10">
                 <div class="row">
-
                   <div class="col-lg-6 mil-mb-30">
                     <a href="/portfolio" class="mil-btn mil-sm-btn mil-up" style="width:100%; text-align:center;">
                       Back to projects
                     </a>
                   </div>
-
                   <div class="col-lg-6 mil-mb-30">
                     <a href="project-1.html" class="mil-btn mil-sm-btn mil-up" style="width:100%; text-align:center;">
                       Next case study
                     </a>
                   </div>
-
                 </div>
               </div>
             </div>
           </section>
-          <!-- next/prev nav end -->
+          <!-- NAV END -->
 
-          <!-- footer -->
+          <!-- FOOTER -->
           <footer class="mil-fw">
             <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
             <p class="mil-light-soft">
               Author:&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">Yehya Moustafa</a>
             </p>
           </footer>
-          <!-- footer end -->
+          <!-- FOOTER END -->
 
         </div>
       </div>
@@ -389,7 +412,7 @@
   <script src="js/main.js"></script>
   <script src="js/left.js"></script>
 
-  <!-- success popup -->
+  <!-- success popup (kept for global consistency) -->
   <div id="successPopup" class="popup-overlay">
     <div class="popup-box">
       <h2>Thank you!</h2>
