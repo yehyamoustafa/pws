@@ -3300,3 +3300,12 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   opacity: 0.9;
 }
 
+
+
+.cs-img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  max-height: 520px;
+  object-fit: cover;
+}
