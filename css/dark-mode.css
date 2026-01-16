@@ -3309,3 +3309,18 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   max-height: 520px;
   object-fit: cover;
 }
+
+
+
+/* Case study hero spacing fix */
+.cs-hero {
+  padding-top: 120px; /* clears fixed header */
+}
+
+/* Optional fine-tuning for smaller screens */
+@media (max-width: 991px) {
+  .cs-hero {
+    padding-top: 90px;
+  }
+}
+
