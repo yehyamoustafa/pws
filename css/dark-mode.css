@@ -3257,3 +3257,31 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   pointer-events: none;
   cursor: default;
 }
+
+
+
+/* Enable clicks inside portfolio items */
+.mil-portfolio-item {
+  pointer-events: auto;
+}
+
+/* Ensure CTA button is clickable */
+.mil-case-btn {
+  pointer-events: auto;
+  display: inline-block;
+  background: #ffffff;
+  color: rgb(119, 0, 255);
+  border: 2px solid rgb(119, 0, 255);
+  padding: 14px 26px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.mil-case-btn:hover {
+  background: rgb(119, 0, 255);
+  color: #ffffff;
+}
+
