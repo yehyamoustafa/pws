@@ -3288,62 +3288,121 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cards (cleaner, more premium) */
 .cs-card {
   background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 16px;
   padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-
-
 
 .cs-card p {
-  opacity: 0.9;
+  opacity: 0.92;
+  line-height: 1.6;
 }
 
+/* Subtle hover lift (desktop only feel) */
+@media (hover: hover) and (pointer: fine) {
+  .cs-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+  }
+}
 
-
+/* Images */
 .cs-img {
   width: 100%;
   display: block;
   border-radius: 16px;
   max-height: 520px;
   object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
-
-
 
 /* Case study hero spacing fix */
 .cs-hero {
   padding-top: 120px; /* clears fixed header */
+  padding-bottom: 90px;
 }
 
 /* Optional fine-tuning for smaller screens */
 @media (max-width: 991px) {
   .cs-hero {
     padding-top: 90px;
+    padding-bottom: 70px;
+  }
+
+  .cs-card {
+    padding: 18px;
   }
 }
 
+/* Lists (aligned + breathable) */
 .cs-list {
   padding-left: 0;
-  margin-left: 0;
+  margin: 10px 0 0 0;
   list-style: none;
 }
 
 .cs-list li {
   position: relative;
   padding-left: 18px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.cs-list li:last-child {
+  margin-bottom: 0;
 }
 
 .cs-list li::before {
   content: "•";
   position: absolute;
   left: 0;
-  opacity: 0.6;
+  top: 0.05em;
+  opacity: 0.55;
 }
 
+/* Global content rhythm */
+.cs-wrap section > * + * {
+  margin-top: 24px;
+}
 
+/* Nice heading rhythm inside sections */
+.cs-wrap h2 {
+  margin-bottom: 12px;
+}
 
+.cs-wrap h6 {
+  margin-bottom: 10px;
+}
+
+/* Optional: softer section separation (no harsh lines) */
+.cs-wrap section:not(:last-child) {
+  padding-bottom: 6px;
+}
 
 
 
