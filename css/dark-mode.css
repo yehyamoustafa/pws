@@ -3324,3 +3324,32 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   }
 }
 
+
+.cs-logo-frame img {
+  width: auto;            /* IMPORTANT: don't stretch */
+  max-width: 240px;       /* smaller, logo-specimen feel */
+  max-height: 120px;      /* keeps it from taking over */
+  object-fit: contain;
+  display: block;
+}
+
+
+.cs-logo-frame {
+  min-height: 160px;      /* was 220px */
+  padding: 16px;          /* slightly tighter */
+}
+
+.cs-compare-body { padding: 14px; }
+
+.cs-logo-frame {
+  min-height: 140px;
+  padding: 14px;
+}
+
+.cs-logo-frame img {
+  width: auto;
+  max-width: 220px;
+  max-height: 110px;
+  object-fit: contain;
+}
+
