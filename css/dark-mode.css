@@ -3331,25 +3331,3 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
-
-/* Logo container (force override) */
-.cs-compare .cs-logo-frame{
-  height: 220px !important;      /* controls frame height */
-  min-height: 0 !important;      /* kills the old 300px */
-  padding: 12px !important;      /* smaller empty space */
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-}
-
-/* Make the image fill the available box */
-.cs-compare .cs-logo-frame img{
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  display:block !important;
-}
-
