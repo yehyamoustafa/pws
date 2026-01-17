@@ -3405,5 +3405,71 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 
+/* BEFORE / AFTER layout */
+.cs-compare-grid{
+  display:grid;
+  gap:18px;
+}
+@media (min-width: 992px){
+  .cs-compare-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Card */
+.cs-compare{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.08);
+  background:#fff;
+}
+.cs-compare-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  background:rgba(0,0,0,0.02);
+}
+.cs-compare-title{ margin:0; font-size:14px; }
+.cs-compare-tag{ opacity:.75; font-size:12px; }
+
+.cs-compare-body{ padding:18px; }
+
+/* ✅ CONTROL THE VISUAL SIZE HERE */
+.cs-logo-frame{
+  width:100%;
+  aspect-ratio: 16 / 9;     /* change to 4/3 or 1/1 if you want */
+  max-height: 240px;        /* caps “too big” feeling */
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,0.08);
+  background:#fff;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Make image behave */
+.cs-logo-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* ✅ Fine-tune each logo separately (because PNG padding differs) */
+.cs-logo-img--old{ transform: scale(1.18); transform-origin:center; }
+.cs-logo-img--new{ transform: scale(1.08); transform-origin:center; }
+
+/* Notes */
+.cs-note{
+  margin-top:14px;
+  font-size:13px;
+  opacity:.75;
+  line-height:1.5;
+}
+
+
+
 
 
