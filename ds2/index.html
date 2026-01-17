@@ -13,77 +13,6 @@
 
   <link rel="icon" type="image/png" href="../img/icons/y2.png" />
   <title>DS2 — Logo Enhancement | Yehya Moustafa</title>
-
-  <!-- DS2 case study helpers (layout only) -->
-  <style>
-    .cs-wrap { max-width: 980px; margin: 0 auto; }
-    .cs-muted { opacity: .85; }
-
-    .cs-hero { padding-top: 90px; padding-bottom: 90px; }
-    .cs-img { width: 100%; display: block; border-radius: 16px; }
-
-    .cs-card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 16px;
-      padding: 22px;
-      height: 100%;
-    }
-
-    .cs-list { margin: 0; padding-left: 18px; }
-    .cs-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      font-size: 12px;
-      letter-spacing: .2px;
-      opacity: .95;
-    }
-
-    /* Before / After cards */
-    .cs-compare-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    @media (min-width: 992px) {
-      .cs-compare-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    .cs-compare {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .cs-compare-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .cs-compare-title { margin: 0; font-size: 14px; letter-spacing: .2px; }
-    .cs-compare-tag { opacity: .75; font-size: 12px; }
-
-    .cs-compare-body {
-      padding: 18px;
-      background: #ffffff;
-    }
-
-    /* Safer note spacing */
-    .cs-note {
-      margin-top: 14px;
-      font-size: 13px;
-      opacity: .75;
-      line-height: 1.5;
-    }
-
-    .cs-btn-row .mil-btn { width: 100%; text-align: center; }
-  </style>
 </head>
 
 <body class="mil-fw-page">
@@ -91,7 +20,7 @@
 
     <!-- PRELOADER -->
     <div class="mil-preloader-frame">
-      <div class="mil-preloader-content" style="transform: scale(.6) translateY(200px); opacity: 0;">
+      <div class="mil-preloader-content">
         <div class="mil-preloader">
           <div class="mil-circ-1"></div>
           <div class="mil-circ-2"></div>
@@ -209,7 +138,7 @@
                   </p>
 
                   <p class="mil-up">
-                    <strong class="mil-accent" style="font-weight:700;">My role:</strong>
+                    <strong class="mil-accent">My role:</strong>
                     Logo refinement, geometry cleanup, spacing rules, and usage guidelines (clear space, sizing, contrast).
                   </p>
                 </div>
@@ -225,7 +154,7 @@
               </div>
             </section>
 
-            <!-- BEFORE / AFTER (FIXED: no overlap, bigger logos, frame hugs) -->
+            <!-- BEFORE / AFTER -->
             <section class="mil-p-0-90">
               <h2 class="mil-up mil-mb-30">Before &amp; after</h2>
 
@@ -239,36 +168,8 @@
                   </div>
 
                   <div class="cs-compare-body">
-                    <div
-                      class="cs-logo-frame"
-                      style="
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        padding:14px;
-                        border-radius:14px;
-                        border:1px solid rgba(0,0,0,0.08);
-                        background:#ffffff;
-                        width:100%;
-                        max-width:520px;
-                        margin:0 0 12px 0;
-                        aspect-ratio: 16 / 9;
-                        overflow:hidden;
-                        position:relative;
-                      "
-                    >
-                      <img
-                        src="/img/projects/ds2logo2.png"
-                        alt="DS2 old logo"
-                        style="
-                          display:block;
-                          width:100%;
-                          height:100%;
-                          object-fit:contain;
-                          transform:scale(1.42);
-                          transform-origin:center;
-                        "
-                      />
+                    <div class="cs-logo-frame cs-logo-frame--old">
+                      <img src="/img/projects/ds2logo2.png" alt="DS2 old logo" class="cs-logo-img cs-logo-img--old" />
                     </div>
 
                     <div class="cs-note">
@@ -285,36 +186,8 @@
                   </div>
 
                   <div class="cs-compare-body">
-                    <div
-                      class="cs-logo-frame"
-                      style="
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        padding:14px;
-                        border-radius:14px;
-                        border:1px solid rgba(0,0,0,0.08);
-                        background:#ffffff;
-                        width:100%;
-                        max-width:520px;
-                        margin:0 0 12px 0;
-                        aspect-ratio: 16 / 9;
-                        overflow:hidden;
-                        position:relative;
-                      "
-                    >
-                      <img
-                        src="/img/projects/ds2logo1.png"
-                        alt="DS2 enhanced logo"
-                        style="
-                          display:block;
-                          width:100%;
-                          height:100%;
-                          object-fit:contain;
-                          transform:scale(1.26);
-                          transform-origin:center;
-                        "
-                      />
+                    <div class="cs-logo-frame cs-logo-frame--new">
+                      <img src="/img/projects/ds2logo1.png" alt="DS2 enhanced logo" class="cs-logo-img cs-logo-img--new" />
                     </div>
 
                     <div class="cs-note">
@@ -382,7 +255,7 @@
                 </div>
               </div>
 
-              <div class="mil-up" style="margin-top: 10px;">
+              <div class="mil-up cs-chip-row">
                 <span class="cs-chip">Legibility</span>
                 <span class="cs-chip">Consistency</span>
                 <span class="cs-chip">Scalability</span>
@@ -402,20 +275,11 @@
                       This prevents cramped placements in UI and print layouts.
                     </p>
 
-                    <div style="margin-top: 16px; display:flex; justify-content:center;">
+                    <div class="cs-media">
                       <img
                         src="../img/projects/ds2/clear-space.png"
                         alt="DS2 clear space rule"
-                        style="
-                          width:100%;
-                          max-width: 420px;
-                          max-height: 280px;
-                          object-fit: contain;
-                          border-radius: 16px;
-                          border: 1px solid rgba(255,255,255,0.10);
-                          background: rgba(255,255,255,0.03);
-                          padding: 12px;
-                        "
+                        class="cs-media-img"
                       />
                     </div>
 
@@ -425,7 +289,7 @@
 
                 <div class="col-lg-6 mil-mb-30">
                   <div class="mil-up cs-card">
-                    <h6 class="mil-up mil-mb-15">Minimum size & contrast</h6>
+                    <h6 class="mil-up mil-mb-15">Minimum size &amp; contrast</h6>
                     <ul class="mil-up cs-list cs-muted">
                       <li class="mil-mb-10"><strong>Digital:</strong> minimum height 24px (logo lockups)</li>
                       <li class="mil-mb-10"><strong>Icon use:</strong> use simplified mark if below 20px</li>
@@ -433,20 +297,11 @@
                       <li class="mil-mb-10"><strong>Spacing:</strong> never squeeze horizontally</li>
                     </ul>
 
-                    <div style="margin-top: 16px; display:flex; justify-content:center;">
+                    <div class="cs-media">
                       <img
                         src="../img/projects/ds2/dos-donts.png"
                         alt="DS2 do and don't examples"
-                        style="
-                          width:100%;
-                          max-width: 420px;
-                          max-height: 280px;
-                          object-fit: contain;
-                          border-radius: 16px;
-                          border: 1px solid rgba(255,255,255,0.10);
-                          background: rgba(255,255,255,0.03);
-                          padding: 12px;
-                        "
+                        class="cs-media-img"
                       />
                     </div>
 
