@@ -3325,31 +3325,25 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 
+/* Logo frame */
+.cs-logo-frame {
+  min-height: 300px;      /* doubled visual presence */
+  padding: 24px;          /* more breathing room */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo image */
 .cs-logo-frame img {
-  width: auto;            /* IMPORTANT: don't stretch */
-  max-width: 240px;       /* smaller, logo-specimen feel */
-  max-height: 120px;      /* keeps it from taking over */
+  width: auto;            /* never stretch */
+  max-width: 480px;       /* 2× from ~240px */
+  max-height: 240px;      /* 2× from ~120px */
   object-fit: contain;
   display: block;
 }
 
-
-.cs-logo-frame {
-  min-height: 160px;      /* was 220px */
-  padding: 16px;          /* slightly tighter */
+/* Compare card spacing */
+.cs-compare-body {
+  padding: 20px;          /* slightly increased to match scale */
 }
-
-.cs-compare-body { padding: 14px; }
-
-.cs-logo-frame {
-  min-height: 140px;
-  padding: 14px;
-}
-
-.cs-logo-frame img {
-  width: auto;
-  max-width: 220px;
-  max-height: 110px;
-  object-fit: contain;
-}
-
