@@ -21,13 +21,6 @@
 
     .cs-hero { padding-top: 90px; padding-bottom: 90px; }
     .cs-img { width: 100%; display: block; border-radius: 16px; }
-    .cs-img--hero {
-      width: 100%;
-      display: block;
-      border-radius: 16px;
-      max-height: 520px;
-      object-fit: cover;
-    }
 
     .cs-card {
       background: rgba(255,255,255,0.03);
@@ -81,29 +74,12 @@
       background: #ffffff;
     }
 
-    .cs-logo-frame {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: #ffffff;
-      padding: 18px;
-      min-height: 220px;
-    }
-
-    .cs-logo-frame img {
-      width: 100%;
-      max-width: 360px;
-      max-height: 260px;
-      object-fit: contain;
-      display: block;
-    }
-
+    /* Safer note spacing */
     .cs-note {
-      margin-top: 12px;
+      margin-top: 14px;
       font-size: 13px;
       opacity: .75;
+      line-height: 1.5;
     }
 
     .cs-btn-row .mil-btn { width: 100%; text-align: center; }
@@ -249,103 +225,106 @@
               </div>
             </section>
 
-           <!-- BEFORE / AFTER -->
-<section class="mil-p-0-90">
-  <h2 class="mil-up mil-mb-30">Before &amp; after</h2>
+            <!-- BEFORE / AFTER (FIXED: no overlap, bigger logos, frame hugs) -->
+            <section class="mil-p-0-90">
+              <h2 class="mil-up mil-mb-30">Before &amp; after</h2>
 
-  <div class="mil-up cs-compare-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
+              <div class="mil-up cs-compare-grid">
 
-    <!-- BEFORE -->
-    <div class="cs-compare">
-      <div class="cs-compare-head" style="margin-bottom:12px;">
-        <p class="cs-compare-title" style="margin:0 0 6px 0;"><strong>Old logo</strong></p>
-        <span class="cs-compare-tag">Before</span>
-      </div>
+                <!-- BEFORE -->
+                <div class="cs-compare">
+                  <div class="cs-compare-head">
+                    <p class="cs-compare-title"><strong>Old logo</strong></p>
+                    <span class="cs-compare-tag">Before</span>
+                  </div>
 
-      <div class="cs-compare-body" style="padding:20px;">
-        <div
-          class="cs-logo-frame"
-          style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            padding:12px;
-            border-radius:14px;
-            border:1px solid rgba(0,0,0,0.08);
-            background:#ffffff;
-            width:fit-content;
-            max-width:100%;
-            margin:0 auto 12px auto;
-          "
-        >
-          <img
-            src="/img/projects/ds2logo2.png"
-            alt="DS2 old logo"
-            style="
-              display:block;
-              width:100%;
-              max-width:340px;
-              height:auto;
-              object-fit:contain;
-              transform:scale(1.40);
-              transform-origin:center;
-            "
-          />
-        </div>
+                  <div class="cs-compare-body">
+                    <div
+                      class="cs-logo-frame"
+                      style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        padding:14px;
+                        border-radius:14px;
+                        border:1px solid rgba(0,0,0,0.08);
+                        background:#ffffff;
+                        width:100%;
+                        max-width:520px;
+                        margin:0 auto;
+                        aspect-ratio: 16 / 9;
+                        overflow:hidden;
+                        position:relative;
+                      "
+                    >
+                      <img
+                        src="/img/projects/ds2logo2.png"
+                        alt="DS2 old logo"
+                        style="
+                          display:block;
+                          width:100%;
+                          height:100%;
+                          object-fit:contain;
+                          transform:scale(1.42);
+                          transform-origin:center;
+                        "
+                      />
+                    </div>
 
-        <div class="cs-note">
-          Notes: heavier details + less predictable spacing made it harder to scale cleanly.
-        </div>
-      </div>
-    </div>
+                    <div class="cs-note">
+                      Notes: heavier details + less predictable spacing made it harder to scale cleanly.
+                    </div>
+                  </div>
+                </div>
 
-    <!-- AFTER -->
-    <div class="cs-compare">
-      <div class="cs-compare-head" style="margin-bottom:12px;">
-        <p class="cs-compare-title" style="margin:0 0 6px 0;"><strong>Enhanced logo</strong></p>
-        <span class="cs-compare-tag">After</span>
-      </div>
+                <!-- AFTER -->
+                <div class="cs-compare">
+                  <div class="cs-compare-head">
+                    <p class="cs-compare-title"><strong>Enhanced logo</strong></p>
+                    <span class="cs-compare-tag">After</span>
+                  </div>
 
-      <div class="cs-compare-body" style="padding:20px;">
-        <div
-          class="cs-logo-frame"
-          style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            padding:12px;
-            border-radius:14px;
-            border:1px solid rgba(0,0,0,0.08);
-            background:#ffffff;
-            width:fit-content;
-            max-width:100%;
-            margin:0 auto 12px auto;
-          "
-        >
-          <img
-            src="/img/projects/ds2logo1.png"
-            alt="DS2 enhanced logo"
-            style="
-              display:block;
-              width:100%;
-              max-width:340px;
-              height:auto;
-              object-fit:contain;
-              transform:scale(1.25);
-              transform-origin:center;
-            "
-          />
-        </div>
+                  <div class="cs-compare-body">
+                    <div
+                      class="cs-logo-frame"
+                      style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        padding:14px;
+                        border-radius:14px;
+                        border:1px solid rgba(0,0,0,0.08);
+                        background:#ffffff;
+                        width:100%;
+                        max-width:520px;
+                        margin:0 auto;
+                        aspect-ratio: 16 / 9;
+                        overflow:hidden;
+                        position:relative;
+                      "
+                    >
+                      <img
+                        src="/img/projects/ds2logo1.png"
+                        alt="DS2 enhanced logo"
+                        style="
+                          display:block;
+                          width:100%;
+                          height:100%;
+                          object-fit:contain;
+                          transform:scale(1.26);
+                          transform-origin:center;
+                        "
+                      />
+                    </div>
 
-        <div class="cs-note">
-          Notes: refined proportions + cleaner curves for better readability and consistency.
-        </div>
-      </div>
-    </div>
+                    <div class="cs-note">
+                      Notes: refined proportions + cleaner curves for better readability and consistency.
+                    </div>
+                  </div>
+                </div>
 
-  </div>
-</section>
-
+              </div>
+            </section>
 
             <!-- THE PROBLEM + GOALS -->
             <section class="mil-p-0-90">
@@ -423,7 +402,6 @@
                       This prevents cramped placements in UI and print layouts.
                     </p>
 
-                    <!-- Optional: add your clear-space diagram image -->
                     <div style="margin-top: 16px; display:flex; justify-content:center;">
                       <img
                         src="../img/projects/ds2/clear-space.png"
@@ -455,7 +433,6 @@
                       <li class="mil-mb-10"><strong>Spacing:</strong> never squeeze horizontally</li>
                     </ul>
 
-                    <!-- Optional: do/don't image -->
                     <div style="margin-top: 16px; display:flex; justify-content:center;">
                       <img
                         src="../img/projects/ds2/dos-donts.png"
@@ -502,7 +479,6 @@
                   <a href="/portfolio" class="mil-btn mil-sm-btn mil-up">Back to projects</a>
                 </div>
                 <div class="col-lg-6 mil-mb-30">
-                  <!-- optional: set to your next project route -->
                   <a href="/kodeq-brand" class="mil-btn mil-sm-btn mil-up">Next project</a>
                 </div>
               </div>
