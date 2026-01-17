@@ -3325,6 +3325,10 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 
+
+
+
+
 /* Compare card body */
 .cs-compare-body {
   padding: 20px;
@@ -3336,19 +3340,21 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   justify-content: center;
   align-items: center;
 
-  min-height: 300px;              /* was ~140–160 → now ~2x */
-  padding: 28px;                  /* more breathing room */
+  height: 220px;                 /* FIX: controlled height instead of tall min-height */
+  padding: 14px;                 /* FIX: remove excess empty space */
 
-  border-radius: 16px;
+  border-radius: 14px;
   border: 1px solid rgba(0,0,0,0.08);
   background: #ffffff;
+
+  overflow: hidden;              /* safety for odd ratios */
 }
 
 /* Logo image */
 .cs-logo-frame img {
-  width: auto;                    /* never stretch */
-  max-width: 480px;               /* was ~220–240 → 2x */
-  max-height: 260px;              /* was ~110–120 → 2x */
+  width: auto;                   /* never stretch */
+  max-width: 90%;                /* FIX: logo actually fills the frame */
+  max-height: 90%;
 
   object-fit: contain;
   display: block;
