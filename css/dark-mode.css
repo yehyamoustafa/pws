@@ -3325,25 +3325,31 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 }
 
 
-/* Logo frame */
+/* Compare card body */
+.cs-compare-body {
+  padding: 20px;
+}
+
+/* Logo container */
 .cs-logo-frame {
-  min-height: 300px;      /* doubled visual presence */
-  padding: 24px;          /* more breathing room */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  min-height: 300px;              /* was ~140–160 → now ~2x */
+  padding: 28px;                  /* more breathing room */
+
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
 }
 
 /* Logo image */
 .cs-logo-frame img {
-  width: auto;            /* never stretch */
-  max-width: 480px;       /* 2× from ~240px */
-  max-height: 240px;      /* 2× from ~120px */
+  width: auto;                    /* never stretch */
+  max-width: 480px;               /* was ~220–240 → 2x */
+  max-height: 260px;              /* was ~110–120 → 2x */
+
   object-fit: contain;
   display: block;
-}
-
-/* Compare card spacing */
-.cs-compare-body {
-  padding: 20px;          /* slightly increased to match scale */
 }
