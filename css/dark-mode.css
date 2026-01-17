@@ -3315,6 +3315,11 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   padding: 22px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   transition: transform .2s ease, box-shadow .2s ease;
+
+  /* NEW: internal content rhythm */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .cs-card p {
@@ -3343,7 +3348,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 /* Case study hero spacing fix */
 .cs-hero {
-  padding-top: 120px; /* clears fixed header */
+  padding-top: 120px;
   padding-bottom: 90px;
 }
 
@@ -3390,7 +3395,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   margin-top: 24px;
 }
 
-/* Nice heading rhythm inside sections */
+/* NEW: tighter heading → content relationship */
 .cs-wrap h2 {
   margin-bottom: 12px;
 }
@@ -3399,28 +3404,34 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   margin-bottom: 10px;
 }
 
-/* Optional: softer section separation (no harsh lines) */
+/* NEW: give sections a clear visual end */
 .cs-wrap section:not(:last-child) {
-  padding-bottom: 6px;
+  padding-bottom: 12px;
 }
-
 
 /* BEFORE / AFTER layout */
 .cs-compare-grid{
   display:grid;
-  gap:18px;
-}
-@media (min-width: 992px){
-  .cs-compare-grid{ grid-template-columns: 1fr 1fr; }
+  gap:24px; /* increased from 18px for breathing room */
 }
 
-/* Card */
+@media (min-width: 992px){
+  .cs-compare-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Compare card */
 .cs-compare{
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(0,0,0,0.08);
   background:#fff;
+
+  /* NEW: optical separation from surrounding text */
+  margin-top: 8px;
 }
+
 .cs-compare-head{
   display:flex;
   align-items:center;
@@ -3430,16 +3441,31 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   border-bottom:1px solid rgba(0,0,0,0.06);
   background:rgba(0,0,0,0.02);
 }
-.cs-compare-title{ margin:0; font-size:14px; }
-.cs-compare-tag{ opacity:.75; font-size:12px; }
 
-.cs-compare-body{ padding:18px; }
+.cs-compare-title{
+  margin:0;
+  font-size:14px;
+}
 
-/* ✅ CONTROL THE VISUAL SIZE HERE */
+.cs-compare-tag{
+  opacity:.75;
+  font-size:12px;
+}
+
+.cs-compare-body{
+  padding:20px;
+
+  /* NEW: internal stack rhythm */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Logo frame sizing */
 .cs-logo-frame{
   width:100%;
-  aspect-ratio: 16 / 9;     /* change to 4/3 or 1/1 if you want */
-  max-height: 240px;        /* caps “too big” feeling */
+  aspect-ratio: 16 / 9;
+  max-height: 240px;
   border-radius:14px;
   border:1px solid rgba(0,0,0,0.08);
   background:#fff;
@@ -3449,7 +3475,7 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   justify-content:center;
 }
 
-/* Make image behave */
+/* Logo image behavior */
 .cs-logo-img{
   width:100%;
   height:100%;
@@ -3457,19 +3483,26 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
   display:block;
 }
 
-/* ✅ Fine-tune each logo separately (because PNG padding differs) */
-.cs-logo-img--old{ transform: scale(1.18); transform-origin:center; }
-.cs-logo-img--new{ transform: scale(1.08); transform-origin:center; }
+/* Per-logo optical correction */
+.cs-logo-img--old{
+  transform: scale(1.18);
+  transform-origin:center;
+}
+
+.cs-logo-img--new{
+  transform: scale(1.08);
+  transform-origin:center;
+}
 
 /* Notes */
 .cs-note{
-  margin-top:14px;
   font-size:13px;
   opacity:.75;
   line-height:1.5;
+
+  /* NEW: keep notes visually attached but not cramped */
+  margin-top: 4px;
 }
-
-
 
 
 
