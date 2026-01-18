@@ -15,19 +15,11 @@
   <link rel="stylesheet" href="css/dark-mode.css" />
 
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
-  <style>
- 
-   body.mil-fw-page .mil-right-banner{
-    transform: translateX(110%) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
-  }
-  </style>
   <title>Portfolio | Yehya Moustafa</title>
 </head>
 
-<body class="mil-fw-page">
+<body class="mil-fw-page mil-100-page">
+
   <!-- wrapper -->
   <div class="mil-wrapper" id="top">
 
@@ -40,7 +32,7 @@
           <div class="mil-circ-3"></div>
           <div class="mil-circ-4"></div>
         </div>
-        <div class="mil-upper">Loading creativity…</div>
+        <div class="mil-upper">Loading</div>
       </div>
     </div>
     <!-- preloader end -->
@@ -49,7 +41,7 @@
 
       <!-- top bar -->
       <div class="mil-top-panel">
-        <a href="/" class="mil-logo">
+        <a href="/" class="mil-logo" aria-label="Home">
           <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo" />
         </a>
 
@@ -84,7 +76,7 @@
 
       <!-- left bar -->
       <div class="mil-left-panel">
-        <div class="mil-page-name mil-upper mil-dark">Loading...</div>
+        <div class="mil-page-name mil-upper mil-dark">Projects</div>
 
         <ul class="mil-social-icons">
           <li>
@@ -117,303 +109,167 @@
         </a>
       </div>
       <!-- back to top end -->
+
     </div>
 
     <!-- content -->
     <div class="mil-content">
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
-        <div class="mil-container-fw"">
+        <div class="mil-container-100">
 
-          <!-- banner -->
-          <section class="mil-banner-sm mil-center">
-            <div class="mil-banner-top mil-up"></div>
-            <div class="mil-banner-title">
-              <h1 class="mil-h1-sm mil-up mil-mb-60">Selected Work</h1>
-              <ul class="mil-breadcrumbs mil-up">
-                <li><a href="/">Homepage</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-              </ul>
-            </div>
-          </section>
-          <!-- banner end -->
-
-          <!-- portfolio -->
-          <section>
+          <!-- TEMPLATE-LIKE PORTFOLIO CAROUSEL -->
+          <section class="mil-p-90-0">
             <div class="row">
-<!-- Veron (clickable + clear CTA) -->
-<div class="col-lg-12">
-  <div class="mil-portfolio-item mil-item-2 mil-mb-60">
 
-    <!-- Image -->
-    <div class="mil-cover-frame">
-      <a href="/veron" class="mil-cover-overlay" aria-label="Open Veron case study"></a>
-      <img src="img/portfolio/9.jpg" alt="Veron men's wear mobile app UI"
-           data-swiper-parallax="-130"
-           data-swiper-parallax-scale="1.25" />
-    </div>
+              <!-- carousel -->
+              <div class="col-lg-9">
+                <div class="mil-swiper-container mil-portfolio-carousel mil-up">
+                  <div class="swiper-wrapper">
 
-    <!-- Description -->
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">Veron — Men’s Wear E-commerce App</h4>
+                    <!-- Veron -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/9.jpg" alt="Veron men's wear mobile app UI"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>Veron — Men’s Wear E-commerce App</h4>
+                          <a href="/veron" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        Premium mobile shopping experience focused on fast discovery, clean hierarchy, and conversion-ready UX.
-      </p>
+                    <!-- The Rig -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/2.jpg" alt="The Rig dashboard UI"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>The Rig — Internal Document Operations Dashboard</h4>
+                          <a href="/rig" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">E-commerce</span>
-        <span class="mil-tag">Mobile UI</span>
-        <span class="mil-tag">Conversion</span>
-      </div>
+                    <!-- Numbase -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/3.jpg" alt="Numbase corporate website"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>Numbase — Corporate Website & Messaging Refresh</h4>
+                          <a href="/numbase" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-      <!-- REAL button -->
-      <div style="margin-top: 22px;">
-        <a href="/veron" class="mil-case-btn" aria-label="View Veron case study">
-          View case study
-        </a>
-      </div>
-    </div>
+                    <!-- Mastercard -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/4.jpg" alt="Numbase × Mastercard mobile onboarding screens"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>Numbase × Mastercard — Mobile Onboarding Flow</h4>
+                          <a href="/mastercard" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-  </div>
-</div>
-<!-- Veron (clickable + clear CTA) -->
+                    <!-- KODEQ Web -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/7.jpg" alt="KODEQ website design"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>KODEQ — Responsive Website & Service Discovery</h4>
+                          <a href="/kodeq-web" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-<!-- The Rig (clickable + clear CTA) -->
-<div class="col-lg-12">
-  <a href="/rig" class="mil-portfolio-item mil-item-2 mil-mb-60" aria-label="View case study: The Rig">
-    <div class="mil-cover-frame">
-      <img
-        src="img/portfolio/2.jpg"
-        alt="The Rig dashboard UI"
-        data-swiper-parallax="-130"
-        data-swiper-parallax-scale="1.25"
-      />
-    </div>
+                    <!-- KODEQ Brand -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/5.jpg" alt="KODEQ wordmark logo"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>KODEQ — Brand Identity System</h4>
+                          <a href="/kodeq-brand" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">The Rig — Internal Document Operations Dashboard</h4>
+                    <!-- DS2 -->
+                    <div class="swiper-slide">
+                      <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
+                        <div class="mil-cover-frame">
+                          <img src="img/portfolio/6.jpg" alt="DS2 logo enhancement"
+                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                        </div>
+                        <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
+                          <h4>DS2 — Logo Enhancement for Clarity & Scalability</h4>
+                          <a href="/ds2" class="mil-btn">View project</a>
+                        </div>
+                      </div>
+                    </div>
 
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        A centralized dashboard concept to manage document intake, approvals, and audit reporting with clean, data-dense UI.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">Product UX</span>
-        <span class="mil-tag">Design System</span>
-        <span class="mil-tag">Ops Workflow</span>
-      </div>
-
-      <!-- CTA button -->
-      <div style="margin-top: 22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-  </a>
-</div>
-
-      <!-- CTA button -->
-
-<!-- Numbase (clickable + clean CTA) -->
-<div class="col-lg-12">
-  <a href="/numbase" class="mil-portfolio-item mil-item-2 mil-mb-60" aria-label="Open case study: Numbase Website & Messaging Refresh">
-    <div class="mil-cover-frame">
-      <img src="img/portfolio/3.jpg" alt="Numbase corporate website" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
-    </div>
-
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">Numbase — Corporate Website & Messaging Refresh</h4>
-
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        A clearer, more persuasive website structure that explains value fast and guides partners toward action.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">IA</span>
-        <span class="mil-tag">Responsive</span>
-        <span class="mil-tag">Brand-to-Product</span>
-      </div>
-
-      <!-- CTA -->
-      <div style="margin-top: 22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-  </a>
-</div>
-
-      <!-- CTA -->
-
-<div class="col-lg-12">
-  <a href="/mastercard" class="mil-portfolio-item mil-item-2 mil-mb-60" aria-label="Open case study: Numbase × Mastercard Mobile Onboarding">
-    <div class="mil-cover-frame">
-      <img src="img/portfolio/4.jpg" alt="Numbase × Mastercard mobile onboarding screens" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
-    </div>
-
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">Numbase × Mastercard — Mobile Onboarding Flow</h4>
-
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        A confidence-building, compliance-ready onboarding flow that guides users clearly through verification while reducing drop-off.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">Onboarding</span>
-        <span class="mil-tag">Fintech</span>
-        <span class="mil-tag">UX Writing</span>
-      </div>
-
-      <!-- CTA -->
-      <div style="margin-top: 22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-<!-- KODEQ (clickable + clean CTA) -->
-<div class="col-lg-12">
-  <a href="/kodeq-web" class="mil-portfolio-item mil-item-2 mil-mb-60" aria-label="Open case study: KODEQ Responsive Website & Service Discovery">
-    <div class="mil-cover-frame">
-      <img src="img/portfolio/7.jpg" alt="KODEQ website design" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
-    </div>
-
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">KODEQ — Responsive Website & Service Discovery</h4>
-
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        A responsive website experience that helps visitors scan services fast, understand value, and move toward inquiry—especially on mobile.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">UX Structure</span>
-        <span class="mil-tag">Conversion</span>
-        <span class="mil-tag">Web UI</span>
-      </div>
-
-      <!-- CTA -->
-      <div style="margin-top: 22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-
-              
-<!-- KODEQ Brand (clickable + clean CTA) -->
-<div class="col-lg-12">
-  <a href="/kodeq-brand" class="mil-portfolio-item mil-item-2 mil-mb-60" aria-label="Open case study: KODEQ Brand Identity">
-    
-    <div class="mil-cover-frame">
-      <img
-        src="img/portfolio/5.jpg"
-        alt="KODEQ wordmark logo"
-        data-swiper-parallax="-130"
-        data-swiper-parallax-scale="1.25"
-      />
-    </div>
-
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">KODEQ — Brand Identity System</h4>
-
-      <p class="mil-meta" style="opacity:.85; margin-bottom: 18px;">
-        A scalable brand identity designed to stay consistent across product UI, marketing assets,
-        and fast-moving launches.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">Brand System</span>
-        <span class="mil-tag">Scalability</span>
-        <span class="mil-tag">Launch Ready</span>
-      </div>
-
-      <!-- CTA -->
-      <div style="margin-top: 22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-
-  </a>
-</div>
-
-
-              <!-- ds2 -->
-<!-- DS2 (logo enhancement + clean CTA) -->
-<div class="col-lg-12">
-  <a href="/ds2"
-     class="mil-portfolio-item mil-item-2 mil-mb-60"
-     aria-label="Open case study: DS2 Logo Enhancement">
-
-    <div class="mil-cover-frame">
-      <img
-        src="img/portfolio/6.jpg"
-        alt="DS2 logo enhancement"
-        data-swiper-parallax="-130"
-        data-swiper-parallax-scale="1.25"
-      />
-    </div>
-
-    <div class="mil-description mil-desc-pro">
-      <h4 class="mil-title">DS2 — Logo Enhancement for Clarity & Scalability</h4>
-
-      <p class="mil-meta" style="opacity:.85; margin-bottom:18px;">
-        A refined logo evolution focused on improving legibility, balance, and consistency across digital and print applications.
-      </p>
-
-      <div class="mil-tags" aria-hidden="true">
-        <span class="mil-tag">Logo Refinement</span>
-        <span class="mil-tag">Brand Consistency</span>
-        <span class="mil-tag">Scalability</span>
-      </div>
-
-      <!-- CTA -->
-      <div style="margin-top:22px;">
-        <span class="mil-case-btn" aria-hidden="true">View case study</span>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-
-            </div>
-          </section>
-          <!-- portfolio end -->
-
-          <!-- call to action -->
-          <section id="about" class="mil-p-90-90">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="mil-center">
-                  <h2 class="mil-up mil-mb-30">Want to build something that ships and scales?</h2>
-                  <div class="mil-up">
-                    <a href="/contact" class="mil-btn mil-sm-btn">Contact me</a>
                   </div>
                 </div>
               </div>
+              <!-- carousel end -->
+
+              <!-- nav -->
+              <div class="col-lg-3">
+                <div class="mil-carousel-nav">
+                  <div class="mil-carousel-nav-arrow mil-portfolio-prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-arrow-right">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
+
+                  <div class="mil-carousel-nav-arrow mil-portfolio-next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-arrow-right">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
+
+                  <div class="mil-portfolio-pagination mil-upper mil-dark"></div>
+                </div>
+              </div>
+              <!-- nav end -->
+
             </div>
           </section>
-          <!-- call to action end -->
-
-          <!-- footer -->
-          <footer class="mil-fw">
-            <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
-            <p class="mil-light-soft">
-              Author:&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">Yehya Moustafa</a>
-            </p>
-          </footer>
-          <!-- footer end -->
+          <!-- TEMPLATE-LIKE PORTFOLIO CAROUSEL END -->
 
         </div>
       </div>
 
-      <!-- right banner -->
+      <!-- right banner (template-style visible) -->
       <div class="mil-right-banner" id="scene">
+
+        <!-- scrollbar -->
         <div class="mil-progress-track">
           <div class="mil-progress"></div>
         </div>
+        <!-- scrollbar end -->
 
         <div class="mil-banner-wrapper" data-depth="1">
           <div id="swupBg" class="mil-banner-frame">
@@ -444,6 +300,7 @@
             <div class="mil-el mil-addition-el-4"></div>
           </div>
         </div>
+
       </div>
       <!-- right banner end -->
 
@@ -463,38 +320,6 @@
   <script src="js/plugins/ScrollTrigger.min.js"></script>
   <script src="js/plugins/parallax.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/left.js"></script>
 
-  <script>
-  // Fix Swup first-load / no-refresh bug
-  document.addEventListener('swup:contentReplaced', () => {
-
-    // Remove animating state so items don't stay hidden
-    document.documentElement.classList.remove('is-animating');
-
-    // Force portfolio captions visible
-    document.querySelectorAll('.mil-description.mil-desc-pro').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.visibility = 'visible';
-    });
-
-    // Force rounded cards (sometimes lost on first load)
-    document.querySelectorAll('.mil-portfolio-item.mil-item-2').forEach(el => {
-      el.style.borderRadius = '16px';
-      el.style.overflow = 'hidden';
-    });
-
-  });
-  </script>
-
-  <!-- success popup -->
-  <div id="successPopup" class="popup-overlay">
-    <div class="popup-box">
-      <h2>Thank you!</h2>
-      <p>We’ve received your message and will get back to you as soon as possible.</p>
-      <button id="closePopup" class="popup-btn">Close</button>
-    </div>
-  </div>
 </body>
 </html>
