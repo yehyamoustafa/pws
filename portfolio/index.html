@@ -16,6 +16,31 @@
 
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Portfolio | Yehya Moustafa</title>
+
+  <!-- Make the carousel sit flush to the bottom like the template -->
+  <style>
+    html, body { height: 100%; }
+
+    body.mil-100-page,
+    body.mil-100-page .mil-wrapper,
+    body.mil-100-page .mil-content,
+    body.mil-100-page #swupMain,
+    body.mil-100-page .mil-container-100 {
+      height: 100%;
+    }
+
+    /* Template behavior: section fills viewport and aligns carousel to bottom */
+    body.mil-100-page .mil-p-90-0{
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 0 !important;
+    }
+    body.mil-100-page .mil-p-90-0 > .row{ width: 100%; }
+
+    /* Prevent extra vertical scroll caused by default padding/margins */
+    body.mil-100-page .mil-container-100{ padding-bottom: 0 !important; }
+  </style>
 </head>
 
 <body class="mil-fw-page mil-100-page">
@@ -117,21 +142,18 @@
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-100">
 
-          <!-- TEMPLATE-LIKE PORTFOLIO CAROUSEL -->
+          <!-- EXACT TEMPLATE STRUCTURE -->
           <section class="mil-p-90-0">
             <div class="row">
-
-              <!-- carousel -->
               <div class="col-lg-9">
+
                 <div class="mil-swiper-container mil-portfolio-carousel mil-up">
                   <div class="swiper-wrapper">
 
-                    <!-- Veron -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/9.jpg" alt="Veron men's wear mobile app UI"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/9.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>Veron — Men’s Wear E-commerce App</h4>
@@ -140,12 +162,10 @@
                       </div>
                     </div>
 
-                    <!-- The Rig -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/2.jpg" alt="The Rig dashboard UI"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/2.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>The Rig — Internal Document Operations Dashboard</h4>
@@ -154,12 +174,10 @@
                       </div>
                     </div>
 
-                    <!-- Numbase -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/3.jpg" alt="Numbase corporate website"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/3.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>Numbase — Corporate Website & Messaging Refresh</h4>
@@ -168,12 +186,10 @@
                       </div>
                     </div>
 
-                    <!-- Mastercard -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/4.jpg" alt="Numbase × Mastercard mobile onboarding screens"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/4.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>Numbase × Mastercard — Mobile Onboarding Flow</h4>
@@ -182,12 +198,10 @@
                       </div>
                     </div>
 
-                    <!-- KODEQ Web -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/7.jpg" alt="KODEQ website design"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/7.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>KODEQ — Responsive Website & Service Discovery</h4>
@@ -196,12 +210,10 @@
                       </div>
                     </div>
 
-                    <!-- KODEQ Brand -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/5.jpg" alt="KODEQ wordmark logo"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/5.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>KODEQ — Brand Identity System</h4>
@@ -210,12 +222,10 @@
                       </div>
                     </div>
 
-                    <!-- DS2 -->
                     <div class="swiper-slide">
                       <div class="mil-portfolio-item mil-item-2 mil-carousel-item">
                         <div class="mil-cover-frame">
-                          <img src="img/portfolio/6.jpg" alt="DS2 logo enhancement"
-                               data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
+                          <img src="img/portfolio/6.jpg" alt="cover" data-swiper-parallax="-130" data-swiper-parallax-scale="1.25" />
                         </div>
                         <div class="mil-description" data-swiper-parallax-y="-100%" data-swiper-parallax-duration="400">
                           <h4>DS2 — Logo Enhancement for Clarity & Scalability</h4>
@@ -226,13 +236,12 @@
 
                   </div>
                 </div>
-              </div>
-              <!-- carousel end -->
 
-              <!-- nav -->
+              </div>
+
               <div class="col-lg-3">
                 <div class="mil-carousel-nav">
-                  <div class="mil-carousel-nav-arrow mil-portfolio-prev" aria-label="Previous">
+                  <div class="mil-carousel-nav-arrow mil-portfolio-prev">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-arrow-right">
@@ -240,8 +249,7 @@
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                   </div>
-
-                  <div class="mil-carousel-nav-arrow mil-portfolio-next" aria-label="Next">
+                  <div class="mil-carousel-nav-arrow mil-portfolio-next">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-arrow-right">
@@ -249,27 +257,21 @@
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                   </div>
-
                   <div class="mil-portfolio-pagination mil-upper mil-dark"></div>
                 </div>
               </div>
-              <!-- nav end -->
-
             </div>
           </section>
-          <!-- TEMPLATE-LIKE PORTFOLIO CAROUSEL END -->
+          <!-- EXACT TEMPLATE STRUCTURE END -->
 
         </div>
       </div>
 
-      <!-- right banner (template-style visible) -->
+      <!-- right banner -->
       <div class="mil-right-banner" id="scene">
-
-        <!-- scrollbar -->
         <div class="mil-progress-track">
           <div class="mil-progress"></div>
         </div>
-        <!-- scrollbar end -->
 
         <div class="mil-banner-wrapper" data-depth="1">
           <div id="swupBg" class="mil-banner-frame">
@@ -300,13 +302,11 @@
             <div class="mil-el mil-addition-el-4"></div>
           </div>
         </div>
-
       </div>
       <!-- right banner end -->
 
     </div>
     <!-- content end -->
-
   </div>
   <!-- wrapper end -->
 
