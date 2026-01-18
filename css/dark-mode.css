@@ -2245,9 +2245,8 @@ categories
 portfolio item
 
 ------------------------------------------- */
-.mil-portfolio-item {
-  pointer-events: none;
-  display: block;
+.mil-portfolio-item{
+  pointer-events: auto;
 }
 .mil-portfolio-item .mil-cover-frame {
   position: relative;
@@ -2334,9 +2333,13 @@ portfolio item
             justify-content: center;
     border: none;
   }
-  .mil-portfolio-item.mil-item-2 .mil-description .mil-btn {
-    display: none;
-  }
+.mil-portfolio-item.mil-item-2 .mil-description .mil-btn{
+  background: #fff !important;
+  color: rgb(32,33,36) !important;
+  height: 90px;
+  border-radius: 0 !important;
+}
+}
 }
 .mil-portfolio-item.mil-carousel-item .mil-cover-frame {
   padding-bottom: 0;
