@@ -3196,3 +3196,13 @@ html.is-animating .mil-menu-transition ul li.mil-active a:before {
 
 
 
+
+
+
+@media screen and (max-width: 992px) {
+  .mil-portfolio-item.mil-item-2 .mil-description .mil-btn {
+    background-color: rgb(119, 0, 255) !important;
+    color: rgb(255, 255, 255) !important;
+  }
+}
+
