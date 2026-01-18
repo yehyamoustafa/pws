@@ -2340,7 +2340,16 @@ portfolio item
   border-radius: 0 !important;
 }
 }
+.mil-portfolio-item .mil-cover-frame{
+  position: relative;
+  z-index: 1;
 }
+
+.mil-portfolio-item .mil-description{
+  position: relative;
+  z-index: 5;
+}
+
 .mil-portfolio-item.mil-carousel-item .mil-cover-frame {
   padding-bottom: 0;
   height: calc(100vh - 180px - 90px);
