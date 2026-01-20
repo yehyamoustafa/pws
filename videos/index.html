@@ -27,7 +27,13 @@
     }
 
     /* ==========================================================
-       Videos Grid (Montra-like: posters + play, SQUARE 1:1)
+       VIDEOS — square thumbs in /img (NO descriptions)
+       - Poster shows instantly (works with Swup transitions)
+       - Click -> swap poster to Vimeo iframe (autoplay)
+       - 1 col mobile, 2 col tablet, 3 col desktop
+       - Centered on mobile
+       - Smaller corners
+       - NO hover shadow
        ========================================================== */
 
     .ymv-wrap{
@@ -40,117 +46,89 @@
       padding: 10px 0 70px;
     }
 
-    .ymv-heading{
-      max-width: 900px;
-      margin: 0 auto 40px;
-    }
-    .ymv-heading h2{
-      margin: 0;
-      font-size: 28px;
-      color: rgba(255,255,255,0.92);
-    }
-    /* FIX #2: description should be soft, not white */
-    .ymv-heading p{
-      margin: 10px 0 0;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.65;
-    }
-
     .ymv-grid{
       display: grid;
       grid-template-columns: 1fr;
-      gap: 26px;
+      gap: 18px;
       align-items: start;
+      justify-items: stretch;
     }
     @media (min-width: 768px){
-      .ymv-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ymv-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
     }
     @media (min-width: 1200px){
-      .ymv-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ymv-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
     }
 
+    /* Card (thumb only) */
     .ymv-card{
       width: 100%;
-      border-radius: 28px;
+      border-radius: 16px;              /* reduced corner */
       overflow: hidden;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.10);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: none !important;      /* no shadow */
+      transition: transform .18s ease, border-color .18s ease;
     }
 
+    /* NO hover shadow — only a subtle lift + border */
     @media (hover:hover) and (pointer:fine){
       .ymv-card:hover{
-        transform: translateY(-4px);
-        border-color: rgba(255,255,255,0.18);
-        box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+        transform: translateY(-2px);
+        border-color: rgba(255,255,255,0.16);
+        box-shadow: none !important;
       }
       .ymv-card:hover .ymv-poster{
-        transform: scale(1.05);
-        filter: saturate(1.08) contrast(1.08);
+        transform: scale(1.03);
       }
       .ymv-card:hover .ymv-play{
-        transform: translate(-50%, -50%) scale(1.06);
-        background: rgba(0,0,0,0.55);
-        border-color: rgba(255,255,255,0.34);
+        transform: translate(-50%, -50%) scale(1.05);
       }
     }
 
-    /* Media container — ALWAYS SQUARE */
+    /* Media container — ALWAYS SQUARE 1:1 */
     .ymv-media{
       position: relative;
       width: 100%;
-      padding-top: 100%; /* 1:1 */
+      padding-top: 100%;
       background: rgba(255,255,255,0.04);
       isolation: isolate;
+      cursor: pointer;
     }
 
+    /* Poster layer */
     .ymv-poster{
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center;
-      filter: saturate(1.05) contrast(1.06);
-      transform: scale(1.02);
-      transition: transform .35s ease, filter .35s ease, opacity .25s ease;
+      transform: scale(1.01);
+      transition: transform .35s ease, opacity .25s ease;
       opacity: 1;
     }
 
+    /* Overlay gradient */
     .ymv-overlay{
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(1200px 500px at 30% 10%, rgba(255,255,255,0.10), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.45) 100%);
-      pointer-events: none;
       z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(900px 450px at 30% 10%, rgba(255,255,255,0.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.22) 70%, rgba(0,0,0,0.42) 100%);
     }
 
-    .ymv-badge{
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      z-index: 2;
-      font-size: 12px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      color: rgba(255,255,255,0.9);
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
+    /* Play button */
     .ymv-play{
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 74px;
-      height: 74px;
+      width: 66px;
+      height: 66px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.26);
-      background: rgba(0,0,0,0.46);
+      background: rgba(0,0,0,0.42);
       color: #fff;
       cursor: pointer;
       z-index: 2;
@@ -160,18 +138,19 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-
     .ymv-play i{
       font-size: 18px;
       margin-left: 3px;
     }
 
+    /* Embedded iframe after click */
     .ymv-embed{
       position: absolute;
       inset: 0;
       z-index: 3;
       opacity: 0;
       transition: opacity .2s ease;
+      background: #000;
     }
     .ymv-embed iframe{
       width: 100%;
@@ -181,58 +160,22 @@
       background: #000;
     }
 
+    /* Playing state */
     .ymv-card.is-playing .ymv-poster{ opacity: 0; }
     .ymv-card.is-playing .ymv-embed{ opacity: 1; }
     .ymv-card.is-playing .ymv-play{ opacity: 0; pointer-events: none; }
-    .ymv-card.is-playing .ymv-badge{ opacity: 0; }
 
-    .ymv-meta{
-      padding: 16px 18px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .ymv-title{
-      margin: 0;
-      font-size: 16px;
-      font-weight: 650;
-      line-height: 1.25;
-      color: rgba(255,255,255,0.92);
-    }
-
-    /* FIX #2: force softer description color */
-    .ymv-cat{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.62) !important;
-      white-space: nowrap;
-    }
-
-    .ymv-dot{
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.65);
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.10);
-    }
-
+    /* Center on mobile (thumb tiles don't stretch weirdly) */
     @media (max-width: 767px){
       .ymv-grid{ justify-items: center; }
       .ymv-card{ max-width: 520px; }
     }
-
-    /* Optional: make the whole card feel clickable (like template) */
-    .ymv-card .ymv-media{ cursor: pointer; }
   </style>
 </head>
 
 <body class="mil-fw-page">
 
+  <!-- wrapper -->
   <div class="mil-wrapper" id="top">
 
     <!-- preloader -->
@@ -325,7 +268,6 @@
 
     <!-- content -->
     <div class="mil-content">
-
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
@@ -342,111 +284,81 @@
           </section>
           <!-- banner end -->
 
-          <!-- Videos -->
+          <!-- VIDEOS (thumb only) -->
           <section class="ymv-section">
             <div class="ymv-wrap">
-
-              <div class="ymv-heading mil-up">
-                <h2>Featured Videos</h2>
-                <p>Clean square gallery — posters load instantly, and the player loads only when you click.</p>
-              </div>
-
               <div class="ymv-grid">
 
+                <!-- NOTE:
+                  You requested thumbs placed at /img
+                  So each tile uses: data-poster="img/<filename>"
+                  Place these files directly inside /img:
+                    img/numbase.jpg
+                    img/nike.jpg
+                    img/ym-logo.jpg
+                    img/kbilarabi.jpg
+                    img/hydrosnap.jpg
+                -->
+
                 <article class="ymv-card">
-                  <div class="ymv-media"
-                       data-vimeo="1146865115"
-                       data-poster="img/video-thumbs/numbase.jpg">
+                  <div class="ymv-media" data-vimeo="1146865115" data-poster="img/numbase.jpg" aria-label="Numbase website">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
-                    <div class="ymv-badge">Featured</div>
-                    <button class="ymv-play" type="button" aria-label="Play Numbase website">
+                    <button class="ymv-play" type="button" aria-label="Play video">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
-                  </div>
-                  <div class="ymv-meta">
-                    <h3 class="ymv-title">Numbase website</h3>
-                    <div class="ymv-cat"><span class="ymv-dot"></span> Website presentation</div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media"
-                       data-vimeo="1146865077"
-                       data-poster="img/video-thumbs/nike.jpg">
+                  <div class="ymv-media" data-vimeo="1146865077" data-poster="img/nike.jpg" aria-label="Nike ad">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
-                    <div class="ymv-badge">Vimeo</div>
-                    <button class="ymv-play" type="button" aria-label="Play Nike ad">
+                    <button class="ymv-play" type="button" aria-label="Play video">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
-                  </div>
-                  <div class="ymv-meta">
-                    <h3 class="ymv-title">Nike ad</h3>
-                    <div class="ymv-cat"><span class="ymv-dot"></span> Ad concept</div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media"
-                       data-vimeo="1146865055"
-                       data-poster="img/video-thumbs/ym-logo.jpg">
+                  <div class="ymv-media" data-vimeo="1146865055" data-poster="img/ym-logo.jpg" aria-label="Y+M Logo reveal">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
-                    <div class="ymv-badge">Vimeo</div>
-                    <button class="ymv-play" type="button" aria-label="Play Y+M Logo reveal">
+                    <button class="ymv-play" type="button" aria-label="Play video">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
-                  </div>
-                  <div class="ymv-meta">
-                    <h3 class="ymv-title">Y+M Logo reveal</h3>
-                    <div class="ymv-cat"><span class="ymv-dot"></span> Brand animation</div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media"
-                       data-vimeo="1146865038"
-                       data-poster="img/video-thumbs/kbilarabi.jpg">
+                  <div class="ymv-media" data-vimeo="1146865038" data-poster="img/kbilarabi.jpg" aria-label="KBILARABI reveal">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
-                    <div class="ymv-badge">Vimeo</div>
-                    <button class="ymv-play" type="button" aria-label="Play KBILARABI reveal">
+                    <button class="ymv-play" type="button" aria-label="Play video">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
-                  </div>
-                  <div class="ymv-meta">
-                    <h3 class="ymv-title">KBILARABI reveal</h3>
-                    <div class="ymv-cat"><span class="ymv-dot"></span> Teaser / reveal</div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media"
-                       data-vimeo="1151531651"
-                       data-poster="img/video-thumbs/hydrosnap.jpg">
+                  <div class="ymv-media" data-vimeo="1151531651" data-poster="img/hydrosnap.jpg" aria-label="Hydrosnap teaser">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
-                    <div class="ymv-badge">Vimeo</div>
-                    <button class="ymv-play" type="button" aria-label="Play Hydrosnap">
+                    <button class="ymv-play" type="button" aria-label="Play video">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
-                  </div>
-                  <div class="ymv-meta">
-                    <h3 class="ymv-title">Hydrosnap</h3>
-                    <div class="ymv-cat"><span class="ymv-dot"></span> Product teaser</div>
                   </div>
                 </article>
 
               </div>
             </div>
           </section>
-          <!-- Videos end -->
+          <!-- VIDEOS end -->
 
           <!-- call to action -->
           <section id="about" class="mil-p-90-90">
@@ -534,11 +446,10 @@
   </div>
 
   <!-- ==========================================================
-       FIX #1: Swup-friendly init (posters appear instantly)
-       - init now
-       - init after Swup replaces content
-       - init again on next frame (timing fix)
-       - event delegation for play click (no double-binding)
+       Swup-friendly init so posters appear without refreshing
+       - Applies posters on load and after Swup page swaps
+       - Uses requestAnimationFrame + small timeout to beat timing issues
+       - Uses event delegation, so no rebinding problems
      ========================================================== -->
   <script>
     (function(){
@@ -558,7 +469,6 @@
         const embed = media.querySelector(".ymv-embed");
         const vimeoId = media.getAttribute("data-vimeo");
         if(!embed || !vimeoId) return;
-
         if(card && card.classList.contains("is-playing")) return;
 
         embed.innerHTML = `
@@ -575,32 +485,26 @@
 
       function initVideos(){
         applyPosters(document);
-
-        // Timing fix: run again on next frame (Swup/GSAP can swap late)
         requestAnimationFrame(() => applyPosters(document));
         setTimeout(() => applyPosters(document), 50);
       }
 
-      // Event delegation (works after Swup swaps content)
+      // Delegated click: play on button or anywhere on the thumb
       document.addEventListener("click", function(e){
-        const btn = e.target.closest(".ymv-play");
         const media = e.target.closest(".ymv-media");
+        if(!media) return;
 
-        // Clicking the media area itself also plays (like template)
-        const mediaClick = !btn && media && e.target.closest(".ymv-media");
+        // If you click on the CTA button area or elsewhere in the page, ignore
+        const isPlay = e.target.closest(".ymv-play") || e.target.closest(".ymv-media");
+        if(!isPlay) return;
 
-        if(btn){
-          const m = btn.closest(".ymv-media");
-          if(m) injectVimeo(m);
-        } else if(mediaClick){
-          // Only if you clicked inside media but not on meta
-          injectVimeo(media);
-        }
+        // Prevent accidental play if clicking inside an already playing iframe
+        if(e.target.tagName && e.target.tagName.toLowerCase() === "iframe") return;
+
+        injectVimeo(media);
       });
 
       document.addEventListener("DOMContentLoaded", initVideos);
-
-      // Swup hooks: your theme uses Swup, so we re-init here too
       document.addEventListener("swup:contentReplaced", initVideos);
       document.addEventListener("swup:pageView", initVideos);
     })();
