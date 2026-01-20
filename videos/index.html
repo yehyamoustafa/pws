@@ -11,21 +11,11 @@
   <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
   <!-- swiper css -->
   <link rel="stylesheet" href="css/plugins/swiper.min.css" />
-  <!-- your theme -->
+  <!-- theme -->
   <link rel="stylesheet" href="css/dark-mode.css" />
 
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Videos | Yehya Moustafa</title>
-
-  <style>
-    /* Keep your existing "no right banner" behavior */
-    body.mil-fw-page .mil-right-banner{
-      transform: translateX(110%) !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      visibility: hidden !important;
-    }
-  </style>
 </head>
 
 <body class="mil-fw-page">
@@ -35,7 +25,7 @@
 
     <!-- preloader -->
     <div class="mil-preloader-frame">
-      <div class="mil-preloader-content" style="transform: scale(.6) translateY(200px); opacity: 0;">
+      <div class="mil-preloader-content">
         <div class="mil-preloader">
           <div class="mil-circ-1"></div>
           <div class="mil-circ-2"></div>
@@ -45,7 +35,6 @@
         <div class="mil-upper">Loading creativity…</div>
       </div>
     </div>
-    <!-- preloader end -->
 
     <div class="mil-frame">
 
@@ -70,16 +59,13 @@
         <div class="mil-top-panel-btns">
           <a href="/contact" class="mil-contact-btn" aria-label="Contact">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 class="feather feather-mail">
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </a>
 
-          <div class="mil-menu-btn" aria-label="Open menu" role="button" tabindex="0">
-            <span></span>
-          </div>
+          <div class="mil-menu-btn"><span></span></div>
         </div>
       </div>
       <!-- top bar end -->
@@ -87,17 +73,9 @@
       <!-- left bar -->
       <div class="mil-left-panel">
         <div class="mil-page-name mil-upper mil-dark">Loading...</div>
-
         <ul class="mil-social-icons">
           <li>
-            <a
-              href="https://wa.me/96170701178?text=Hi%20Yehya%2C%20I%27m%20reaching%20out%20from%20your%20website!"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-icon"
-              data-no-swup
-              aria-label="WhatsApp"
-            >
+            <a href="https://wa.me/96170701178" target="_blank" data-no-swup>
               <i class="fab fa-whatsapp"></i>
             </a>
           </li>
@@ -109,168 +87,111 @@
       <div class="mil-back-to-top">
         <a href="#top" class="mil-link mil-btt-icon">
           <span>Back to top</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-               viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               class="feather feather-arrow-right">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
         </a>
       </div>
-      <!-- back to top end -->
+
     </div>
 
     <!-- content -->
     <div class="mil-content">
-
-      <!-- Swup container -->
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
           <!-- banner -->
           <section class="mil-banner-sm mil-center">
-            <div class="mil-banner-top mil-up"></div>
             <div class="mil-banner-title">
-              <h1 class="mil-h1-sm mil-up mil-mb-60">My Videos</h1>
-              <ul class="mil-breadcrumbs mil-up">
+              <h1 class="mil-h1-sm mil-mb-60">My Videos</h1>
+              <ul class="mil-breadcrumbs">
                 <li><a href="/">Homepage</a></li>
-                <li><a href="/videos">Videos</a></li>
+                <li>Videos</li>
               </ul>
             </div>
           </section>
-          <!-- banner end -->
 
-          <!-- VIDEOS: THUMB + PLAY ONLY (16:9) -->
+          <!-- VIDEOS GRID -->
           <section class="ymv-section">
             <div class="ymv-wrap">
               <div class="ymv-grid">
 
-                <!-- Put these files directly inside /img:
-                     img/numbase.jpg
-                     img/nike.jpg
-                     img/ym-logo.jpg
-                     img/kbilarabi.jpg
-                     img/hydrosnap.jpg
-                -->
-
+                <!-- Video 1 -->
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865115" aria-label="Video">
-                    <div class="ymv-poster" style="background-image:url('img/numbase.jpg');"></div>
+                  <div class="ymv-media" data-vimeo="1146865115">
+                    <div class="ymv-poster" style="background-image:url('/img/numbase.jpg');"></div>
                     <div class="ymv-overlay"></div>
-
-                    <button class="ymv-play" type="button" aria-label="Play">
-                      <i class="fas fa-play"></i>
-                    </button>
-
-                    <button class="ymv-close" type="button" aria-label="Close (stop video)">
-                      <span aria-hidden="true">×</span>
-                    </button>
-
-                    <div class="ymv-embed" aria-hidden="true"></div>
+                    <button class="ymv-play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close"><span>×</span></button>
+                    <div class="ymv-embed"></div>
                   </div>
                 </article>
 
+                <!-- Video 2 -->
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865077" aria-label="Video">
-                    <div class="ymv-poster" style="background-image:url('img/nike.jpg');"></div>
+                  <div class="ymv-media" data-vimeo="1146865077">
+                    <div class="ymv-poster" style="background-image:url('/img/nike.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
-                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
-                    <div class="ymv-embed" aria-hidden="true"></div>
+                    <button class="ymv-play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close"><span>×</span></button>
+                    <div class="ymv-embed"></div>
                   </div>
                 </article>
 
+                <!-- Video 3 -->
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865055" aria-label="Video">
-                    <div class="ymv-poster" style="background-image:url('img/ym-logo.jpg');"></div>
+                  <div class="ymv-media" data-vimeo="1146865055">
+                    <div class="ymv-poster" style="background-image:url('/img/ym-logo.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
-                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
-                    <div class="ymv-embed" aria-hidden="true"></div>
+                    <button class="ymv-play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close"><span>×</span></button>
+                    <div class="ymv-embed"></div>
                   </div>
                 </article>
 
+                <!-- Video 4 -->
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865038" aria-label="Video">
-                    <div class="ymv-poster" style="background-image:url('img/kbilarabi.jpg');"></div>
+                  <div class="ymv-media" data-vimeo="1146865038">
+                    <div class="ymv-poster" style="background-image:url('/img/kbilarabi.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
-                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
-                    <div class="ymv-embed" aria-hidden="true"></div>
+                    <button class="ymv-play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close"><span>×</span></button>
+                    <div class="ymv-embed"></div>
                   </div>
                 </article>
 
+                <!-- Video 5 -->
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1151531651" aria-label="Video">
-                    <div class="ymv-poster" style="background-image:url('img/hydrosnap.jpg');"></div>
+                  <div class="ymv-media" data-vimeo="1151531651">
+                    <div class="ymv-poster" style="background-image:url('/img/hydrosnap.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
-                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
-                    <div class="ymv-embed" aria-hidden="true"></div>
+                    <button class="ymv-play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close"><span>×</span></button>
+                    <div class="ymv-embed"></div>
                   </div>
                 </article>
 
               </div>
             </div>
           </section>
-          <!-- VIDEOS end -->
 
-          <!-- call to action -->
-          <section id="about" class="mil-p-90-90">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="mil-center">
-                  <h2 class="mil-up mil-mb-30">Ready to bring your ideas to life? I'm here to help</h2>
-                  <div class="mil-up">
-                    <a href="/contact" class="mil-btn mil-sm-btn">Contact me</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- CTA -->
+          <section class="mil-p-90-90 mil-center">
+            <h2>Ready to bring your ideas to life?<br>I'm here to help</h2>
+            <a href="/contact" class="mil-btn mil-sm-btn">Contact me</a>
           </section>
 
           <!-- footer -->
           <footer class="mil-fw">
-            <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
-            <p class="mil-light-soft">Author: &nbsp;<a href="/" target="_blank">Yehya Moustafa</a></p>
+            <p>© 2026 Yehya Moustafa. All rights reserved.</p>
           </footer>
 
         </div>
       </div>
-
-      <!-- Keep right banner markup (hidden by CSS) so your theme/scripts stay stable -->
-      <div class="mil-right-banner" id="scene">
-        <div class="mil-progress-track"><div class="mil-progress"></div></div>
-        <div class="mil-banner-wrapper" data-depth="1">
-          <div id="swupBg" class="mil-banner-frame">
-            <img src="img/person/bg-4.jpg" alt="background" class="mil-banner-bg mil-blur">
-          </div>
-        </div>
-        <div class="mil-banner-wrapper" data-depth="0.2">
-          <div id="swupPerson" class="mil-banner-frame">
-            <img src="img/person/5.png" alt="person" class="mil-banner-person">
-          </div>
-        </div>
-        <div class="mil-flying-skills" data-depth="0.1">
-          <div id="swupSkills" class="mil-skills-frame">
-            <div class="mil-item" style="top: 30%; left: 10%"><img src="img/logos/1.jpg" alt="logo"></div>
-            <div class="mil-item" style="bottom: 15%; left: 20%"><img src="img/logos/2.jpg" alt="logo"></div>
-            <div class="mil-item" style="bottom: 45%; right: 15%"><img src="img/logos/3.jpg" alt="logo"></div>
-            <div class="mil-el mil-addition-el-1">+</div>
-            <div class="mil-el mil-addition-el-2">+</div>
-            <div class="mil-el mil-addition-el-3"></div>
-            <div class="mil-el mil-addition-el-4"></div>
-          </div>
-        </div>
-      </div>
-
     </div>
     <!-- content end -->
+
   </div>
   <!-- wrapper end -->
 
-  <!-- scripts (persist across Swup navigations) -->
+  <!-- scripts (GLOBAL) -->
   <script src="js/plugins/jquery.min.js"></script>
   <script src="js/plugins/swup.min.js"></script>
   <script src="js/plugins/SwupBodyClassPlugin.min.js"></script>
@@ -282,117 +203,5 @@
   <script src="js/main.js"></script>
   <script src="js/left.js"></script>
 
-  <!-- success popup -->
-  <div id="successPopup" class="popup-overlay">
-    <div class="popup-box">
-      <h2>Thank you!</h2>
-      <p>We’ve received your message and will get back to you as soon as possible.</p>
-      <button id="closePopup" class="popup-btn">Close</button>
-    </div>
-  </div>
-
-  <!-- ==========================================================
-       ONCE & FOR ALL FIX
-       - Inject CSS into <head> globally (Swup doesn’t replace head)
-       - So 16:9 boxes ALWAYS have height without refreshing
-       - Delegated play/close (works after Swup swaps #swupMain)
-     ========================================================== -->
-  <script>
-    (function () {
-      const STYLE_ID = "ymv-global-style";
-
-      const CSS = `
-        .ymv-wrap{max-width:1280px;margin:0 auto;padding:0 18px;}
-        .ymv-section{padding:10px 0 70px;}
-        .ymv-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;}
-        @media (min-width:768px){.ymv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}}
-        @media (min-width:1200px){.ymv-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}}
-        .ymv-card{width:100%;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);box-shadow:none!important;transition:transform .18s ease,border-color .18s ease;}
-        @media (hover:hover) and (pointer:fine){
-          .ymv-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.16);box-shadow:none!important;}
-          .ymv-card:hover .ymv-poster{transform:scale(1.03);}
-          .ymv-card:hover .ymv-play{transform:translate(-50%,-50%) scale(1.05);}
-        }
-        .ymv-media{position:relative;width:100%;padding-top:56.25%;background:rgba(255,255,255,0.04);isolation:isolate;cursor:pointer;}
-        .ymv-poster{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.01);transition:transform .35s ease,opacity .25s ease;opacity:1;}
-        .ymv-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
-          background:radial-gradient(900px 450px at 30% 10%, rgba(255,255,255,0.10), transparent 60%),
-                     linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.22) 70%, rgba(0,0,0,0.42) 100%);}
-        .ymv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:999px;border:1px solid rgba(255,255,255,0.26);background:rgba(0,0,0,0.42);color:#fff;cursor:pointer;z-index:2;display:grid;place-items:center;transition:transform .2s ease,background .2s ease,border-color .2s ease,opacity .2s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-        .ymv-play i{font-size:18px;margin-left:3px;}
-        .ymv-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);background:rgba(0,0,0,0.35);color:#fff;cursor:pointer;z-index:4;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;background:rgba(0,0,0,0.40);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-        .ymv-close span{font-size:22px;line-height:1;transform:translateY(-1px);}
-        .ymv-embed{position:absolute;inset:0;z-index:3;opacity:0;transition:opacity .2s ease;background:#000;}
-        .ymv-embed iframe{width:100%;height:100%;border:0;display:block;background:#000;}
-        .ymv-card.is-playing .ymv-poster{opacity:0;}
-        .ymv-card.is-playing .ymv-embed{opacity:1;}
-        .ymv-card.is-playing .ymv-play{opacity:0;pointer-events:none;}
-        .ymv-card.is-playing .ymv-close{opacity:1;pointer-events:auto;transform:scale(1);}
-        @media (max-width:767px){.ymv-grid{justify-items:center;}.ymv-card{max-width:680px;}}
-      `;
-
-      function ensureStyle() {
-        if (document.getElementById(STYLE_ID)) return;
-        const style = document.createElement("style");
-        style.id = STYLE_ID;
-        style.textContent = CSS;
-        document.head.appendChild(style);
-      }
-
-      function play(media) {
-        const card = media.closest(".ymv-card");
-        if (!card || card.classList.contains("is-playing")) return;
-
-        const embed = media.querySelector(".ymv-embed");
-        const vimeoId = media.getAttribute("data-vimeo");
-        if (!embed || !vimeoId) return;
-
-        embed.innerHTML = `
-          <iframe
-            src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Vimeo video ${vimeoId}">
-          </iframe>
-        `;
-
-        card.classList.add("is-playing");
-      }
-
-      function stop(media) {
-        const card = media.closest(".ymv-card");
-        const embed = media.querySelector(".ymv-embed");
-        if (embed) embed.innerHTML = "";
-        if (card) card.classList.remove("is-playing");
-      }
-
-      // Delegated clicks: works even after Swup swaps content
-      document.addEventListener("click", function (e) {
-        ensureStyle();
-
-        const closeBtn = e.target.closest(".ymv-close");
-        if (closeBtn) {
-          const media = closeBtn.closest(".ymv-media");
-          if (media) stop(media);
-          e.preventDefault();
-          e.stopPropagation();
-          return;
-        }
-
-        const media = e.target.closest(".ymv-media");
-        if (!media) return;
-
-        // ignore clicks on the iframe itself
-        if (e.target && e.target.tagName && e.target.tagName.toLowerCase() === "iframe") return;
-
-        play(media);
-      });
-
-      // Make sure CSS exists immediately + after Swup navigation events
-      document.addEventListener("DOMContentLoaded", ensureStyle);
-      document.addEventListener("swup:contentReplaced", ensureStyle);
-      document.addEventListener("swup:pageView", ensureStyle);
-    })();
-  </script>
 </body>
 </html>
