@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
   <!-- swiper css -->
   <link rel="stylesheet" href="css/plugins/swiper.min.css" />
+  <!-- your theme -->
   <link rel="stylesheet" href="css/dark-mode.css" />
 
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
@@ -26,10 +27,7 @@
     }
 
     /* ==========================================================
-       Montra-like Video Cards (Poster + Play) — SQUARE 1:1 ONLY
-       - Grid shows posters (fast, clean)
-       - Click -> swap poster to Vimeo iframe (autoplay)
-       - All media tiles are 1:1 (consistent UI/UX grid)
+       Videos Grid (Montra-like: posters + play, SQUARE 1:1)
        ========================================================== */
 
     .ymv-wrap{
@@ -42,7 +40,22 @@
       padding: 10px 0 70px;
     }
 
-    /* Grid: 1 col mobile, 2 cols tablet, 3 cols desktop */
+    .ymv-heading{
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+    .ymv-heading h2{
+      margin: 0;
+      font-size: 28px;
+      color: rgba(255,255,255,0.92);
+    }
+    /* FIX #2: description should be soft, not white */
+    .ymv-heading p{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
     .ymv-grid{
       display: grid;
       grid-template-columns: 1fr;
@@ -56,7 +69,6 @@
       .ymv-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
-    /* Card */
     .ymv-card{
       width: 100%;
       border-radius: 28px;
@@ -93,7 +105,6 @@
       isolation: isolate;
     }
 
-    /* Poster layer */
     .ymv-poster{
       position: absolute;
       inset: 0;
@@ -105,7 +116,6 @@
       opacity: 1;
     }
 
-    /* Cinematic overlay */
     .ymv-overlay{
       position: absolute;
       inset: 0;
@@ -116,7 +126,6 @@
       z-index: 1;
     }
 
-    /* Badge (optional, matches “template vibe”) */
     .ymv-badge{
       position: absolute;
       top: 14px;
@@ -132,7 +141,6 @@
       -webkit-backdrop-filter: blur(8px);
     }
 
-    /* Play button */
     .ymv-play{
       position: absolute;
       left: 50%;
@@ -158,7 +166,6 @@
       margin-left: 3px;
     }
 
-    /* Embedded iframe after click */
     .ymv-embed{
       position: absolute;
       inset: 0;
@@ -174,13 +181,11 @@
       background: #000;
     }
 
-    /* When playing */
     .ymv-card.is-playing .ymv-poster{ opacity: 0; }
     .ymv-card.is-playing .ymv-embed{ opacity: 1; }
     .ymv-card.is-playing .ymv-play{ opacity: 0; pointer-events: none; }
     .ymv-card.is-playing .ymv-badge{ opacity: 0; }
 
-    /* Meta row (title + category) */
     .ymv-meta{
       padding: 16px 18px 18px;
       display: flex;
@@ -198,12 +203,13 @@
       color: rgba(255,255,255,0.92);
     }
 
+    /* FIX #2: force softer description color */
     .ymv-cat{
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      color: rgba(255,255,255,0.62);
+      color: rgba(255,255,255,0.62) !important;
       white-space: nowrap;
     }
 
@@ -215,17 +221,18 @@
       box-shadow: 0 0 0 3px rgba(255,255,255,0.10);
     }
 
-    /* Center cards on mobile for a clean “gallery” feel */
     @media (max-width: 767px){
       .ymv-grid{ justify-items: center; }
       .ymv-card{ max-width: 520px; }
     }
+
+    /* Optional: make the whole card feel clickable (like template) */
+    .ymv-card .ymv-media{ cursor: pointer; }
   </style>
 </head>
 
 <body class="mil-fw-page">
 
-  <!-- wrapper -->
   <div class="mil-wrapper" id="top">
 
     <!-- preloader -->
@@ -246,9 +253,8 @@
 
       <!-- top bar -->
       <div class="mil-top-panel">
-
         <a href="/" class="mil-logo">
-          <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo">
+          <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo" />
         </a>
 
         <div class="mil-navigation">
@@ -264,18 +270,19 @@
         </div>
 
         <div class="mil-top-panel-btns">
-          <a href="/contact" class="mil-contact-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+          <a href="/contact" class="mil-contact-btn" aria-label="Contact">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-mail">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </a>
 
-          <div class="mil-menu-btn">
+          <div class="mil-menu-btn" aria-label="Open menu" role="button" tabindex="0">
             <span></span>
           </div>
         </div>
-
       </div>
       <!-- top bar end -->
 
@@ -285,11 +292,14 @@
 
         <ul class="mil-social-icons">
           <li>
-            <a href="https://wa.me/96170701178?text=Hi%20Yehya%2C%20I%27m%20reaching%20out%20from%20your%20website!"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-icon"
-               data-no-swup>
+            <a
+              href="https://wa.me/96170701178?text=Hi%20Yehya%2C%20I%27m%20reaching%20out%20from%20your%20website!"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+              data-no-swup
+              aria-label="WhatsApp"
+            >
               <i class="fab fa-whatsapp"></i>
             </a>
           </li>
@@ -301,7 +311,10 @@
       <div class="mil-back-to-top">
         <a href="#top" class="mil-link mil-btt-icon">
           <span>Back to top</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="feather feather-arrow-right">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -312,6 +325,7 @@
 
     <!-- content -->
     <div class="mil-content">
+
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
@@ -328,24 +342,21 @@
           </section>
           <!-- banner end -->
 
-          <!-- VIDEOS (Square poster grid, click-to-play like template) -->
+          <!-- Videos -->
           <section class="ymv-section">
             <div class="ymv-wrap">
 
-              <div class="mil-mb-60" style="max-width: 900px; margin: 0 auto;">
-                <h2 class="mil-up" style="margin:0; font-size: 28px; color: rgba(255,255,255,0.92);">Featured Videos</h2>
-                <p class="mil-up" style="margin: 10px 0 0; color: rgba(255,255,255,0.62);">
-                  Square gallery grid — click to play (fast + clean).
-                </p>
+              <div class="ymv-heading mil-up">
+                <h2>Featured Videos</h2>
+                <p>Clean square gallery — posters load instantly, and the player loads only when you click.</p>
               </div>
 
               <div class="ymv-grid">
 
-                <!-- 1 -->
                 <article class="ymv-card">
                   <div class="ymv-media"
                        data-vimeo="1146865115"
-                       data-poster="img/numbase.jpg">
+                       data-poster="img/video-thumbs/numbase.jpg">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
                     <div class="ymv-badge">Featured</div>
@@ -360,11 +371,10 @@
                   </div>
                 </article>
 
-                <!-- 2 -->
                 <article class="ymv-card">
                   <div class="ymv-media"
                        data-vimeo="1146865077"
-                       data-poster="img/nike.jpg">
+                       data-poster="img/video-thumbs/nike.jpg">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
                     <div class="ymv-badge">Vimeo</div>
@@ -379,11 +389,10 @@
                   </div>
                 </article>
 
-                <!-- 3 -->
                 <article class="ymv-card">
                   <div class="ymv-media"
                        data-vimeo="1146865055"
-                       data-poster="img/ym-logo.jpg">
+                       data-poster="img/video-thumbs/ym-logo.jpg">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
                     <div class="ymv-badge">Vimeo</div>
@@ -398,15 +407,14 @@
                   </div>
                 </article>
 
-                <!-- 4 -->
                 <article class="ymv-card">
                   <div class="ymv-media"
                        data-vimeo="1146865038"
-                       data-poster="img/kbilarabi.jpg">
+                       data-poster="img/video-thumbs/kbilarabi.jpg">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
                     <div class="ymv-badge">Vimeo</div>
-                    <button class="ymv-play" type="button" aria-label="Play KBILARABI coming soon reveal">
+                    <button class="ymv-play" type="button" aria-label="Play KBILARABI reveal">
                       <i class="fas fa-play"></i>
                     </button>
                     <div class="ymv-embed" aria-hidden="true"></div>
@@ -417,11 +425,10 @@
                   </div>
                 </article>
 
-                <!-- 5 -->
                 <article class="ymv-card">
                   <div class="ymv-media"
                        data-vimeo="1151531651"
-                       data-poster="img/hydrosnap.jpg">
+                       data-poster="img/video-thumbs/hydrosnap.jpg">
                     <div class="ymv-poster"></div>
                     <div class="ymv-overlay"></div>
                     <div class="ymv-badge">Vimeo</div>
@@ -437,11 +444,9 @@
                 </article>
 
               </div>
-
-
             </div>
           </section>
-          <!-- VIDEOS end -->
+          <!-- Videos end -->
 
           <!-- call to action -->
           <section id="about" class="mil-p-90-90">
@@ -507,26 +512,19 @@
   </div>
   <!-- wrapper end -->
 
-  <!-- jQuery js -->
+  <!-- scripts -->
   <script src="js/plugins/jquery.min.js"></script>
-  <!-- swup js -->
   <script src="js/plugins/swup.min.js"></script>
-  <!-- swup body class plugin js -->
   <script src="js/plugins/SwupBodyClassPlugin.min.js"></script>
-  <!-- swiper js -->
   <script src="js/plugins/swiper.min.js"></script>
-  <!-- gsap js -->
   <script src="js/plugins/gsap.min.js"></script>
-  <!-- scroll smoother -->
   <script src="js/plugins/smooth-scroll.js"></script>
-  <!-- scroll trigger js -->
   <script src="js/plugins/ScrollTrigger.min.js"></script>
-  <!-- parallax js -->
   <script src="js/plugins/parallax.js"></script>
   <script src="js/main.js"></script>
   <script src="js/left.js"></script>
 
-  <!-- SUCCESS POPUP -->
+  <!-- success popup -->
   <div id="successPopup" class="popup-overlay">
     <div class="popup-box">
       <h2>Thank you!</h2>
@@ -535,53 +533,76 @@
     </div>
   </div>
 
-  <!-- Inline embed JS (Montra-like behavior) -->
+  <!-- ==========================================================
+       FIX #1: Swup-friendly init (posters appear instantly)
+       - init now
+       - init after Swup replaces content
+       - init again on next frame (timing fix)
+       - event delegation for play click (no double-binding)
+     ========================================================== -->
   <script>
     (function(){
-      function initYehyaVideoGrid(){
-        const medias = document.querySelectorAll(".ymv-media");
-        if(!medias || !medias.length) return;
-
-        medias.forEach((media) => {
-          // Apply poster image
+      function applyPosters(scope){
+        const root = scope || document;
+        root.querySelectorAll(".ymv-media").forEach((media) => {
           const posterUrl = media.getAttribute("data-poster");
           const posterEl = media.querySelector(".ymv-poster");
           if(posterEl && posterUrl){
             posterEl.style.backgroundImage = "url('" + posterUrl + "')";
           }
-
-          const btn = media.querySelector(".ymv-play");
-          if(!btn) return;
-
-          // Avoid double-binding after Swup transitions
-          if(btn.dataset.bound === "1") return;
-          btn.dataset.bound = "1";
-
-          btn.addEventListener("click", function(){
-            const card = media.closest(".ymv-card");
-            const embed = media.querySelector(".ymv-embed");
-            const vimeoId = media.getAttribute("data-vimeo");
-
-            if(!embed || !vimeoId) return;
-            if(card && card.classList.contains("is-playing")) return;
-
-            embed.innerHTML = `
-              <iframe
-                src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1"
-                allow="autoplay; fullscreen; picture-in-picture"
-                поправ allowfullscreen
-                title="Vimeo video ${vimeoId}">
-              </iframe>
-            `.replace("поправ", ""); // safety: remove accidental non-ascii token
-
-            if(card) card.classList.add("is-playing");
-          });
         });
       }
 
-      document.addEventListener("DOMContentLoaded", initYehyaVideoGrid);
-      document.addEventListener("swup:contentReplaced", initYehyaVideoGrid);
-      document.addEventListener("swup:pageView", initYehyaVideoGrid);
+      function injectVimeo(media){
+        const card = media.closest(".ymv-card");
+        const embed = media.querySelector(".ymv-embed");
+        const vimeoId = media.getAttribute("data-vimeo");
+        if(!embed || !vimeoId) return;
+
+        if(card && card.classList.contains("is-playing")) return;
+
+        embed.innerHTML = `
+          <iframe
+            src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Vimeo video ${vimeoId}">
+          </iframe>
+        `;
+
+        if(card) card.classList.add("is-playing");
+      }
+
+      function initVideos(){
+        applyPosters(document);
+
+        // Timing fix: run again on next frame (Swup/GSAP can swap late)
+        requestAnimationFrame(() => applyPosters(document));
+        setTimeout(() => applyPosters(document), 50);
+      }
+
+      // Event delegation (works after Swup swaps content)
+      document.addEventListener("click", function(e){
+        const btn = e.target.closest(".ymv-play");
+        const media = e.target.closest(".ymv-media");
+
+        // Clicking the media area itself also plays (like template)
+        const mediaClick = !btn && media && e.target.closest(".ymv-media");
+
+        if(btn){
+          const m = btn.closest(".ymv-media");
+          if(m) injectVimeo(m);
+        } else if(mediaClick){
+          // Only if you clicked inside media but not on meta
+          injectVimeo(media);
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", initVideos);
+
+      // Swup hooks: your theme uses Swup, so we re-init here too
+      document.addEventListener("swup:contentReplaced", initVideos);
+      document.addEventListener("swup:pageView", initVideos);
     })();
   </script>
 </body>
