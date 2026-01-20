@@ -1,135 +1,150 @@
 <!DOCTYPE html>
-<html lang="zxx" class="is-animating">
-
+<html lang="en" class="is-animating">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- bootstrap grid css -->
+  <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
+  <!-- font awesome css -->
+  <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
+  <!-- swiper css -->
+  <link rel="stylesheet" href="css/plugins/swiper.min.css" />
+  <!-- your theme -->
+  <link rel="stylesheet" href="css/dark-mode.css" />
 
-    <!-- bootstrap grid css -->
-    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
-    <!-- font awesome css -->
-    <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
-    <!-- swiper css -->
-    <link rel="stylesheet" href="css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="css/dark-mode.css">
-    
-    <link rel="icon" type="image/png" href="img/icons/y2.png">
-    <style>
- 
-   body.mil-fw-page .mil-right-banner{
-    transform: translateX(110%) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
-  }
-body.mil-fw-page .mil-right-banner{
-    transform: translateX(110%) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
-  }
+  <link rel="icon" type="image/png" href="img/icons/y2.png" />
+  <title>Videos | Yehya Moustafa</title>
 
-  /* Videos layout */
-  .videos-grid { 
-    padding: 0 15px; 
-  }
-
-  .video-card{
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    overflow: hidden; /* ensures iframe corners clip */
-    box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-
-  @media (hover:hover) and (pointer:fine){
-    .video-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.16);
+  <style>
+    /* Hide right banner on fw pages (your original rule) */
+    body.mil-fw-page .mil-right-banner{
+      transform: translateX(110%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
     }
-  }
 
-  /* Responsive iframe wrapper (16:9 by default) */
-  .video-frame{
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 */
-    background: rgba(0,0,0,0.2);
-  }
+    /* ===== Premium Videos Page Styling ===== */
 
-  .video-frame iframe{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
+    /* Section spacing helper (in case theme spacing differs) */
+    .videos-section{
+      padding: 40px 0 90px;
+    }
 
-  .video-meta{
-    padding: 14px 16px 16px;
-  }
+    /* Center container so layout feels intentional */
+    .videos-wrap{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
 
-  .video-title{
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.3;
-    color: rgba(255,255,255,0.92);
-    font-weight: 600;
-  }
+    /* Grid: 1 col mobile, 2 col desktop */
+    .videos-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    @media (min-width: 992px){
+      .videos-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+    }
 
-  .video-sub{
-    margin: 6px 0 0;
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-  }
+    /* Card */
+    .v-card{
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    @media (hover:hover) and (pointer:fine){
+      .v-card:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+        border-color: rgba(255,255,255,0.16);
+      }
+    }
 
-  /* Spacing helpers if bootstrap mb-5 doesn't match your theme */
-  .video-mb{ margin-bottom: 22px; }
-  @media (min-width: 992px){
-    .video-mb{ margin-bottom: 26px; }
-  }
+    /* Video frame (responsive aspect ratio) */
+    .v-frame{
+      position: relative;
+      width: 100%;
+      background: rgba(0,0,0,0.35);
+    }
 
-        
+    /* Ratios */
+    .v-frame.r-16x9{ padding-top: 56.25%; }     /* 16:9 */
+    .v-frame.r-4x5{  padding-top: 125%; }       /* 4:5 */
+    .v-frame.r-9x16{ padding-top: 177.78%; }    /* 9:16 (vertical reels) */
+
+    .v-frame iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* Meta */
+    .v-meta{
+      padding: 14px 16px 16px;
+    }
+    .v-title{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 650;
+      line-height: 1.25;
+      color: rgba(255,255,255,0.92);
+    }
+    .v-sub{
+      margin: 6px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.62);
+    }
+
+    /* Optional: make the vertical one not insanely tall on mobile */
+    @media (max-width: 576px){
+      /* Use 4:5 on very small screens if you want less scrolling */
+      .v-frame.r-9x16{ padding-top: 140%; }
+    }
   </style>
-    <!-- page name -->
-    <title>Videos | Yehya Moustafa</title>
-
 </head>
 
 <body class="mil-fw-page">
+  <!-- wrapper -->
+  <div class="mil-wrapper" id="top">
 
-    <!-- wrapper -->
-    <div class="mil-wrapper" id="top">
-
-        <!-- preloader -->
-        <div class="mil-preloader-frame">
-            <div class="mil-preloader-content" style="transform: scale(.6) translateY(200px); opacity: 0;">
-                <div class="mil-preloader">
-                    <div class="mil-circ-1"></div>
-                    <div class="mil-circ-2"></div>
-                    <div class="mil-circ-3"></div>
-                    <div class="mil-circ-4"></div>
-                </div>
-                <div class="mil-upper">Loading creativity…</div>
-            </div>
+    <!-- preloader -->
+    <div class="mil-preloader-frame">
+      <div class="mil-preloader-content" style="transform: scale(.6) translateY(200px); opacity: 0;">
+        <div class="mil-preloader">
+          <div class="mil-circ-1"></div>
+          <div class="mil-circ-2"></div>
+          <div class="mil-circ-3"></div>
+          <div class="mil-circ-4"></div>
         </div>
-        <!-- preloader end -->
+        <div class="mil-upper">Loading creativity…</div>
+      </div>
+    </div>
+    <!-- preloader end -->
 
-        <div class="mil-frame">
+    <div class="mil-frame">
 
-            <!-- top bar -->
-            <div class="mil-top-panel">
+      <!-- top bar -->
+      <div class="mil-top-panel">
+        <a href="/" class="mil-logo">
+          <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo">
+        </a>
 
-                <!-- You need to remove the "mil-dot" class if you don't need a dot -->
-                <a href="/" class="mil-logo">
-             <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo"> 
-              </a>
-                <div class="mil-navigation">
-                             <nav id="swupMenu" class="mil-menu-transition">
+        <div class="mil-navigation">
+          <nav id="swupMenu" class="mil-menu-transition">
             <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/portfolio">Projects</a></li>
@@ -138,284 +153,257 @@ body.mil-fw-page .mil-right-banner{
               <li><a href="/contact">Contact</a></li>
             </ul>
           </nav>
-                </div>
+        </div>
 
-                <div class="mil-top-panel-btns">
-                    <a href="/contact" class="mil-contact-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
+        <div class="mil-top-panel-btns">
+          <a href="/contact" class="mil-contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
 
-                    <div class="mil-menu-btn">
-                        <span></span>
-                    </div>
-                </div>
+          <div class="mil-menu-btn">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <!-- top bar end -->
 
+      <!-- left bar -->
+      <div class="mil-left-panel">
+        <div class="mil-page-name mil-upper mil-dark">Loading...</div>
+
+        <ul class="mil-social-icons">
+          <li>
+            <a href="https://wa.me/96170701178?text=Hi%20Yehya%2C%20I%27m%20reaching%20out%20from%20your%20website!"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="social-icon"
+               data-no-swup>
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- left bar end -->
+
+      <!-- back to top -->
+      <div class="mil-back-to-top">
+        <a href="#top" class="mil-link mil-btt-icon">
+          <span>Back to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+      <!-- back to top end -->
+    </div>
+
+    <!-- content -->
+    <div class="mil-content">
+      <div class="mil-scroll-wrapper transition-fade" id="swupMain">
+        <div class="mil-container-fw">
+
+          <!-- banner -->
+          <section class="mil-banner-sm mil-center">
+            <div class="mil-banner-top mil-up"></div>
+            <div class="mil-banner-title">
+              <h1 class="mil-h1-sm mil-up mil-mb-60">My Videos</h1>
+              <ul class="mil-breadcrumbs mil-up">
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/videos">Videos</a></li>
+              </ul>
             </div>
-            <!-- top bar end -->
+          </section>
+          <!-- banner end -->
 
-<!-- left bar -->
-<div class="mil-left-panel">
+          <!-- VIDEOS (premium grid) -->
+          <section class="videos-section">
+            <div class="videos-wrap">
+              <div class="videos-grid">
 
-  <!-- Page title (auto-updated by left.js) -->
-  <div class="mil-page-name mil-upper mil-dark">Loading...</div>
+                <!-- 1 -->
+                <article class="v-card">
+                  <div class="v-frame r-16x9">
+                    <iframe
+                      src="https://player.vimeo.com/video/1146865115?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen
+                      title="Numbase website">
+                    </iframe>
+                  </div>
+                  <div class="v-meta">
+                    <h3 class="v-title">Numbase website</h3>
+                    <p class="v-sub">Website presentation</p>
+                  </div>
+                </article>
 
-  <!-- Social icons -->
-  <ul class="mil-social-icons">
-    <!-- WhatsApp -->
-    <li>
-      <a href="https://wa.me/96170701178?text=Hi%20Yehya%2C%20I%27m%20reaching%20out%20from%20your%20website!"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="social-icon"
-         data-no-swup>
-         <i class="fab fa-whatsapp"></i>
-      </a>
-    </li>
+                <!-- 2 -->
+                <article class="v-card">
+                  <div class="v-frame r-16x9">
+                    <iframe
+                      src="https://player.vimeo.com/video/1146865077?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen
+                      title="Nike ad">
+                    </iframe>
+                  </div>
+                  <div class="v-meta">
+                    <h3 class="v-title">Nike ad</h3>
+                    <p class="v-sub">Ad concept</p>
+                  </div>
+                </article>
 
-    
-  </ul>
+                <!-- 3 -->
+                <article class="v-card">
+                  <div class="v-frame r-16x9">
+                    <iframe
+                      src="https://player.vimeo.com/video/1146865055?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen
+                      title="Y+M Logo reveal">
+                    </iframe>
+                  </div>
+                  <div class="v-meta">
+                    <h3 class="v-title">Y+M Logo reveal</h3>
+                    <p class="v-sub">Brand animation</p>
+                  </div>
+                </article>
 
-</div>
-<!-- left bar end -->
+                <!-- 4 (vertical) -->
+                <article class="v-card">
+                  <div class="v-frame r-9x16">
+                    <iframe
+                      src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen
+                      title="KBILARABI — Coming Soon">
+                    </iframe>
+                  </div>
+                  <div class="v-meta">
+                    <h3 class="v-title">KBILARABI — Coming Soon</h3>
+                    <p class="v-sub">Teaser / reveal</p>
+                  </div>
+                </article>
 
+                <!-- 5 -->
+                <article class="v-card">
+                  <div class="v-frame r-16x9">
+                    <iframe
+                      src="https://player.vimeo.com/video/1151531651?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      allowfullscreen
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      title="Hydrosnap">
+                    </iframe>
+                  </div>
+                  <div class="v-meta">
+                    <h3 class="v-title">Hydrosnap</h3>
+                    <p class="v-sub">Product teaser</p>
+                  </div>
+                </article>
 
-            <!-- back to top -->
-            <div class="mil-back-to-top">
-                <a href="#top" class="mil-link mil-btt-icon">
-                    <span>Back to top</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
+              </div>
             </div>
-            <!-- back to top end -->
+          </section>
+          <!-- VIDEOS end -->
 
-        </div>
+          <!-- call to action -->
+          <section id="about" class="mil-p-90-90">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="mil-center">
+                  <h2 class="mil-up mil-mb-30">Ready to bring your ideas to life? I'm here to help</h2>
+                  <div class="mil-up">
+                    <a href="/contact" class="mil-btn mil-sm-btn">Contact me</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- call to action end -->
 
-        <!-- content -->
-        <div class="mil-content">
+          <!-- footer -->
+          <footer class="mil-fw">
+            <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
+            <p class="mil-light-soft">Author: &nbsp;<a href="/" target="_blank">Yehya Moustafa</a></p>
+          </footer>
+          <!-- footer end -->
 
-            <div class="mil-scroll-wrapper transition-fade" id="swupMain">
-                <div class="mil-container-fw">
-
-                    <!-- banner -->
-                    <section class="mil-banner-sm mil-center">
-                        <div class="mil-banner-top mil-up"></div>
-                        <div class="mil-banner-title">
-                            <h1 class="mil-h1-sm mil-up mil-mb-60">My Videos</h1>
-                            <ul class="mil-breadcrumbs mil-up">
-                                <li><a href="/">Homepage</a></li>
-                                <li><a href="/portfolio">Videos</a></li>
-                            </ul>
-                        </div>
-                    </section>
-                    <!-- banner end -->
-
-                    <!-- portfolio -->
-                    <section>
-  <div class="row videos-grid">
-
-    <div class="col-12 col-lg-6 video-mb">
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1146865115?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Numbase website">
-          </iframe>
-        </div>
-        <div class="video-meta">
-          <p class="video-title">Numbase website</p>
-          <p class="video-sub">Website Presentaion</p>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 col-lg-6 video-mb">
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1146865077?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Nike ad">
-          </iframe>
+      <!-- Keep right-banner markup (hidden via CSS above) so layout/scripts don’t break -->
+      <div class="mil-right-banner" id="scene">
+        <div class="mil-progress-track">
+          <div class="mil-progress"></div>
         </div>
-        <div class="video-meta">
-          <p class="video-title">Nike ad</p>
-          <p class="video-sub">Ad concept</p>
+
+        <div class="mil-banner-wrapper" data-depth="1">
+          <div id="swupBg" class="mil-banner-frame">
+            <img src="img/person/bg-4.jpg" alt="background" class="mil-banner-bg mil-blur">
+          </div>
+        </div>
+
+        <div class="mil-banner-wrapper" data-depth="0.2">
+          <div id="swupPerson" class="mil-banner-frame">
+            <img src="img/person/5.png" alt="person" class="mil-banner-person">
+          </div>
+        </div>
+
+        <div class="mil-flying-skills" data-depth="0.1">
+          <div id="swupSkills" class="mil-skills-frame">
+            <div class="mil-item" style="top: 30%; left: 10%">
+              <img src="img/logos/1.jpg" alt="logo">
+            </div>
+            <div class="mil-item" style="bottom: 15%; left: 20%">
+              <img src="img/logos/2.jpg" alt="logo">
+            </div>
+            <div class="mil-item" style="bottom: 45%; right: 15%">
+              <img src="img/logos/3.jpg" alt="logo">
+            </div>
+            <div class="mil-el mil-addition-el-1">+</div>
+            <div class="mil-el mil-addition-el-2">+</div>
+            <div class="mil-el mil-addition-el-3"></div>
+            <div class="mil-el mil-addition-el-4"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 col-lg-6 video-mb">
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1146865055?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Y+M Logo reveal">
-          </iframe>
-        </div>
-        <div class="video-meta">
-          <p class="video-title">Y+M Logo reveal</p>
-          <p class="video-sub">Brand animation</p>
-        </div>
-      </div>
     </div>
-
-    <div class="col-12 col-lg-6 video-mb">
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="KBILARABI coming soon reveal">
-          </iframe>
-        </div>
-        <div class="video-meta">
-          <p class="video-title">KBILARABI — Coming Soon</p>
-          <p class="video-sub">Teaser / reveal</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 video-mb">
-      <div class="video-card">
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/1151531651?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-            title="hydrosnap">
-          </iframe>
-        </div>
-        <div class="video-meta">
-          <p class="video-title">Hydrosnap</p>
-          <p class="video-sub">App Presentation</p>
-        </div>
-      </div>
-    </div>
-
+    <!-- content end -->
   </div>
-</section>
+  <!-- wrapper end -->
 
+  <!-- jQuery js -->
+  <script src="js/plugins/jquery.min.js"></script>
+  <!-- swup js -->
+  <script src="js/plugins/swup.min.js"></script>
+  <!-- swup body class plugin js -->
+  <script src="js/plugins/SwupBodyClassPlugin.min.js"></script>
+  <!-- swiper js -->
+  <script src="js/plugins/swiper.min.js"></script>
+  <!-- gsap js -->
+  <script src="js/plugins/gsap.min.js"></script>
+  <!-- scroll smoother -->
+  <script src="js/plugins/smooth-scroll.js"></script>
+  <!-- scroll trigger js -->
+  <script src="js/plugins/ScrollTrigger.min.js"></script>
+  <!-- parallax js -->
+  <script src="js/plugins/parallax.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/left.js"></script>
 
-                    <!-- portfolio end -->
-
-                    <!-- call to action -->
-                    <section id="about" class="mil-p-90-90">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="mil-center">
-                                    <h2 class="mil-up mil-mb-30">Ready to bring your ideas to life? I'm here to help</h2>
-                                    <div class="mil-up">
-                                        <a href="/contact" class="mil-btn mil-sm-btn">Contact me</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- call to action end -->
-
-                    <!-- footer -->
-                    <footer class="mil-fw">
-                        <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
-                        <p class="mil-light-soft">Author: &nbsp;<a href="/" target="_blank">Yehya Moustafa</a></p>
-                    </footer>
-                    <!-- footer end -->
-
-                </div>
-
-            </div>
-
-            <div class="mil-right-banner" id="scene">
-                <!-- scrollbar -->
-                <div class="mil-progress-track">
-                    <div class="mil-progress"></div>
-                </div>
-                <!-- scrollbar end -->
-                <div class="mil-banner-wrapper" data-depth="1">
-                    <div id="swupBg" class="mil-banner-frame">
-                        <img src="img/person/bg-4.jpg" alt="background" class="mil-banner-bg mil-blur">
-                    </div>
-                </div>
-                <div class="mil-banner-wrapper" data-depth="0.2">
-                    <div id="swupPerson" class="mil-banner-frame">
-                        <img src="img/person/5.png" alt="person" class="mil-banner-person">
-                    </div>
-                </div>
-                <div class="mil-flying-skills" data-depth="0.1">
-                    <div id="swupSkills" class="mil-skills-frame">
-                        <div class="mil-item" style="top: 30%; left: 10%">
-                            <img src="img/logos/1.jpg" alt="logo">
-                        </div>
-                        <div class="mil-item" style="bottom: 15%; left: 20%">
-                            <img src="img/logos/2.jpg" alt="logo">
-                        </div>
-                        <div class="mil-item" style="bottom: 45%; right: 15%">
-                            <img src="img/logos/3.jpg" alt="logo">
-                        </div>
-                        <div class="mil-el mil-addition-el-1">+</div>
-                        <div class="mil-el mil-addition-el-2">+</div>
-                        <div class="mil-el mil-addition-el-3"></div>
-                        <div class="mil-el mil-addition-el-4"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- content -->
+  <!-- Success Popup -->
+  <div id="successPopup" class="popup-overlay">
+    <div class="popup-box">
+      <h2>Thank you!</h2>
+      <p>We’ve received your message and will get back to you as soon as possible.</p>
+      <button id="closePopup" class="popup-btn">Close</button>
     </div>
-    <!-- wrapper end -->
-
-    <!-- jQuery js -->
-    <script src="js/plugins/jquery.min.js"></script>
-    <!-- swup js -->
-    <script src="js/plugins/swup.min.js"></script>
-    <!-- swup body class plugin js -->
-    <script src="js/plugins/SwupBodyClassPlugin.min.js"></script>
-    <!-- swiper js -->
-    <script src="js/plugins/swiper.min.js"></script>
-    <!-- gsap js -->
-    <script src="js/plugins/gsap.min.js"></script>
-    <!-- scroll smoother -->
-    <script src="js/plugins/smooth-scroll.js"></script>
-    <!-- scroll trigger js -->
-    <script src="js/plugins/ScrollTrigger.min.js"></script>
-    <!-- parallax js -->
-    <script src="js/plugins/parallax.js"></script>
-    <script src="js/main.js"></script>
-    
-    <script src="js/left.js"></script>
-
-
-
-
-
-
-<div id="successPopup" class="popup-overlay">
-  <div class="popup-box">
-    <h2>Thank you!</h2>
-    <p>We’ve received your message and will get back to you as soon as possible.</p>
-    <button id="closePopup" class="popup-btn">Close</button>
   </div>
-</div>
 
-
-
-
-
-
-    
 </body>
-
 </html>
