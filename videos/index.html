@@ -25,152 +25,12 @@
       pointer-events: none !important;
       visibility: hidden !important;
     }
-
-    /* ==========================================================
-       VIDEOS — thumb only (NO descriptions)
-       - Thumbs are immediate (no JS needed to render)
-       - Swup safe: thumbs appear without refresh
-       - Click -> iframe loads
-       - Square 1:1 grid
-       - Smaller corners
-       - NO hover shadow
-       ========================================================== */
-
-    .ymv-wrap{
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 18px;
-    }
-
-    .ymv-section{
-      padding: 10px 0 70px;
-    }
-
-    .ymv-grid{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-    @media (min-width: 768px){
-      .ymv-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    }
-    @media (min-width: 1200px){
-      .ymv-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-    }
-
-    /* Card */
-    .ymv-card{
-      width: 100%;
-      border-radius: 14px;              /* reduced corner */
-      overflow: hidden;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: none !important;      /* no shadow ever */
-      transition: transform .18s ease, border-color .18s ease;
-    }
-
-    /* No hover shadow: just tiny lift + border */
-    @media (hover:hover) and (pointer:fine){
-      .ymv-card:hover{
-        transform: translateY(-2px);
-        border-color: rgba(255,255,255,0.16);
-        box-shadow: none !important;
-      }
-      .ymv-card:hover .ymv-poster{
-        transform: scale(1.03);
-      }
-      .ymv-card:hover .ymv-play{
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-    }
-
-    /* Media container — ALWAYS SQUARE 1:1 */
-    .ymv-media{
-      position: relative;
-      width: 100%;
-      padding-top: 100%;
-      background: rgba(255,255,255,0.04);
-      isolation: isolate;
-      cursor: pointer;
-    }
-
-    /* Poster (NOW DEFINED IN HTML inline style, so it shows instantly) */
-    .ymv-poster{
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.01);
-      transition: transform .35s ease, opacity .25s ease;
-      opacity: 1;
-    }
-
-    .ymv-overlay{
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        radial-gradient(900px 450px at 30% 10%, rgba(255,255,255,0.10), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.22) 70%, rgba(0,0,0,0.42) 100%);
-    }
-
-    .ymv-play{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 66px;
-      height: 66px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.26);
-      background: rgba(0,0,0,0.42);
-      color: #fff;
-      cursor: pointer;
-      z-index: 2;
-      display: grid;
-      place-items: center;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .ymv-play i{
-      font-size: 18px;
-      margin-left: 3px;
-    }
-
-    /* Embedded iframe after click */
-    .ymv-embed{
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity .2s ease;
-      background: #000;
-    }
-    .ymv-embed iframe{
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      background: #000;
-    }
-
-    .ymv-card.is-playing .ymv-poster{ opacity: 0; }
-    .ymv-card.is-playing .ymv-embed{ opacity: 1; }
-    .ymv-card.is-playing .ymv-play{ opacity: 0; pointer-events: none; }
-
-    /* Center the tiles nicely on mobile */
-    @media (max-width: 767px){
-      .ymv-grid{ justify-items: center; }
-      .ymv-card{ max-width: 520px; }
-    }
   </style>
 </head>
 
 <body class="mil-fw-page">
 
+  <!-- wrapper -->
   <div class="mil-wrapper" id="top">
 
     <!-- preloader -->
@@ -263,6 +123,8 @@
 
     <!-- content -->
     <div class="mil-content">
+
+      <!-- Swup container -->
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
@@ -279,7 +141,7 @@
           </section>
           <!-- banner end -->
 
-          <!-- VIDEOS (thumb only) -->
+          <!-- VIDEOS: THUMB + PLAY ONLY (16:9) -->
           <section class="ymv-section">
             <div class="ymv-wrap">
               <div class="ymv-grid">
@@ -293,56 +155,58 @@
                 -->
 
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865115" aria-label="Video 1">
+                  <div class="ymv-media" data-vimeo="1146865115" aria-label="Video">
                     <div class="ymv-poster" style="background-image:url('img/numbase.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play video">
+
+                    <button class="ymv-play" type="button" aria-label="Play">
                       <i class="fas fa-play"></i>
                     </button>
+
+                    <button class="ymv-close" type="button" aria-label="Close (stop video)">
+                      <span aria-hidden="true">×</span>
+                    </button>
+
                     <div class="ymv-embed" aria-hidden="true"></div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865077" aria-label="Video 2">
+                  <div class="ymv-media" data-vimeo="1146865077" aria-label="Video">
                     <div class="ymv-poster" style="background-image:url('img/nike.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play video">
-                      <i class="fas fa-play"></i>
-                    </button>
+                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
                     <div class="ymv-embed" aria-hidden="true"></div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865055" aria-label="Video 3">
+                  <div class="ymv-media" data-vimeo="1146865055" aria-label="Video">
                     <div class="ymv-poster" style="background-image:url('img/ym-logo.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play video">
-                      <i class="fas fa-play"></i>
-                    </button>
+                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
                     <div class="ymv-embed" aria-hidden="true"></div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1146865038" aria-label="Video 4">
+                  <div class="ymv-media" data-vimeo="1146865038" aria-label="Video">
                     <div class="ymv-poster" style="background-image:url('img/kbilarabi.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play video">
-                      <i class="fas fa-play"></i>
-                    </button>
+                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
                     <div class="ymv-embed" aria-hidden="true"></div>
                   </div>
                 </article>
 
                 <article class="ymv-card">
-                  <div class="ymv-media" data-vimeo="1151531651" aria-label="Video 5">
+                  <div class="ymv-media" data-vimeo="1151531651" aria-label="Video">
                     <div class="ymv-poster" style="background-image:url('img/hydrosnap.jpg');"></div>
                     <div class="ymv-overlay"></div>
-                    <button class="ymv-play" type="button" aria-label="Play video">
-                      <i class="fas fa-play"></i>
-                    </button>
+                    <button class="ymv-play" type="button" aria-label="Play"><i class="fas fa-play"></i></button>
+                    <button class="ymv-close" type="button" aria-label="Close (stop video)"><span aria-hidden="true">×</span></button>
                     <div class="ymv-embed" aria-hidden="true"></div>
                   </div>
                 </article>
@@ -365,23 +229,19 @@
               </div>
             </div>
           </section>
-          <!-- call to action end -->
 
           <!-- footer -->
           <footer class="mil-fw">
             <p class="mil-light-soft">© 2026. Yehya Moustafa. All rights reserved.</p>
             <p class="mil-light-soft">Author: &nbsp;<a href="/" target="_blank">Yehya Moustafa</a></p>
           </footer>
-          <!-- footer end -->
 
         </div>
       </div>
 
       <!-- Keep right banner markup (hidden by CSS) so your theme/scripts stay stable -->
       <div class="mil-right-banner" id="scene">
-        <div class="mil-progress-track">
-          <div class="mil-progress"></div>
-        </div>
+        <div class="mil-progress-track"><div class="mil-progress"></div></div>
         <div class="mil-banner-wrapper" data-depth="1">
           <div id="swupBg" class="mil-banner-frame">
             <img src="img/person/bg-4.jpg" alt="background" class="mil-banner-bg mil-blur">
@@ -394,15 +254,9 @@
         </div>
         <div class="mil-flying-skills" data-depth="0.1">
           <div id="swupSkills" class="mil-skills-frame">
-            <div class="mil-item" style="top: 30%; left: 10%">
-              <img src="img/logos/1.jpg" alt="logo">
-            </div>
-            <div class="mil-item" style="bottom: 15%; left: 20%">
-              <img src="img/logos/2.jpg" alt="logo">
-            </div>
-            <div class="mil-item" style="bottom: 45%; right: 15%">
-              <img src="img/logos/3.jpg" alt="logo">
-            </div>
+            <div class="mil-item" style="top: 30%; left: 10%"><img src="img/logos/1.jpg" alt="logo"></div>
+            <div class="mil-item" style="bottom: 15%; left: 20%"><img src="img/logos/2.jpg" alt="logo"></div>
+            <div class="mil-item" style="bottom: 45%; right: 15%"><img src="img/logos/3.jpg" alt="logo"></div>
             <div class="mil-el mil-addition-el-1">+</div>
             <div class="mil-el mil-addition-el-2">+</div>
             <div class="mil-el mil-addition-el-3"></div>
@@ -416,7 +270,7 @@
   </div>
   <!-- wrapper end -->
 
-  <!-- scripts -->
+  <!-- scripts (persist across Swup navigations) -->
   <script src="js/plugins/jquery.min.js"></script>
   <script src="js/plugins/swup.min.js"></script>
   <script src="js/plugins/SwupBodyClassPlugin.min.js"></script>
@@ -437,15 +291,61 @@
     </div>
   </div>
 
-  <!-- Vimeo click-to-play (delegated; works after Swup swaps content) -->
+  <!-- ==========================================================
+       ONCE & FOR ALL FIX
+       - Inject CSS into <head> globally (Swup doesn’t replace head)
+       - So 16:9 boxes ALWAYS have height without refreshing
+       - Delegated play/close (works after Swup swaps #swupMain)
+     ========================================================== -->
   <script>
-    (function(){
-      function injectVimeo(media){
+    (function () {
+      const STYLE_ID = "ymv-global-style";
+
+      const CSS = `
+        .ymv-wrap{max-width:1280px;margin:0 auto;padding:0 18px;}
+        .ymv-section{padding:10px 0 70px;}
+        .ymv-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;}
+        @media (min-width:768px){.ymv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}}
+        @media (min-width:1200px){.ymv-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}}
+        .ymv-card{width:100%;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);box-shadow:none!important;transition:transform .18s ease,border-color .18s ease;}
+        @media (hover:hover) and (pointer:fine){
+          .ymv-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.16);box-shadow:none!important;}
+          .ymv-card:hover .ymv-poster{transform:scale(1.03);}
+          .ymv-card:hover .ymv-play{transform:translate(-50%,-50%) scale(1.05);}
+        }
+        .ymv-media{position:relative;width:100%;padding-top:56.25%;background:rgba(255,255,255,0.04);isolation:isolate;cursor:pointer;}
+        .ymv-poster{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.01);transition:transform .35s ease,opacity .25s ease;opacity:1;}
+        .ymv-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
+          background:radial-gradient(900px 450px at 30% 10%, rgba(255,255,255,0.10), transparent 60%),
+                     linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.22) 70%, rgba(0,0,0,0.42) 100%);}
+        .ymv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:999px;border:1px solid rgba(255,255,255,0.26);background:rgba(0,0,0,0.42);color:#fff;cursor:pointer;z-index:2;display:grid;place-items:center;transition:transform .2s ease,background .2s ease,border-color .2s ease,opacity .2s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+        .ymv-play i{font-size:18px;margin-left:3px;}
+        .ymv-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);background:rgba(0,0,0,0.35);color:#fff;cursor:pointer;z-index:4;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;background:rgba(0,0,0,0.40);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+        .ymv-close span{font-size:22px;line-height:1;transform:translateY(-1px);}
+        .ymv-embed{position:absolute;inset:0;z-index:3;opacity:0;transition:opacity .2s ease;background:#000;}
+        .ymv-embed iframe{width:100%;height:100%;border:0;display:block;background:#000;}
+        .ymv-card.is-playing .ymv-poster{opacity:0;}
+        .ymv-card.is-playing .ymv-embed{opacity:1;}
+        .ymv-card.is-playing .ymv-play{opacity:0;pointer-events:none;}
+        .ymv-card.is-playing .ymv-close{opacity:1;pointer-events:auto;transform:scale(1);}
+        @media (max-width:767px){.ymv-grid{justify-items:center;}.ymv-card{max-width:680px;}}
+      `;
+
+      function ensureStyle() {
+        if (document.getElementById(STYLE_ID)) return;
+        const style = document.createElement("style");
+        style.id = STYLE_ID;
+        style.textContent = CSS;
+        document.head.appendChild(style);
+      }
+
+      function play(media) {
         const card = media.closest(".ymv-card");
+        if (!card || card.classList.contains("is-playing")) return;
+
         const embed = media.querySelector(".ymv-embed");
         const vimeoId = media.getAttribute("data-vimeo");
-        if(!embed || !vimeoId) return;
-        if(card && card.classList.contains("is-playing")) return;
+        if (!embed || !vimeoId) return;
 
         embed.innerHTML = `
           <iframe
@@ -456,19 +356,42 @@
           </iframe>
         `;
 
-        if(card) card.classList.add("is-playing");
+        card.classList.add("is-playing");
       }
 
-      // Delegated click: works even when Swup swaps the page content
-      document.addEventListener("click", function(e){
+      function stop(media) {
+        const card = media.closest(".ymv-card");
+        const embed = media.querySelector(".ymv-embed");
+        if (embed) embed.innerHTML = "";
+        if (card) card.classList.remove("is-playing");
+      }
+
+      // Delegated clicks: works even after Swup swaps content
+      document.addEventListener("click", function (e) {
+        ensureStyle();
+
+        const closeBtn = e.target.closest(".ymv-close");
+        if (closeBtn) {
+          const media = closeBtn.closest(".ymv-media");
+          if (media) stop(media);
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+
         const media = e.target.closest(".ymv-media");
-        if(!media) return;
+        if (!media) return;
 
-        // ignore clicks on iframe once playing
-        if(e.target && e.target.tagName && e.target.tagName.toLowerCase() === "iframe") return;
+        // ignore clicks on the iframe itself
+        if (e.target && e.target.tagName && e.target.tagName.toLowerCase() === "iframe") return;
 
-        injectVimeo(media);
+        play(media);
       });
+
+      // Make sure CSS exists immediately + after Swup navigation events
+      document.addEventListener("DOMContentLoaded", ensureStyle);
+      document.addEventListener("swup:contentReplaced", ensureStyle);
+      document.addEventListener("swup:pageView", ensureStyle);
     })();
   </script>
 </body>
