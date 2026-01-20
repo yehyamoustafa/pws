@@ -14,20 +14,53 @@
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Tapli — Case Study | Yehya Moustafa</title>
 
-  <!-- Case study helpers (no color changes; only layout tidy-ups) -->
+  <!-- Case study helpers (layout tidy-ups only) -->
   <style>
     .cs-wrap { max-width: 980px; margin: 0 auto; }
     .cs-img { width: 100%; display: block; border-radius: 16px; }
-    .cs-muted { opacity: .85; }
+    .cs-muted { opacity: .86; }
     .cs-card {
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
       padding: 22px;
       height: 100%;
     }
     .cs-list { margin: 0; padding-left: 18px; }
-    .cs-tags { margin-top: 22px; }
+    .cs-kpi {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .cs-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+      line-height: 1;
+      opacity: .92;
+    }
     .cs-btn-row .mil-btn { width: 100%; text-align: center; }
+    .cs-hero { padding-top: 90px; }
+    .cs-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 28px 0; }
+    .cs-center { display: flex; justify-content: center; }
+    .cs-screen {
+      width: 100%;
+      max-width: 360px;
+      max-height: 640px;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #ffffff;
+      padding: 12px;
+      display: block;
+    }
+    .cs-grid-note { max-width: 720px; }
   </style>
 </head>
 
@@ -43,7 +76,7 @@
           <div class="mil-circ-3"></div>
           <div class="mil-circ-4"></div>
         </div>
-        <div class="mil-upper">Loading creativity…</div>
+        <div class="mil-upper">Loading Tapli…</div>
       </div>
     </div>
     <!-- PRELOADER END -->
@@ -52,12 +85,12 @@
 
       <!-- TOP BAR -->
       <div class="mil-top-panel">
-        <a href="/" class="mil-logo">
+        <a href="/" class="mil-logo" aria-label="Go to homepage">
           <img src="img/logos/logomain.png" alt="Yehya Moustafa Logo" />
         </a>
 
         <div class="mil-navigation">
-          <nav id="swupMenu" class="mil-menu-transition">
+          <nav id="swupMenu" class="mil-menu-transition" aria-label="Primary">
             <ul>
               <li><a href="/">Home</a></li>
               <li class="mil-active"><a href="/portfolio">Projects</a></li>
@@ -128,52 +161,60 @@
       <div class="mil-scroll-wrapper transition-fade" id="swupMain">
         <div class="mil-container-fw">
 
-<!-- HERO -->
-<section class="mil-p-90-90 cs-hero">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="mil-up">
-        <img src="img/portfolio/1.jpg" alt="Tapli case study hero" class="cs-img" />
-      </div>
-    </div>
-  </div>
-</section>
-<!-- HERO END -->
+          <!-- HERO -->
+          <section class="mil-p-90-90 cs-hero">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="mil-up">
+                  <img src="img/portfolio/1.jpg" alt="Tapli case study hero mockup" class="cs-img" />
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- HERO END -->
 
-
-
+          <div class="cs-wrap">
 
             <!-- OVERVIEW -->
             <section class="mil-p-0-90">
               <div class="row">
                 <div class="col-lg-7">
                   <h2 class="mil-up mil-mb-30">Overview</h2>
+
                   <p class="mil-up mil-mb-30 cs-muted">
-                    Veron is a premium men’s wear shopping app concept focused on fast discovery, clean hierarchy, and a confident brand feel.
-                    The goal was to design browsing and product discovery that stays elegant—even with filters, categories, and dense product lists.
+                    Tapli is a <strong>Watch & Earn</strong> rewards app concept where users earn points by watching short sponsored videos
+                    and completing simple offers — then redeem those points for <strong>airtime top-ups, data bundles, and services</strong>.
+                    The design focuses on clarity, trust, and a premium dark UI while keeping the earning loop fast and motivating.
                   </p>
-                  <p class="mil-up">
+
+                  <p class="mil-up mil-mb-20">
                     <strong class="mil-accent" style="font-weight:700;">My role:</strong>
-                    End-to-end product design (UX flow, UI system, high-fidelity screens, interaction states).
+                    End-to-end product design (UX flows, information architecture, UI system, key screens, and interaction states).
                   </p>
+
+                  <div class="mil-up cs-kpi">
+                    <span class="cs-pill"><strong>Core loop:</strong> Watch → Earn → Redeem</span>
+                    <span class="cs-pill"><strong>Rewards:</strong> Airtime / Data / Services</span>
+                    <span class="cs-pill"><strong>UX focus:</strong> Trust + Speed</span>
+                  </div>
                 </div>
 
-<div class="col-lg-5">
-  <div class="mil-up cs-card">
-    <p class="mil-mb-15">
-      <strong class="mil-dark">Timeline:</strong> 1–2 weeks
-    </p>
-    <p class="mil-mb-15">
-      <strong class="mil-dark">Platform:</strong> Mobile (iOS/Android)
-    </p>
-    <p class="mil-mb-15">
-      <strong class="mil-dark">Deliverables:</strong> Flow, UI kit, key screens
-    </p>
-    <p class="mil-mb-0">
-      <strong class="mil-dark">Tools:</strong> Figma
-    </p>
-  </div>
-</div>
+                <div class="col-lg-5">
+                  <div class="mil-up cs-card">
+                    <p class="mil-mb-15">
+                      <strong class="mil-dark">Timeline:</strong> 1–2 weeks
+                    </p>
+                    <p class="mil-mb-15">
+                      <strong class="mil-dark">Platform:</strong> Mobile (iOS/Android)
+                    </p>
+                    <p class="mil-mb-15">
+                      <strong class="mil-dark">Deliverables:</strong> User flows, onboarding, key tabs (Home/Watch/Offers/Redeem), UI kit
+                    </p>
+                    <p class="mil-mb-0">
+                      <strong class="mil-dark">Tools:</strong> Figma
+                    </p>
+                  </div>
+                </div>
 
               </div>
             </section>
@@ -184,18 +225,27 @@
                 <div class="col-lg-6">
                   <h2 class="mil-up mil-mb-30">The problem</h2>
                   <p class="mil-up cs-muted">
-                    Men’s fashion shopping requires speed and confidence. Users need to scan product grids quickly,
-                    narrow options with filters, and trust the brand—without the interface feeling cluttered or “discount-like.”
+                    Rewards apps often struggle with <strong>trust</strong> (Is this real? Will I get my reward?) and <strong>friction</strong>
+                    (too many steps before the user earns anything). Tapli needed a flow that feels reliable and premium, while making
+                    the earning and redemption journey obvious at a glance.
+                  </p>
+
+                  <div class="cs-divider"></div>
+
+                  <p class="mil-up cs-muted">
+                    Users must instantly understand:
+                    <strong>how many points they have</strong>, <strong>what they can do right now</strong>, and <strong>what they can redeem</strong>.
                   </p>
                 </div>
 
                 <div class="col-lg-6">
                   <h2 class="mil-up mil-mb-30">Goals</h2>
                   <ul class="mil-up cs-list cs-muted">
-                    <li class="mil-mb-10">Fast browsing (clear hierarchy, clean grids)</li>
-                    <li class="mil-mb-10">Low-friction filters and search</li>
-                    <li class="mil-mb-10">Premium feel via typography and spacing</li>
-                    <li class="mil-mb-10">Reusable components for scale</li>
+                    <li class="mil-mb-10">Make the core loop instantly clear: <strong>Watch → Earn → Redeem</strong></li>
+                    <li class="mil-mb-10">Increase motivation with a visible <strong>daily goal/progress</strong></li>
+                    <li class="mil-mb-10">Reduce friction: fast entry into available videos and offers</li>
+                    <li class="mil-mb-10">Design a consistent, scalable system for rewards catalog and tabs</li>
+                    <li class="mil-mb-10">Keep a premium dark UI with strong hierarchy and readable spacing</li>
                   </ul>
                 </div>
               </div>
@@ -204,25 +254,32 @@
             <!-- PROCESS -->
             <section class="mil-p-0-90">
               <h2 class="mil-up mil-mb-30">Process</h2>
+
               <div class="row">
                 <div class="col-lg-4 mil-mb-30">
                   <div class="mil-up cs-card">
-                    <h6 class="mil-up mil-mb-15">1) UX flow</h6>
-                    <p class="mil-up mil-mb-0 cs-muted">Onboarding → Home → Category → PLP → PDP → Cart.</p>
+                    <h6 class="mil-up mil-mb-15">1) Map the product loop</h6>
+                    <p class="mil-up mil-mb-0 cs-muted">
+                      Onboarding → Home (balance + quick actions) → Watch (available videos) → Offers → Redeem (catalog).
+                    </p>
                   </div>
                 </div>
 
                 <div class="col-lg-4 mil-mb-30">
                   <div class="mil-up cs-card">
-                    <h6 class="mil-up mil-mb-15">2) Component system</h6>
-                    <p class="mil-up mil-mb-0 cs-muted">Cards, chips, filters, headers, and states.</p>
+                    <h6 class="mil-up mil-mb-15">2) Build the UI system</h6>
+                    <p class="mil-up mil-mb-0 cs-muted">
+                      Dark cards, progress bars, CTA buttons, list rows, reward chips, and states (available / unavailable).
+                    </p>
                   </div>
                 </div>
 
                 <div class="col-lg-4 mil-mb-30">
                   <div class="mil-up cs-card">
-                    <h6 class="mil-up mil-mb-15">3) High-fidelity UI</h6>
-                    <p class="mil-up mil-mb-0 cs-muted">Typography-driven hierarchy and spacing for readability.</p>
+                    <h6 class="mil-up mil-mb-15">3) Polish + consistency</h6>
+                    <p class="mil-up mil-mb-0 cs-muted">
+                      Typography hierarchy, spacing, and a clean accent gradient used on CTAs and key highlights.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -230,84 +287,95 @@
 
             <!-- KEY SCREENS -->
             <section class="mil-p-0-90">
-  <h2 class="mil-up mil-mb-30">Key screens</h2>
+              <h2 class="mil-up mil-mb-30">Key screens</h2>
 
-  <div class="row">
-    <!-- Screen 1 -->
-<div class="col-lg-6 mil-mb-30">
-  <div class="mil-up" style="display:flex; justify-content:center;">
-    <img
-      src="img/projects/tapli1.png"
-      alt="Tapli screen 1"
-      style="
-        width: 100%;
-        max-width: 360px;
-        max-height: 640px;
-        object-fit: contain;
-        border-radius: 16px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        background: #ffffff;
-        padding: 12px;
-      "
-    />
-  </div>
-</div>
+              <div class="row">
+                <!-- Screen 1 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli1.png" alt="Tapli Home: balance, daily goal, quick actions" class="cs-screen" />
+                  </div>
+                </div>
 
-    <!-- Screen 2 -->
-<div class="col-lg-6 mil-mb-30">
-  <div class="mil-up" style="display:flex; justify-content:center;">
-    <img
-      src="img/projects/tapli2.png"
-      alt="Tapli screen 2"
-      style="
-        width: 100%;
-        max-width: 360px;
-        max-height: 640px;
-        object-fit: contain;
-        border-radius: 16px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        background: #ffffff;
-        padding: 12px;
-      "
-    />
-  </div>
-</div>
+                <!-- Screen 2 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli2.png" alt="Tapli Watch: available videos list with watch now CTA" class="cs-screen" />
+                  </div>
+                </div>
 
-    <!-- Screen 3 -->
-<div class="col-lg-6 mil-mb-30">
-  <div class="mil-up" style="display:flex; justify-content:center;">
-    <img
-      src="img/projects/tapli3.png"
-      alt="Tapli screen 3"
-      style="
-        width: 100%;
-        max-width: 360px;
-        max-height: 640px;
-        object-fit: contain;
-        border-radius: 16px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        background: #ffffff;
-        padding: 12px;
-      "
-    />
-  </div>
-</div>
+                <!-- Screen 3 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli3.png" alt="Tapli Redeem: rewards catalog for airtime, data bundles, services" class="cs-screen" />
+                  </div>
+                </div>
+                                <!-- Screen 4 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli4.png" alt="Tapli Redeem: rewards catalog for airtime, data bundles, services" class="cs-screen" />
+                  </div>
+                </div>
+                                <!-- Screen 5 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli5.png" alt="Tapli Redeem: rewards catalog for airtime, data bundles, services" class="cs-screen" />
+                  </div>
+                </div>
 
+                                <!-- Screen 6 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli6.png" alt="Tapli Redeem: rewards catalog for airtime, data bundles, services" class="cs-screen" />
+                  </div>
+                </div>
+                                <!-- Screen 7 -->
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-center">
+                    <img src="img/projects/tapli7.png" alt="Tapli Redeem: rewards catalog for airtime, data bundles, services" class="cs-screen" />
+                  </div>
+                </div>
+              </div>
 
-  <p class="mil-up mil-mt-30 cs-muted">
-    Key moments in the user journey, focusing on discovery, scanning, and product decision-making.
-  </p>
-</section>
-
+              <p class="mil-up mil-mt-30 cs-muted cs-grid-note">
+                The UI emphasizes a clear points balance, a motivating daily progress indicator, and strong “Watch Now / Redeem” CTAs.
+                Reward items use availability states (enabled/disabled) to set expectations and reduce frustration.
+              </p>
+            </section>
 
             <!-- OUTCOME -->
             <section class="mil-p-0-90">
               <h2 class="mil-up mil-mb-30">Outcome</h2>
+
               <p class="mil-up mil-mb-30 cs-muted">
-                A refined, conversion-friendly mobile shopping experience with clear discovery, consistent components, and a premium brand tone.
-                The foundation is designed to scale into more categories, promotions, and personalization.
+                A premium, conversion-friendly rewards experience that makes the value exchange obvious:
+                <strong>watch short ads, earn points, redeem real utilities</strong> (airtime and data).
+                The design system is ready to scale into more offer types, personalized recommendations, and expanded rewards categories.
               </p>
 
+              <div class="row">
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-card">
+                    <h6 class="mil-up mil-mb-15">What worked best</h6>
+                    <ul class="mil-up cs-list cs-muted">
+                      <li class="mil-mb-10">Balance + progress placed at the top for instant clarity</li>
+                      <li class="mil-mb-10">Simple tab structure: Home / Watch / Offers / Redeem</li>
+                      <li class="mil-mb-10">Clear CTAs that match the user’s next step</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 mil-mb-30">
+                  <div class="mil-up cs-card">
+                    <h6 class="mil-up mil-mb-15">Next iteration ideas</h6>
+                    <ul class="mil-up cs-list cs-muted">
+                      <li class="mil-mb-10">Add “estimated earn” per video + streak rewards</li>
+                      <li class="mil-mb-10">Redemption confirmation + delivery status (trust builder)</li>
+                      <li class="mil-mb-10">Smart filtering and featured rewards based on balance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </section>
 
             <!-- NAV -->
@@ -316,12 +384,11 @@
                 <div class="col-lg-6 mil-mb-30">
                   <a href="/portfolio" class="mil-btn mil-sm-btn mil-up">Back to projects</a>
                 </div>
-
               </div>
             </section>
 
           </div>
-          <!-- MAIN CONTENT WRAP END -->
+          <!-- cs-wrap end -->
 
           <!-- FOOTER -->
           <footer class="mil-fw">
