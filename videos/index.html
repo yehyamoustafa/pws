@@ -127,6 +127,110 @@
   @media (max-width: 576px){
     .v-frame.r-9x16{ padding-top: 150%; } /* still portrait, less tall */
   }
+
+  /* ===== Yehya Videos Grid (forced layout) ===== */
+.ym-videos-section{
+  padding: 40px 0 90px;
+}
+
+.ym-videos-wrap{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* Force grid no matter what theme does */
+.ym-videos-wrap .ym-videos-grid{
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 22px !important;
+  align-items: start !important;
+}
+
+/* 2 columns on medium screens */
+@media (min-width: 768px){
+  .ym-videos-wrap .ym-videos-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+  }
+}
+
+/* 3 columns on large screens */
+@media (min-width: 1200px){
+  .ym-videos-wrap .ym-videos-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 26px !important;
+  }
+}
+
+/* Card */
+.ym-vcard{
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* Center card on mobile (this is the missing piece) */
+@media (max-width: 767px){
+  .ym-vcard{
+    max-width: 440px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ym-vcard:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+    border-color: rgba(255,255,255,0.16);
+  }
+}
+
+/* Responsive iframe frame */
+.ym-vframe{
+  position: relative;
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+}
+.ym-vframe.ym-16x9{ padding-top: 56.25%; }
+.ym-vframe.ym-4x5{  padding-top: 125%; }
+.ym-vframe.ym-9x16{ padding-top: 177.78%; }
+
+/* Slightly reduce vertical height on small phones */
+@media (max-width: 576px){
+  .ym-vframe.ym-9x16{ padding-top: 150%; }
+}
+
+.ym-vframe iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Meta */
+.ym-vmeta{ padding: 14px 16px 16px; }
+.ym-vtitle{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.92);
+}
+.ym-vsub{
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.62);
+}
+
 </style>
 
 </head>
@@ -233,73 +337,69 @@
           </section>
           <!-- banner end -->
 
-         <section class="videos-section">
-  <div class="videos-wrap">
-    <div class="videos-grid">
+         <section class="ym-videos-section">
+  <div class="ym-videos-wrap">
+    <div class="ym-videos-grid">
 
-      <!-- 1 -->
-      <article class="v-card">
-        <div class="v-frame r-16x9">
+      <article class="ym-vcard">
+        <div class="ym-vframe ym-16x9">
           <iframe
             src="https://player.vimeo.com/video/1146865115?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             title="Numbase website"></iframe>
         </div>
-        <div class="v-meta">
-          <h3 class="v-title">Numbase website</h3>
-          <p class="v-sub">Website presentation</p>
+        <div class="ym-vmeta">
+          <h3 class="ym-vtitle">Numbase website</h3>
+          <p class="ym-vsub">Website presentation</p>
         </div>
       </article>
 
-      <!-- 2 -->
-      <article class="v-card">
-        <div class="v-frame r-16x9">
+      <article class="ym-vcard">
+        <div class="ym-vframe ym-16x9">
           <iframe
             src="https://player.vimeo.com/video/1146865077?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             title="Nike ad"></iframe>
         </div>
-        <div class="v-meta">
-          <h3 class="v-title">Nike ad</h3>
-          <p class="v-sub">Ad concept</p>
+        <div class="ym-vmeta">
+          <h3 class="ym-vtitle">Nike ad</h3>
+          <p class="ym-vsub">Ad concept</p>
         </div>
       </article>
 
-      <!-- 3 -->
-      <article class="v-card">
-        <div class="v-frame r-16x9">
+      <article class="ym-vcard">
+        <div class="ym-vframe ym-16x9">
           <iframe
             src="https://player.vimeo.com/video/1146865055?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             title="Y+M Logo reveal"></iframe>
         </div>
-        <div class="v-meta">
-          <h3 class="v-title">Y+M Logo reveal</h3>
-          <p class="v-sub">Brand animation</p>
+        <div class="ym-vmeta">
+          <h3 class="ym-vtitle">Y+M Logo reveal</h3>
+          <p class="ym-vsub">Brand animation</p>
         </div>
       </article>
 
-      <!-- 4 (vertical — change to r-4x5 if you prefer) -->
-      <article class="v-card">
-        <div class="v-frame r-9x16">
+      <!-- vertical -->
+      <article class="ym-vcard">
+        <div class="ym-vframe ym-9x16">
           <iframe
             src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             title="KBILARABI — Coming Soon"></iframe>
         </div>
-        <div class="v-meta">
-          <h3 class="v-title">KBILARABI — Coming Soon</h3>
-          <p class="v-sub">Teaser / reveal</p>
+        <div class="ym-vmeta">
+          <h3 class="ym-vtitle">KBILARABI — Coming Soon</h3>
+          <p class="ym-vsub">Teaser / reveal</p>
         </div>
       </article>
 
-      <!-- 5 -->
-      <article class="v-card">
-        <div class="v-frame r-16x9">
+      <article class="ym-vcard">
+        <div class="ym-vframe ym-16x9">
           <iframe
             src="https://player.vimeo.com/video/1151531651?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -307,9 +407,9 @@
             referrerpolicy="strict-origin-when-cross-origin"
             title="Hydrosnap"></iframe>
         </div>
-        <div class="v-meta">
-          <h3 class="v-title">Hydrosnap</h3>
-          <p class="v-sub">Product teaser</p>
+        <div class="ym-vmeta">
+          <h3 class="ym-vtitle">Hydrosnap</h3>
+          <p class="ym-vsub">Product teaser</p>
         </div>
       </article>
 
