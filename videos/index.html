@@ -231,6 +231,31 @@
   color: rgba(255,255,255,0.62);
 }
 
+
+  /* Make the grid pack nicely */
+.ym-videos-wrap .ym-videos-grid{
+  grid-auto-flow: dense !important;
+}
+
+/* Let a featured/vertical card span 2 rows on desktop only */
+@media (min-width: 1200px){
+  .ym-vcard.ym-span-2{
+    grid-row: span 2 !important;
+  }
+}
+
+/* IMPORTANT: Use 4:5 for portrait cards inside a grid (prevents giant height) */
+.ym-vframe.ym-4x5{ padding-top: 125% !important; }   /* portrait but balanced */
+
+/* If you still have 9:16, keep it ONLY for single-column views, not grid */
+@media (min-width: 768px){
+  .ym-vframe.ym-9x16{ padding-top: 125% !important; } /* force portrait to 4:5 in grid */
+}
+@media (max-width: 767px){
+  .ym-vframe.ym-9x16{ padding-top: 150% !important; } /* taller on mobile if you want */
+}
+
+
 </style>
 
 </head>
@@ -384,19 +409,19 @@
       </article>
 
       <!-- vertical -->
-      <article class="ym-vcard">
-        <div class="ym-vframe ym-9x16">
-          <iframe
-            src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="KBILARABI — Coming Soon"></iframe>
-        </div>
-        <div class="ym-vmeta">
-          <h3 class="ym-vtitle">KBILARABI — Coming Soon</h3>
-          <p class="ym-vsub">Teaser / reveal</p>
-        </div>
-      </article>
+<article class="ym-vcard ym-span-2">
+  <div class="ym-vframe ym-4x5">
+    <iframe
+      src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      title="KBILARABI — Coming Soon"></iframe>
+  </div>
+  <div class="ym-vmeta">
+    <h3 class="ym-vtitle">KBILARABI — Coming Soon</h3>
+    <p class="ym-vsub">Teaser / reveal</p>
+  </div>
+</article>
 
       <article class="ym-vcard">
         <div class="ym-vframe ym-16x9">
