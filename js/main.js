@@ -721,3 +721,61 @@ document.addEventListener("click", (e) => {
   history.replaceState(null, "", window.location.pathname);
 });
 
+(function () {
+  function play(media) {
+    const card = media.closest(".ymv-card");
+    if (!card || card.classList.contains("is-playing")) return;
+
+    const embed = media.querySelector(".ymv-embed");
+    const vimeoId = media.getAttribute("data-vimeo");
+    if (!embed || !vimeoId) return;
+
+    embed.innerHTML =
+      `<iframe
+        src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&playsinline=1&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title="Vimeo video ${vimeoId}">
+      </iframe>`;
+
+    card.classList.add("is-playing");
+  }
+
+  function stop(media) {
+    const card = media.closest(".ymv-card");
+    const embed = media.querySelector(".ymv-embed");
+    if (embed) embed.innerHTML = "";
+    if (card) card.classList.remove("is-playing");
+  }
+
+  function bindVideos() {
+    // No direct binding needed; delegation below handles it.
+  }
+
+  // Delegated click — survives Swup swaps
+  document.addEventListener("click", function (e) {
+    const closeBtn = e.target.closest(".ymv-close");
+    if (closeBtn) {
+      const media = closeBtn.closest(".ymv-media");
+      if (media) stop(media);
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
+    const media = e.target.closest(".ymv-media");
+    if (!media) return;
+
+    // Ignore clicks inside iframe
+    if (e.target && e.target.tagName && e.target.tagName.toLowerCase() === "iframe") return;
+
+    play(media);
+  });
+
+  // Run once
+  document.addEventListener("DOMContentLoaded", bindVideos);
+
+  // Run after Swup transitions (your theme already uses swup)
+  document.addEventListener("swup:contentReplaced", bindVideos);
+  document.addEventListener("swup:pageView", bindVideos);
+})();
