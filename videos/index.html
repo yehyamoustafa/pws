@@ -17,104 +17,118 @@
   <link rel="icon" type="image/png" href="img/icons/y2.png" />
   <title>Videos | Yehya Moustafa</title>
 
-  <style>
-    /* Hide right banner on fw pages (your original rule) */
-    body.mil-fw-page .mil-right-banner{
-      transform: translateX(110%) !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      visibility: hidden !important;
-    }
+<style>
+  body.mil-fw-page .mil-right-banner{
+    transform: translateX(110%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
 
-    /* ===== Premium Videos Page Styling ===== */
+  /* ===== Premium Videos Grid (3 columns desktop) ===== */
+  .videos-section{
+    padding: 40px 0 90px;
+  }
 
-    /* Section spacing helper (in case theme spacing differs) */
-    .videos-section{
-      padding: 40px 0 90px;
-    }
+  .videos-wrap{
+    max-width: 1280px;          /* wider so 3 columns breathe */
+    margin: 0 auto;
+    padding: 0 18px;
+  }
 
-    /* Center container so layout feels intentional */
-    .videos-wrap{
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 18px;
-    }
+  /* 1 col mobile (centered), 2 col tablet, 3 col desktop */
+  .videos-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    justify-items: center;       /* centers cards horizontally on mobile */
+  }
 
-    /* Grid: 1 col mobile, 2 col desktop */
+  @media (min-width: 768px){
     .videos-grid{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-items: stretch;    /* normal grid stretch on tablet+ */
+      gap: 24px;
     }
-    @media (min-width: 992px){
-      .videos-grid{
-        grid-template-columns: 1fr 1fr;
-        gap: 26px;
-      }
-    }
+  }
 
-    /* Card */
-    .v-card{
-      border-radius: 22px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  @media (min-width: 1200px){
+    .videos-grid{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
     }
-    @media (hover:hover) and (pointer:fine){
-      .v-card:hover{
-        transform: translateY(-3px);
-        box-shadow: 0 18px 44px rgba(0,0,0,0.18);
-        border-color: rgba(255,255,255,0.16);
-      }
-    }
+  }
 
-    /* Video frame (responsive aspect ratio) */
-    .v-frame{
-      position: relative;
-      width: 100%;
-      background: rgba(0,0,0,0.35);
-    }
+  /* Card */
+  .v-card{
+    width: 100%;
+    max-width: 430px;            /* important for centered mobile */
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
 
-    /* Ratios */
-    .v-frame.r-16x9{ padding-top: 56.25%; }     /* 16:9 */
-    .v-frame.r-4x5{  padding-top: 125%; }       /* 4:5 */
-    .v-frame.r-9x16{ padding-top: 177.78%; }    /* 9:16 (vertical reels) */
+  /* Remove max width after tablet so grid fills nicely */
+  @media (min-width: 768px){
+    .v-card{ max-width: none; }
+  }
 
-    .v-frame iframe{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
+  @media (hover:hover) and (pointer:fine){
+    .v-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+      border-color: rgba(255,255,255,0.16);
     }
+  }
 
-    /* Meta */
-    .v-meta{
-      padding: 14px 16px 16px;
-    }
-    .v-title{
-      margin: 0;
-      font-size: 16px;
-      font-weight: 650;
-      line-height: 1.25;
-      color: rgba(255,255,255,0.92);
-    }
-    .v-sub{
-      margin: 6px 0 0;
-      font-size: 13px;
-      line-height: 1.45;
-      color: rgba(255,255,255,0.62);
-    }
+  /* Responsive player */
+  .v-frame{
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,0.35);
+  }
 
-    /* Optional: make the vertical one not insanely tall on mobile */
-    @media (max-width: 576px){
-      /* Use 4:5 on very small screens if you want less scrolling */
-      .v-frame.r-9x16{ padding-top: 140%; }
-    }
-  </style>
+  /* Ratios */
+  .v-frame.r-16x9{ padding-top: 56.25%; }     /* horizontal */
+  .v-frame.r-4x5{  padding-top: 125%; }       /* portrait-ish */
+  .v-frame.r-9x16{ padding-top: 177.78%; }    /* vertical */
+
+  .v-frame iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* Meta */
+  .v-meta{
+    padding: 14px 16px 16px;
+  }
+  .v-title{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.25;
+    color: rgba(255,255,255,0.92);
+  }
+  .v-sub{
+    margin: 6px 0 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.62);
+  }
+
+  /* Optional: reduce vertical height on small phones so it doesn't feel endless */
+  @media (max-width: 576px){
+    .v-frame.r-9x16{ padding-top: 150%; } /* still portrait, less tall */
+  }
+</style>
+
 </head>
 
 <body class="mil-fw-page">
@@ -219,96 +233,89 @@
           </section>
           <!-- banner end -->
 
-          <!-- VIDEOS (premium grid) -->
-          <section class="videos-section">
-            <div class="videos-wrap">
-              <div class="videos-grid">
+         <section class="videos-section">
+  <div class="videos-wrap">
+    <div class="videos-grid">
 
-                <!-- 1 -->
-                <article class="v-card">
-                  <div class="v-frame r-16x9">
-                    <iframe
-                      src="https://player.vimeo.com/video/1146865115?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowfullscreen
-                      title="Numbase website">
-                    </iframe>
-                  </div>
-                  <div class="v-meta">
-                    <h3 class="v-title">Numbase website</h3>
-                    <p class="v-sub">Website presentation</p>
-                  </div>
-                </article>
+      <!-- 1 -->
+      <article class="v-card">
+        <div class="v-frame r-16x9">
+          <iframe
+            src="https://player.vimeo.com/video/1146865115?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Numbase website"></iframe>
+        </div>
+        <div class="v-meta">
+          <h3 class="v-title">Numbase website</h3>
+          <p class="v-sub">Website presentation</p>
+        </div>
+      </article>
 
-                <!-- 2 -->
-                <article class="v-card">
-                  <div class="v-frame r-16x9">
-                    <iframe
-                      src="https://player.vimeo.com/video/1146865077?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowfullscreen
-                      title="Nike ad">
-                    </iframe>
-                  </div>
-                  <div class="v-meta">
-                    <h3 class="v-title">Nike ad</h3>
-                    <p class="v-sub">Ad concept</p>
-                  </div>
-                </article>
+      <!-- 2 -->
+      <article class="v-card">
+        <div class="v-frame r-16x9">
+          <iframe
+            src="https://player.vimeo.com/video/1146865077?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Nike ad"></iframe>
+        </div>
+        <div class="v-meta">
+          <h3 class="v-title">Nike ad</h3>
+          <p class="v-sub">Ad concept</p>
+        </div>
+      </article>
 
-                <!-- 3 -->
-                <article class="v-card">
-                  <div class="v-frame r-16x9">
-                    <iframe
-                      src="https://player.vimeo.com/video/1146865055?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowfullscreen
-                      title="Y+M Logo reveal">
-                    </iframe>
-                  </div>
-                  <div class="v-meta">
-                    <h3 class="v-title">Y+M Logo reveal</h3>
-                    <p class="v-sub">Brand animation</p>
-                  </div>
-                </article>
+      <!-- 3 -->
+      <article class="v-card">
+        <div class="v-frame r-16x9">
+          <iframe
+            src="https://player.vimeo.com/video/1146865055?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Y+M Logo reveal"></iframe>
+        </div>
+        <div class="v-meta">
+          <h3 class="v-title">Y+M Logo reveal</h3>
+          <p class="v-sub">Brand animation</p>
+        </div>
+      </article>
 
-                <!-- 4 (vertical) -->
-                <article class="v-card">
-                  <div class="v-frame r-9x16">
-                    <iframe
-                      src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowfullscreen
-                      title="KBILARABI — Coming Soon">
-                    </iframe>
-                  </div>
-                  <div class="v-meta">
-                    <h3 class="v-title">KBILARABI — Coming Soon</h3>
-                    <p class="v-sub">Teaser / reveal</p>
-                  </div>
-                </article>
+      <!-- 4 (vertical — change to r-4x5 if you prefer) -->
+      <article class="v-card">
+        <div class="v-frame r-9x16">
+          <iframe
+            src="https://player.vimeo.com/video/1146865038?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="KBILARABI — Coming Soon"></iframe>
+        </div>
+        <div class="v-meta">
+          <h3 class="v-title">KBILARABI — Coming Soon</h3>
+          <p class="v-sub">Teaser / reveal</p>
+        </div>
+      </article>
 
-                <!-- 5 -->
-                <article class="v-card">
-                  <div class="v-frame r-16x9">
-                    <iframe
-                      src="https://player.vimeo.com/video/1151531651?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                      allowfullscreen
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      title="Hydrosnap">
-                    </iframe>
-                  </div>
-                  <div class="v-meta">
-                    <h3 class="v-title">Hydrosnap</h3>
-                    <p class="v-sub">Product teaser</p>
-                  </div>
-                </article>
+      <!-- 5 -->
+      <article class="v-card">
+        <div class="v-frame r-16x9">
+          <iframe
+            src="https://player.vimeo.com/video/1151531651?badge=0&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;playsinline=1&amp;dnt=1"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Hydrosnap"></iframe>
+        </div>
+        <div class="v-meta">
+          <h3 class="v-title">Hydrosnap</h3>
+          <p class="v-sub">Product teaser</p>
+        </div>
+      </article>
 
-              </div>
-            </div>
-          </section>
-          <!-- VIDEOS end -->
+    </div>
+  </div>
+</section>
 
           <!-- call to action -->
           <section id="about" class="mil-p-90-90">
